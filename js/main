@@ -1,113 +1,119 @@
-      const Portfolio = (() => {
-            const apiKey = ""; // System injects key
-            const originalBio = "I bridge the gap between complex engineering and human-centric design. Senior Designer with 8+ years of experience in high-growth startups.";
-
-            const ui = {
-                sphere: document.getElementById('sphere'),
-                sections: document.querySelectorAll('section'),
-                navLinks: document.querySelectorAll('.navbar__link'),
-                bioText: document.getElementById('bio-text'),
-                aiBtns: document.querySelectorAll('.ai-btn'),
-                themeToggle: document.getElementById('theme-toggle'),
-                sunIcon: document.querySelector('.theme-icon.sun'),
-                moonIcon: document.querySelector('.theme-icon.moon')
+        const Portfolio = (() => {
+            // MOCK DATA
+            const bioVariations = {
+                'original': "UX Designer con background in Culture Digitali. Credo che il design non sia solo estetica, ma comunicazione. Sfrutto la mia esperienza nell'Apple Developer Academy per colmare il divario tra bisogni umani e vincoli tecnologici.",
+                'analytical': "Profilo ibrido Design/Dev. Specializzato in Design Systems scalabili e fattibilità tecnica. Traduco requisiti complessi in interfacce logiche, ottimizzando il passaggio tra design e codice.",
+                'story': "Progetto ponti tra persone e tecnologia. Ogni interfaccia racconta una storia: la mia missione è renderla fluida, umana e memorabile, mettendo l'empatia al centro di ogni decisione visiva.",
+                'tldr': "UX/UI Designer. Focus: Design Systems & Prototyping. Esperienza Apple Developer Academy. Risolvo problemi complessi con soluzioni pulite."
             };
 
-            // --- THEME MANAGEMENT ---
+            const projectInsights = {
+                'ERP': "Tech: React, GraphQL. Focus: Dashboarding per big data e riduzione del carico cognitivo in workflow complessi.",
+                'Redesign': "Tech: Vue.js, Tailwind. Focus: Ottimizzazione IA e restyling della gerarchia visiva.",
+                'Musée': "Tech: WebGL, GSAP. Focus: Accessibilità (WCAG) in contesti immersivi e navigazione non lineare.",
+                'Kumbu': "Tech: Swift, UIKit. Focus: UX research per target demografici specifici e pattern di navigazione semplificati."
+            };
+
+            let ui = {};
+
+            const initUI = () => {
+                ui = {
+                    sphereWrapper: document.getElementById('sphere-wrapper'),
+                    sections: document.querySelectorAll('section'),
+                    navLinks: document.querySelectorAll('.navbar__link'),
+                    bioText: document.getElementById('bio-text'),
+                    aiBtns: document.querySelectorAll('.ai-btn'),
+                    themeToggle: document.getElementById('theme-toggle'),
+                    sunIcon: document.querySelector('.theme-icon.sun'),
+                    moonIcon: document.querySelector('.theme-icon.moon')
+                };
+            };
+
+            // --- THEME ---
             const initTheme = () => {
-                // 1. Check storage, 2. Check system pref, 3. Default light
                 const savedTheme = localStorage.getItem('theme');
                 const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                
-                if (savedTheme === 'dark' || (!savedTheme && systemDark)) {
-                    setTheme('dark');
-                } else {
-                    setTheme('light');
+                if (savedTheme === 'dark' || (!savedTheme && systemDark)) setTheme('dark');
+                else setTheme('light');
+
+                if (ui.themeToggle) {
+                    ui.themeToggle.addEventListener('click', () => {
+                        const current = document.documentElement.getAttribute('data-theme');
+                        const newTheme = current === 'dark' ? 'light' : 'dark';
+                        setTheme(newTheme);
+                        localStorage.setItem('theme', newTheme);
+                    });
                 }
-
-                // Listener
-                ui.themeToggle.addEventListener('click', () => {
-                    const current = document.documentElement.getAttribute('data-theme');
-                    const newTheme = current === 'dark' ? 'light' : 'dark';
-                    setTheme(newTheme);
-                    localStorage.setItem('theme', newTheme);
-                });
             };
-
             const setTheme = (theme) => {
                 document.documentElement.setAttribute('data-theme', theme);
-                if (theme === 'dark') {
-                    ui.sunIcon.style.display = 'block';
-                    ui.moonIcon.style.display = 'none';
-                } else {
-                    ui.sunIcon.style.display = 'none';
-                    ui.moonIcon.style.display = 'block';
-                }
+                if (!ui.sunIcon || !ui.moonIcon) return; 
+                if (theme === 'dark') { ui.sunIcon.style.display = 'block'; ui.moonIcon.style.display = 'none'; }
+                else { ui.sunIcon.style.display = 'none'; ui.moonIcon.style.display = 'block'; }
             };
 
-            // --- GEMINI API ---
-            const callGemini = async (prompt) => {
-                if (!apiKey) return "AI integration unavailable (Key missing).";
-                try {
-                    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
-                    });
-                    const data = await response.json();
-                    return data.candidates[0].content.parts[0].text;
-                } catch (e) {
-                    console.error("Gemini Error:", e);
-                    return "System busy. Please try again.";
-                }
-            };
-
-            // AI Features
+            // --- MOCK AI LOGIC ---
             const remixBio = async (style) => {
+                if (!ui.aiBtns) return;
+                
                 ui.aiBtns.forEach(btn => btn.classList.remove('active'));
-                event.target.classList.add('active');
-
-                if (style === 'original') {
-                    ui.bioText.style.opacity = 0;
-                    setTimeout(() => { ui.bioText.textContent = originalBio; ui.bioText.style.opacity = 1; }, 300);
-                    return;
-                }
+                const clickedBtn = Array.from(ui.aiBtns).find(btn => btn.innerText.toLowerCase().includes(style.toLowerCase()) || btn.getAttribute('onclick')?.includes(style));
+                if(clickedBtn) clickedBtn.classList.add('active');
+                else event.target.classList.add('active');
 
                 ui.bioText.classList.add('loading');
-                const prompt = `Rewrite this bio in English. Under 30 words. Style: ${style}. Bio: "${originalBio}"`;
-                const newBio = await callGemini(prompt);
+                await new Promise(r => setTimeout(r, 600));
                 
+                const newBio = bioVariations[style] || bioVariations['original'];
                 ui.bioText.classList.remove('loading');
                 ui.bioText.style.opacity = 0;
-                setTimeout(() => { ui.bioText.textContent = newBio; ui.bioText.style.opacity = 1; }, 300);
+                setTimeout(() => { 
+                    ui.bioText.textContent = newBio; 
+                    ui.bioText.style.opacity = 1; 
+                }, 300);
             };
 
             const expandConcept = async (cardElement, title, desc) => {
-                if(cardElement.querySelector('.bento__ai-result')) return;
-                const contentDiv = cardElement.querySelector('.bento__content');
+                const existingResult = cardElement.querySelector('.bento__ai-result');
                 const btn = cardElement.querySelector('.expand-btn');
+
+                if (existingResult) {
+                    existingResult.remove();
+                    btn.textContent = "Resume";
+                    return; 
+                }
+
+                const contentDiv = cardElement.querySelector('.bento__content');
+                btn.textContent = "Loading...";
+                await new Promise(r => setTimeout(r, 800));
                 
-                btn.textContent = "Generating...";
-                const prompt = `Generate a very brief, high-tech abstract (max 20 words) describing the likely "Tech Stack & UX Challenge" for a fictional project named "${title}" which is a "${desc}". Use tech keywords.`;
-                const insight = await callGemini(prompt);
+                let insight = "Insight not available.";
+                for (const key in projectInsights) {
+                    if (title.includes(key)) {
+                        insight = projectInsights[key];
+                        break;
+                    }
+                }
 
                 const resultEl = document.createElement('div');
                 resultEl.className = 'bento__ai-result';
-                resultEl.innerHTML = `<strong>AI Insight:</strong> ${insight}`;
+                resultEl.innerHTML = `<strong>Insight:</strong> ${insight}`;
                 contentDiv.appendChild(resultEl);
-                btn.textContent = "✨ Insight Loaded";
+                btn.textContent = "Close";
             };
 
-            // Scroll & Animations
+            // --- ANIMATION LOGIC ---
             const handleBackgroundState = (sectionId) => {
                 const states = {
-                    'landing':  { y: '100%', opacity: 0.12, scale: 1 },
-                    'about':    { y: '-20%',  opacity: 0.20, scale: 1.2 },
-                    'projects': { y: '-50%',  opacity: 0.15, scale: 1.1 }
+                    'landing':  { y: '0%', opacity: 0.15, scale: 1 }, 
+                    'about':    { y: '-30%',  opacity: 0.20, scale: 1.2 }, 
+                    'projects': { y: '20%',  opacity: 0.15, scale: 1.1 }  
                 };
                 const state = states[sectionId] || states.landing;
-                ui.sphere.style.transform = `translate(-50%, ${state.y}) scale(${state.scale})`;
-                ui.sphere.style.opacity = state.opacity;
+                
+                if (ui.sphereWrapper) {
+                    ui.sphereWrapper.style.transform = `translate(-50%, calc(-50% + ${state.y})) scale(${state.scale})`;
+                }
             };
 
             const initScrollObserver = () => {
@@ -128,16 +134,42 @@
                 });
             };
 
+            // --- MODAL & LINK LOGIC ---
+            const toggleModal = (modalId, isOpen = true) => {
+                const modal = document.getElementById(modalId);
+                if (!modal) return;
+                
+                if (isOpen) {
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden'; 
+                } else {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            };
+
+            const openLink = (url) => {
+                window.open(url, '_blank');
+            };
+
             return {
                 init: () => {
-                    initTheme();
-                    initScrollObserver();
-                    initNavActions();
-                    setTimeout(() => document.body.classList.add('is-loaded'), 50);
+                    try {
+                        initUI();
+                        initTheme();
+                        initScrollObserver();
+                        initNavActions();
+                    } catch (error) {
+                        console.error("Initialization error:", error);
+                    } finally {
+                        setTimeout(() => document.body.classList.add('is-loaded'), 50);
+                    }
                 },
                 remixBio,
-                expandConcept
+                expandConcept,
+                toggleModal,
+                openLink
             };
         })();
 
-        window.addEventListener('DOMContentLoaded', Portfolio.init)
+        window.addEventListener('DOMContentLoaded', Portfolio.init);

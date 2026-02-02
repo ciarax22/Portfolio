@@ -4,17 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | UX/UI Designer</title>
+    
     <!-- Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../Principale/css/style.css">
-    <!-- CSS-->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <div class="bg-canvas">
-        <div id="sphere" class="gradient-sphere"></div>
+        <div id="sphere-wrapper" class="sphere-wrapper">
+            <div class="gradient-sphere"></div>
+        </div>
     </div>
 
     <nav class="navbar">
@@ -25,14 +27,11 @@
                 <li><a href="#about" class="navbar__link">About</a></li>
                 <li><a href="#projects" class="navbar__link">Projects</a></li>
             </ul>
-            <!-- Theme Toggle -->
             <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
-                <!-- Sun Icon -->
                 <svg class="theme-icon sun" viewBox="0 0 24 24" style="display: none;">
                     <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2" fill="none"/>
                     <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2"/>
                 </svg>
-                <!-- Moon Icon -->
                 <svg class="theme-icon moon" viewBox="0 0 24 24">
                     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2" fill="none"/>
                 </svg>
@@ -43,107 +42,236 @@
     <main>
         <section id="landing">
             <h1 class="headline">E mo qua che ci metto?.</h1>
-            <div class="cta-group">
-                <a href="mailto:ciarax22@icloud.com" class="cta-btn">Get in touch</a>
-                <a href="#" class="cta-btn">Download CV</a>
+            
+            <!-- NEW HERO ACTION CLUSTER -->
+            <div class="hero-actions">
+                <!-- Primary Action: Solid Pill -->
+                <a href="mailto:ciarax22@icloud.com" class="btn-hero-primary">
+                    <span>Let's Talk</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+                
+                <!-- Secondary: Icon -->
+                <a href="https://www.linkedin.com/in/francesco-ciaramella-4223762a2/" target="_blank" class="btn-hero-icon" title="LinkedIn">
+                    <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </a>
+
+                <!-- Tertiary: Text Link -->
+                <button onclick="Portfolio.toggleModal('cv-modal')" class="btn-hero-link">Resume preview</button>
             </div>
         </section>
 
+        <!-- REDESIGNED ABOUT SECTION WITH STICKY SIDEBAR -->
         <section id="about">
-            <div class="about__text">
-                <h2 class="cv-item__label" style="margin-bottom: 2rem; color: var(--color-text)">Brief.</h2>
-                <p id="bio-text" class="about__bio">
-                    Breve bio. In sostanza faccio tutto e niente!</p>
-                <div class="ai-controls">
-                    <button class="ai-btn active" onclick="Portfolio.remixBio('original')">Original</button>
-                    <button class="ai-btn" onclick="Portfolio.remixBio('tech')">Tech-Focused</button>
-                    <button class="ai-btn" onclick="Portfolio.remixBio('elegant')">Elegant</button>
-                    <button class="ai-btn ai-btn--magic" onclick="Portfolio.remixBio('witty')">✨ Witty Remix</button>
-                </div>
-                <div class="cv-grid">
-                    <div class="cv-item">
-                        <span class="cv-item__label">Experience</span>
-                        <p><strong>UX/UI Designer </strong> </p>
-                        <p> @GreenTech Solution (2024-now)</p>
+            <div class="about-container">
+                
+                <!-- COLUMN 1: Profile Card (STICKY) -->
+                <div class="profile-card">
+                    <div class="profile-avatar">
+                        <img src="https://media.licdn.com/dms/image/v2/D4D03AQG1ReQkLKTUyA/profile-displayphoto-crop_800_800/B4DZlXE2UdJkAM-/0/1758102514935?e=1771459200&v=beta&t=AYJB_TVJdN47aITmlch84i4RojQOP1PFZgHmtxpuO4M" alt="Francesco Ciaramella">
                     </div>
-                    <div class="cv-item">
-                        <span class="cv-item__label">Expertise</span>
-                        <p>Product Strategy, Design Systems, Prototyping.</p>
-                        <s> </s>
+                    <div class="profile-content">
+                        <h2 class="profile-name">Francesco Ciaramella</h2>
+                        <p id="bio-text" class="profile-bio">
+                            UX Designer con background in Culture Digitali. Credo che il design non sia solo estetica, ma comunicazione. Sfrutto la mia esperienza nell'Apple Developer Academy per colmare il divario tra bisogni umani e vincoli tecnologici.
+                        </p>
+                        
+                        <div class="profile-footer">
+                            <div class="ai-controls">
+                                <button class="ai-btn active" onclick="Portfolio.remixBio('original')">Original</button>
+                                <button class="ai-btn" onclick="Portfolio.remixBio('analytical')">Analytical</button>
+                                <button class="ai-btn" onclick="Portfolio.remixBio('story')">Story</button>
+                                <button class="ai-btn ai-btn--magic" onclick="Portfolio.remixBio('tldr')">TL;DR</button>
+                            </div>
+                            
+                            <button class="btn-cv-full" onclick="Portfolio.toggleModal('cv-modal')">Get CV</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="about__visual">
-                <svg viewBox="0 0 200 200" width="280" height="280" style="opacity: 0.08">
-                    <path d="M10,100 C50,-20 150,220 190,100" stroke="currentColor" fill="none" stroke-width="2"/>
-                    <path d="M30,80 C70,0 130,200 170,80" stroke="currentColor" fill="none" stroke-width="1"/>
-                </svg>
+
+                <!-- COLUMN 2: Timeline Content (SCROLLABLE) -->
+                <div class="timeline-wrapper">
+                    <!-- Esperienza -->
+                    <div class="timeline-section">
+                        <h3 class="timeline-title">Esperienza</h3>
+                        <div class="timeline-list">
+                            <div class="timeline-item">
+                                <div class="timeline-left">
+                                    <h4 class="timeline-role">UX/UI Designer</h4>
+                                    <span class="timeline-meta">@GreenTech Solution (2024-)</span>
+                                </div>
+                                <div class="timeline-right">
+                                    <p><strong>Traduzione di requisiti complessi</strong> Trasformo dati tecnici e requisiti di business in interfacce utente chiare e accessibili.</p>
+                                    <p><strong>Design System Maintenance</strong> Gestisco e faccio evolvere la libreria di componenti UI per garantire coerenza visiva e velocizzare lo sviluppo.</p>
+                                    <p><strong>Collaborazione Cross-funzionale</strong> Lavoro a stretto contatto con gli sviluppatori per garantire la fattibilità tecnica dei design (handoff).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Studi -->
+                    <div class="timeline-section">
+                        <h3 class="timeline-title">Studi</h3>
+                        <div class="timeline-list">
+                            <div class="timeline-item">
+                                <div class="timeline-left">
+                                    <h4 class="timeline-role">Laurea in culture digitali</h4>
+                                    <span class="timeline-meta">@Federico II, 106/110</span>
+                                </div>
+                                <div class="timeline-right">
+                                    <p>Design • Ideazione e sviluppo design • Progettazione interfaccia utente • Scrittura User Experience • Ricerca • Comunicazione • Ricerca sociale • Ricerca UX • Problem solving • Lingua inglese</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-left">
+                                    <h4 class="timeline-role">Apple Developer Program</h4>
+                                    <span class="timeline-meta">Sett 2023 - Giugno 2024</span>
+                                </div>
+                                <div class="timeline-right">
+                                    <p><strong>iOS Design Standards</strong> Progettazione di interfacce native conformi alle Apple Human Interface Guidelines (HIG).</p>
+                                    <p><strong>Challenge Based Learning</strong> Sviluppo di soluzioni basate su ricerca utente reale e iterazioni rapide (Prototyping).</p>
+                                    <p><strong>App Publishing</strong> Supporto attivo nel ciclo di vita dell'app, dal concept al rilascio su TestFlight/App Store.</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-left">
+                                    <h4 class="timeline-role">Apple Pier Program</h4>
+                                    <span class="timeline-meta">Luglio 2024 - Giugno 2025</span>
+                                </div>
+                                <div class="timeline-right">
+                                    <p>Estensione del percorso accademico focalizzata su progetti reali in partnership esterne. Approfondimento su metodologie e tecnologie di lavoro aziendali.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- End Timeline Wrapper -->
+
             </div>
         </section>
 
         <section id="projects">
             <h2 class="cv-item__label" style="margin-bottom: 2rem; color: var(--color-text)">Work.</h2>
             <div class="bento">
-                
-                <!-- Card 1: Large with IMAGE -->
-                <div class="bento__card bento__card--large bento__card--has-image" onclick="Portfolio.expandConcept(this, 'MetaOS', 'Next-gen operational system for remote teams.')">
+                <!-- Card 1: ERP (Opens Project Modal) -->
+                <div class="bento__card bento__card--large bento__card--has-image" onclick="Portfolio.toggleModal('erp-modal')">
                     <div class="bento__img-container">
-                        <!-- Placeholder Image Architecture -->
                         <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" alt="MetaOS Project" class="bento__img">
                     </div>
-                    <button class="expand-btn">✨ AI Insight</button>
+                    <button class="expand-btn" onclick="event.stopPropagation(); Portfolio.expandConcept(this.parentElement, 'ERP', '')">Resume</button>
                     <div class="bento__content">
                         <h3 class="bento__title">ERP</h3>
-                        <p class="bento__desc">Progettazione, design-system, customer-relationship</p>
+                        <p class="bento__desc">Progettazione, design-system</p>
                     </div>
                 </div>
                 
-                <!-- Card 2: Tall with Scribble (No Image) -->
-               <!-- <div class="bento__card bento__card--tall" onclick="Portfolio.expandConcept(this, 'Aura Identity', 'Digital identity framework.')">
-                    <button class="expand-btn">✨ AI Insight</button>
-                    <svg class="scribble" viewBox="0 0 100 100"><circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="4 4"/></svg>
-                    <div class="bento__content">
-                        <h3 class="bento__title">Kumbu</h3>
-                        <p class="bento__desc">iPad app per persone analfabete, UX research, UX test, Accesibility</p>
+                <!-- Card 2: Redesign (Opens External Link + Has Image) -->
+                <div class="bento__card bento__card--has-image" onclick="Portfolio.openLink('https://medium.com/@ciarax22/turkish-airlines-ui-ux-analysis-and-solutions-redesign-6b80de81f49a')">
+                    <div class="bento__img-container">
+                        <img src="https://miro.medium.com/v2/resize:fit:4800/format:webp/1*YyRW-dRKLMiyn5vPp4iE7g.png" alt="Redesign UI" class="bento__img">
                     </div>
-                </div>
-            -->
-                <!-- Card 3: Normal -->
-                <div class="bento__card" onclick="Portfolio.expandConcept(this, 'Gridly', 'Minimal data tool.')">
-                    <button class="expand-btn">✨ AI Insight</button>
+                    <svg class="external-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                    <button class="expand-btn" onclick="event.stopPropagation(); Portfolio.expandConcept(this.parentElement, 'Redesign', '')">Resume</button>
                     <div class="bento__content">
                         <h3 class="bento__title">Redesign</h3>
-                        <p class="bento__desc">Analisi critica delle cose.</p>
+                        <p class="bento__desc">Analisi critica.</p>
                     </div>
                 </div>
 
-                <!-- Card 4: Normal -->
-                <div class="bento__card" onclick="Portfolio.expandConcept(this, 'Flow Engine', 'Animation engine.')">
-                    <button class="expand-btn">✨ AI Insight</button>
+                <!-- Card 3: Musée (Opens External Link + Has Image) -->
+                <div class="bento__card bento__card--has-image" onclick="Portfolio.openLink('https://www.behance.net/gallery/200933677/Muse-App-Project')">
+                    <div class="bento__img-container">
+                        <img src="https://images.unsplash.com/photo-1545989253-02cc26577f88?q=80&w=2070&auto=format&fit=crop" alt="Museum Art" class="bento__img">
+                    </div>
+                    <svg class="external-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                    <button class="expand-btn" onclick="event.stopPropagation(); Portfolio.expandConcept(this.parentElement, 'Musée', '')">Resume</button>
                     <div class="bento__content">
                         <h3 class="bento__title">Musée</h3>
                         <p class="bento__desc">Accessibilità.</p>
                     </div>
                 </div>
 
-                <!-- Card 5: Wide with IMAGE -->
-                <div class="bento__card bento__card--wide bento__card--has-image" onclick="Portfolio.expandConcept(this, 'Archive.01', 'Open source repository for design tokens.')">
+                <!-- Card 4: Kumbu (Opens External Link) -->
+                <div class="bento__card bento__card--wide bento__card--has-image" onclick="Portfolio.openLink('https://www.behance.net/gallery/231135391/Kumbu-App-showcase')">
                     <div class="bento__img-container">
                         <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop" alt="Archive Project" class="bento__img">
                     </div>
-                    <button class="expand-btn">✨ AI Insight</button>
+                    <svg class="external-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                    <button class="expand-btn" onclick="event.stopPropagation(); Portfolio.expandConcept(this.parentElement, 'Kumbu', '')">Resume</button>
                     <div class="bento__content">
                         <h3 class="bento__title">Kumbu</h3>
-                        <p class="bento__desc">iPad app per persone analfabete, UX research, UX test, Accesibility</p>
+                        <p class="bento__desc">iPad app UX research</p>
                     </div>
                 </div>
             </div>
         </section>
     </main>
-    <footer style="padding: 5rem var(--container-padding); border-top: 1px solid var(--color-border); color: var(--color-text-dim); font-size: var(--fs-ui);">
+    
+    <!-- MODAL 1: CV -->
+    <div id="cv-modal" class="modal-backdrop" onclick="Portfolio.toggleModal('cv-modal', false)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="Portfolio.toggleModal('cv-modal', false)">✕</button>
+            <div class="modal-body">
+                <iframe src="cv.pdf" type="application/pdf" width="100%" height="100%" frameborder="0">
+                    <p>Il tuo browser non supporta i PDF. <a href="cv.pdf">Scaricalo qui</a>.</p>
+                </iframe>
+            </div>
+            <div class="modal-footer">
+                <span style="margin-right: auto; font-size: 0.8rem; color: var(--color-text-dim);">Francesco_Ciaramella_CV.pdf</span>
+                <a href="cv.pdf" download class="btn-download-pdf">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    Download PDF
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 2: ERP PROJECT -->
+    <div id="erp-modal" class="modal-backdrop" onclick="Portfolio.toggleModal('erp-modal', false)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="Portfolio.toggleModal('erp-modal', false)">✕</button>
+            <div class="modal-body">
+                <div class="project-modal-content">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" alt="ERP Dashboard" class="project-modal-hero">
+                    <h2 class="project-modal-title">ERP Dashboard System</h2>
+                    <span class="project-modal-meta">Product Design • 2024</span>
+                    
+                    <p class="project-modal-text">
+                        <strong>Overview:</strong> In questo progetto ho guidato l’intero ciclo di progettazione del prodotto, occupandomi di ogni fase, dalla ricerca iniziale fino alla definizione dell’interfaccia finale. 
+                        Il mio approccio è partito da una profonda immersione nel contesto operativo: attraverso sopralluoghi diretti e sessioni di affiancamento con gli utenti, ho potuto osservare le dinamiche reali del lavoro in magazzino e in ufficio, andando oltre i semplici requisiti formali per comprendere le frizioni quotidiane e le necessità inespresse degli operatori.
+<br> Questa fase di ricerca sul campo e di ascolto attivo è stata la base per tradurre flussi logistici complessi e frammentati in un’architettura dell’informazione solida e coerente.
+Mi sono concentrato sulla progettazione di una User Experience che non si limitasse a digitalizzare i processi esistenti, ma che li ottimizzasse, introducendo logiche di prevenzione dell’errore e flussi guidati per la gestione critica della documentazione e della tracciabilità dei materiali.
+<br>Sul fronte della User Interface, ho lavorato per creare un linguaggio visivo che bilanciasse rigore tecnico e pulizia estetica. L’obiettivo era garantire la massima leggibilità e ridurre il carico cognitivo per utenti che operano in contesti spesso frenetici, costruendo una gerarchia visiva chiara che guida l’occhio sulle informazioni prioritarie senza distrazioni.
+Il risultato è uno strumento che unisce l’efficienza di un software industriale con l’usabilità di un prodotto consumer, frutto di una gestione autonoma e consapevole di ogni scelta progettuale.
+</p>
+                    </p>
+                    <p class="project-modal-text">
+                        <strong>La Sfida:</strong> L'interfaccia precedente soffriva di un debito tecnico elevato e di una scarsa architettura dell'informazione. Gli utenti perdevano tempo prezioso navigando tra decine di sottomenu non necessari.
+                    </p>
+                    <p class="project-modal-text">
+                        <strong>La Soluzione:</strong> Abbiamo introdotto una dashboard modulare e un sistema di ricerca globale intelligente. Utilizzando componenti React riutilizzabili, abbiamo garantito consistenza e scalabilità futura.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <footer class="site-footer">
         <p>© 2026 - Francesco Ciaramella.</p>
+        <div class="footer-socials">
+            <a href="mailto:ciarax22@icloud.com" class="social-link" title="Email">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </a>
+            <a href="https://www.behance.net/" target="_blank" class="social-link" title="Behance">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 7h-7v-2h7v2zm1.726 10c-.09 1.84-1.638 3-3.924 3-2.64 0-4.802-1.92-4.802-4.992 0-3.08 2.22-5.008 4.792-5.008 2.66 0 4.39 1.76 4.39 4.32 0 .34-.02.66-.05.94h-6.72c.16 1.74 1.43 2.5 2.76 2.5 1.12 0 1.94-.52 2.27-1.42h1.284zm-4.016-5.46c-1.16 0-2.02.72-2.22 1.96h4.34c-.09-1.24-.97-1.96-2.12-1.96zm-9.35-6.54h-5.36v14h5.5c2.72 0 4.18-1.54 4.18-4.08 0-1.74-.84-2.82-2.16-3.32 1.02-.42 1.74-1.46 1.74-2.92 0-2.32-1.52-3.68-3.9-3.68zm-2.6 2.62h2.26c1.1 0 1.8.62 1.8 1.8 0 1.22-.72 1.84-1.84 1.84h-2.22v-3.64zm0 6.16h2.52c1.24 0 2.02.68 2.02 2.02 0 1.34-.8 2.04-2.04 2.04h-2.5v-4.06z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/" target="_blank" class="social-link" title="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            </a>
+        </div>
     </footer>
-<script src="../Principale/js/main"> </script>
+    
+    <script src="js/main"> </script>
 </body>
 </html>
-
