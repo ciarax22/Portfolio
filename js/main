@@ -1,0 +1,143 @@
+      const Portfolio = (() => {
+            const apiKey = ""; // System injects key
+            const originalBio = "I bridge the gap between complex engineering and human-centric design. Senior Designer with 8+ years of experience in high-growth startups.";
+
+            const ui = {
+                sphere: document.getElementById('sphere'),
+                sections: document.querySelectorAll('section'),
+                navLinks: document.querySelectorAll('.navbar__link'),
+                bioText: document.getElementById('bio-text'),
+                aiBtns: document.querySelectorAll('.ai-btn'),
+                themeToggle: document.getElementById('theme-toggle'),
+                sunIcon: document.querySelector('.theme-icon.sun'),
+                moonIcon: document.querySelector('.theme-icon.moon')
+            };
+
+            // --- THEME MANAGEMENT ---
+            const initTheme = () => {
+                // 1. Check storage, 2. Check system pref, 3. Default light
+                const savedTheme = localStorage.getItem('theme');
+                const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                
+                if (savedTheme === 'dark' || (!savedTheme && systemDark)) {
+                    setTheme('dark');
+                } else {
+                    setTheme('light');
+                }
+
+                // Listener
+                ui.themeToggle.addEventListener('click', () => {
+                    const current = document.documentElement.getAttribute('data-theme');
+                    const newTheme = current === 'dark' ? 'light' : 'dark';
+                    setTheme(newTheme);
+                    localStorage.setItem('theme', newTheme);
+                });
+            };
+
+            const setTheme = (theme) => {
+                document.documentElement.setAttribute('data-theme', theme);
+                if (theme === 'dark') {
+                    ui.sunIcon.style.display = 'block';
+                    ui.moonIcon.style.display = 'none';
+                } else {
+                    ui.sunIcon.style.display = 'none';
+                    ui.moonIcon.style.display = 'block';
+                }
+            };
+
+            // --- GEMINI API ---
+            const callGemini = async (prompt) => {
+                if (!apiKey) return "AI integration unavailable (Key missing).";
+                try {
+                    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
+                    });
+                    const data = await response.json();
+                    return data.candidates[0].content.parts[0].text;
+                } catch (e) {
+                    console.error("Gemini Error:", e);
+                    return "System busy. Please try again.";
+                }
+            };
+
+            // AI Features
+            const remixBio = async (style) => {
+                ui.aiBtns.forEach(btn => btn.classList.remove('active'));
+                event.target.classList.add('active');
+
+                if (style === 'original') {
+                    ui.bioText.style.opacity = 0;
+                    setTimeout(() => { ui.bioText.textContent = originalBio; ui.bioText.style.opacity = 1; }, 300);
+                    return;
+                }
+
+                ui.bioText.classList.add('loading');
+                const prompt = `Rewrite this bio in English. Under 30 words. Style: ${style}. Bio: "${originalBio}"`;
+                const newBio = await callGemini(prompt);
+                
+                ui.bioText.classList.remove('loading');
+                ui.bioText.style.opacity = 0;
+                setTimeout(() => { ui.bioText.textContent = newBio; ui.bioText.style.opacity = 1; }, 300);
+            };
+
+            const expandConcept = async (cardElement, title, desc) => {
+                if(cardElement.querySelector('.bento__ai-result')) return;
+                const contentDiv = cardElement.querySelector('.bento__content');
+                const btn = cardElement.querySelector('.expand-btn');
+                
+                btn.textContent = "Generating...";
+                const prompt = `Generate a very brief, high-tech abstract (max 20 words) describing the likely "Tech Stack & UX Challenge" for a fictional project named "${title}" which is a "${desc}". Use tech keywords.`;
+                const insight = await callGemini(prompt);
+
+                const resultEl = document.createElement('div');
+                resultEl.className = 'bento__ai-result';
+                resultEl.innerHTML = `<strong>AI Insight:</strong> ${insight}`;
+                contentDiv.appendChild(resultEl);
+                btn.textContent = "✨ Insight Loaded";
+            };
+
+            // Scroll & Animations
+            const handleBackgroundState = (sectionId) => {
+                const states = {
+                    'landing':  { y: '100%', opacity: 0.12, scale: 1 },
+                    'about':    { y: '-20%',  opacity: 0.20, scale: 1.2 },
+                    'projects': { y: '-50%',  opacity: 0.15, scale: 1.1 }
+                };
+                const state = states[sectionId] || states.landing;
+                ui.sphere.style.transform = `translate(-50%, ${state.y}) scale(${state.scale})`;
+                ui.sphere.style.opacity = state.opacity;
+            };
+
+            const initScrollObserver = () => {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) handleBackgroundState(entry.target.id);
+                    });
+                }, { threshold: 0.25 });
+                ui.sections.forEach(section => observer.observe(section));
+            };
+
+            const initNavActions = () => {
+                ui.navLinks.forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+                    });
+                });
+            };
+
+            return {
+                init: () => {
+                    initTheme();
+                    initScrollObserver();
+                    initNavActions();
+                    setTimeout(() => document.body.classList.add('is-loaded'), 50);
+                },
+                remixBio,
+                expandConcept
+            };
+        })();
+
+        window.addEventListener('DOMContentLoaded', Portfolio.init)
