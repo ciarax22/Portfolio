@@ -1,13 +1,16 @@
-:root {
+        /* --- DESIGN TOKENS --- */
+        :root {
             --color-bg: #fcfcfc;
             --color-surface: #ffffff;
             --color-text: #111111;
             --color-text-dim: #666666;
             --color-border: #eeeeee;
             --color-accent: #5900ff;
+            /* Updated Palette */
             --gradient-primary: linear-gradient(135deg, #8a62d3 0%, #083FC9 50%, #f523d2 100%);
-            --overlay-card: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);
+            --overlay-card: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.1) 100%);
             
+            /* Fluid Typography */
             --fs-h1: clamp(3.5rem, 10vw, 8.5rem);
             --fs-ui: 0.85rem;
             --container-padding: 8%;
@@ -21,6 +24,7 @@
             --color-text: #f0f0f0;
             --color-text-dim: #888888;
             --color-border: #333333;
+            /* Updated Dark Palette */
             --gradient-primary: linear-gradient(135deg, #1557B8 0%, #010728 50%, #C8D9F3 100%);
         }
 
@@ -87,11 +91,61 @@
         [data-theme="light"] .navbar { background: rgba(255,255,255,0.01); } 
         [data-theme="dark"] .navbar { background: rgba(0,0,0,0.01); }
 
+        .navbar__left {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
         .navbar__logo { font-weight: 900; font-size: 1.4rem; letter-spacing: -0.06em; text-transform: uppercase; }
-        .navbar__right { display: flex; align-items: center; gap: 2.5rem; }
+        
         .navbar__links { display: flex; gap: 2.5rem; list-style: none; }
         .navbar__link { text-decoration: none; color: inherit; font-size: var(--fs-ui); font-weight: 500; text-transform: uppercase; opacity: 0.7; transition: opacity 0.3s; }
         .navbar__link:hover { opacity: 1; }
+
+        .navbar__actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        /* Language Dropdown */
+        .lang-dropdown { position: relative; display: inline-block; }
+
+        .lang-trigger {
+            background: none; border: none; cursor: pointer;
+            font-size: 0.85rem; font-weight: 600; color: var(--color-text);
+            display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem;
+            font-family: inherit; opacity: 0.8; transition: opacity 0.3s;
+        }
+        .lang-trigger:hover { opacity: 1; }
+        .lang-trigger svg { width: 10px; height: 10px; transition: transform 0.3s; }
+        .lang-dropdown.active .lang-trigger svg { transform: rotate(180deg); }
+
+        .lang-menu {
+            position: absolute; top: 100%; right: 0;
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 0.5rem;
+            min-width: 140px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            opacity: 0; visibility: hidden; transform: translateY(10px);
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex; flex-direction: column; gap: 0.2rem;
+        }
+        .lang-dropdown.active .lang-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+
+        .lang-option {
+            background: none; border: none; cursor: pointer;
+            text-align: left; padding: 0.6rem 1rem;
+            font-size: 0.85rem; color: var(--color-text-dim);
+            border-radius: 4px;
+            font-family: inherit; transition: all 0.2s;
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+        .lang-option:hover { background: var(--color-bg); color: var(--color-text); }
+        .lang-option.selected { color: var(--color-text); font-weight: 600; background: var(--color-bg); }
 
         .theme-toggle {
             background: none; border: none; cursor: pointer;
@@ -106,7 +160,7 @@
         #landing { justify-content: center; }
         .headline { font-size: var(--fs-h1); line-height: 0.88; font-weight: 900; letter-spacing: -0.05em; max-width: 14ch; }
 
-        /* --- NEW HERO ACTIONS (The Fix) --- */
+        /* --- HERO ACTIONS --- */
         .hero-actions {
             display: flex;
             align-items: center;
@@ -114,10 +168,9 @@
             margin-top: 4rem;
         }
 
-        /* 1. Primary Action: Solid Pill */
         .btn-hero-primary {
             background: var(--color-text);
-            color: var(--color-surface);
+            color: var(--color-bg);
             text-decoration: none;
             font-weight: 600;
             padding: 1rem 2.5rem;
@@ -128,12 +181,8 @@
             align-items: center;
             gap: 0.5rem;
         }
-        .btn-hero-primary:hover {
-            transform: scale(1.05);
-            opacity: 0.9;
-        }
+        .btn-hero-primary:hover { transform: scale(1.05); opacity: 0.9; }
 
-        /* 2. Secondary: Icon Circle */
         .btn-hero-icon {
             width: 50px; height: 50px;
             border-radius: 50%;
@@ -144,13 +193,12 @@
             background: transparent;
         }
         .btn-hero-icon:hover {
-            background: var(--color-bg);
+            background: var(--color-surface);
             border-color: var(--color-text);
             transform: translateY(-3px);
         }
         .btn-hero-icon svg { width: 20px; height: 20px; fill: currentColor; }
 
-        /* 3. Tertiary: Minimal Link */
         .btn-hero-link {
             color: var(--color-text);
             background: none; border: none;
@@ -162,11 +210,9 @@
             padding-bottom: 2px;
             font-family: inherit;
         }
-        .btn-hero-link:hover {
-            border-color: var(--color-text);
-        }
+        .btn-hero-link:hover { border-color: var(--color-text); }
 
-        /* --- ABOUT LAYOUT --- */
+        /* --- ABOUT LAYOUT (FIXED ALIGNMENT) --- */
         .about-container {
             max-width: 1200px;
             margin: 0;
@@ -177,7 +223,7 @@
             align-items: start;
         }
 
-        .profile-card {
+ .profile-card {
             background: var(--color-surface);
             border: 1px solid var(--color-border);
             border-radius: var(--radius-card);
@@ -217,6 +263,7 @@
             width: 100%;
         }
         
+        
         .btn-cv-full {
             background: var(--color-text); color: var(--color-bg);
             border: none; padding: 0.8rem 2rem; border-radius: 50px;
@@ -227,19 +274,12 @@
         }
         .btn-cv-full:hover { opacity: 0.8; }
 
-        .timeline-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: 5rem;
-        }
-
+        .timeline-wrapper { display: flex; flex-direction: column; gap: 5rem; }
         .timeline-title {
             font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.15em;
             color: var(--color-text-dim); margin-bottom: 2rem; font-weight: 600;
         }
-
         .timeline-list { display: flex; flex-direction: column; gap: 3rem; }
-
         .timeline-item {
             display: grid;
             grid-template-columns: 180px 1fr;
@@ -248,10 +288,8 @@
         }
 
         .timeline-left { position: relative; }
-        
         .timeline-role { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.2rem; }
         .timeline-meta { font-size: 0.85rem; color: var(--color-text-dim); display: block; }
-
         .timeline-right p { margin-bottom: 0.8rem; font-size: 1rem; line-height: 1.6; color: var(--color-text-dim); }
         .timeline-right strong { color: var(--color-text); font-weight: 600; }
 
@@ -293,11 +331,15 @@
         .bento__card:hover .expand-btn { opacity: 1; }
         .expand-btn:hover { transform: scale(1.05); background: rgba(255,255,255,0.4); }
         .bento__card:not(.bento__card--has-image) .expand-btn { background: rgba(0,0,0,0.05); border-color: rgba(0,0,0,0.1); color: var(--color-text); }
+
         /* External Link Icon */
         .external-link-icon {
             position: absolute; top: 2rem; right: 2rem; width: 24px; height: 24px; z-index: 10; opacity: 0.6;
-            transition: transform 0.3s ease, opacity 0.3s ease; pointer-events: none; color:var(--color-bg);
+            transition: transform 0.3s ease, opacity 0.3s ease; pointer-events: none; color: inherit;
         }
+        .bento__card:hover .external-link-icon { transform: translate(3px, -3px); opacity: 1; }
+        .bento__card--has-image .external-link-icon { color: #fff; }
+
         .ai-controls { display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: flex-start; }
         .ai-btn {
             background: transparent; border: 1px solid var(--color-border);
@@ -350,7 +392,7 @@
             width: 100%;
             background: #f0f0f0;
             position: relative;
-            overflow-y: auto; /* Allow scrolling for modal body content */
+            overflow-y: auto;
         }
         [data-theme="dark"] .modal-body { background: #1a1a1a; }
 
@@ -380,14 +422,8 @@
         .btn-download-pdf:hover { opacity: 0.8; }
 
         /* --- PROJECT MODAL CONTENT --- */
-        .project-modal-content {
-            padding: 4rem 10%;
-        }
-        .project-modal-hero {
-            width: 100%; height: 300px;
-            object-fit: cover; border-radius: 12px;
-            margin-bottom: 2rem;
-        }
+        .project-modal-content { padding: 4rem 10%; }
+        .project-modal-hero { width: 100%; height: 300px; object-fit: cover; border-radius: 12px; margin-bottom: 2rem; }
         .project-modal-title { font-size: 2.5rem; margin-bottom: 1rem; }
         .project-modal-meta { color: var(--color-text-dim); margin-bottom: 2rem; font-size: 1rem; display: block; }
         .project-modal-text { font-size: 1.1rem; line-height: 1.7; color: var(--color-text-dim); margin-bottom: 1.5rem; }
@@ -403,21 +439,12 @@
             align-items: center;
         }
         
-        .footer-socials {
-            display: flex;
-            gap: 1.5rem;
-        }
-        
-        .social-link {
-            color: var(--color-text);
-            transition: opacity 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+        .footer-socials { display: flex; gap: 1.5rem; }
+        .social-link { color: var(--color-text); transition: opacity 0.3s; display: flex; align-items: center; justify-content: center; }
         .social-link:hover { opacity: 0.6; }
-        .social-link svg { width: 20px; height: 20px; }
-
+        
+        /* FIX: Remove explicit fill inherit to allow SVG attrs to work, increase size */
+        .social-link svg { width: 22px; height: 22px; }
 
         /* Responsive */
         @media (max-width: 1024px) {
@@ -430,22 +457,32 @@
             .bento__card--large, .bento__card--wide { grid-column: span 2; }
         }
         @media (max-width: 640px) {
+            .navbar { padding: 1.5rem 5%; }
             .navbar__links { display: none; }
-            .bento { grid-template-columns: 1fr; }
-            .bento__card { grid-column: span 1 !important; grid-row: span 1 !important; }
-            .headline { font-size: 4rem; }
+            .navbar__left { gap: 0; }
+            
+            /* Reduce section padding for harmony */
+            section { padding: 6rem var(--container-padding) 4rem; }
+            .headline { font-size: clamp(2.5rem, 10vw, 4rem); } /* Less huge on mobile */
             
             .hero-actions { flex-direction: column; align-items: flex-start; gap: 1rem; }
             
+            .bento { grid-template-columns: 1fr; }
+            .bento__card { grid-column: span 1 !important; grid-row: span 1 !important; }
+            
+            /* About Section Harmony */
             .profile-card { flex-direction: column; text-align: center; padding: 2rem; }
             .profile-avatar { margin: 0 auto 1rem; }
             .profile-footer { align-items: stretch; }
-            .ai-controls { justify-content: center; margin-bottom: 1rem; }
             
+            /* Hide CV button in card, show at bottom */
+            .desktop-cv-action { display: none; }
+            .mobile-cv-action { display: block; }
+
+            .ai-controls { justify-content: center; margin-bottom: 1rem; }
             .timeline-item { grid-template-columns: 1fr; gap: 0.5rem; }
             .timeline-meta { margin-bottom: 0.5rem; }
             
             .modal-footer { justify-content: center; }
-            
             .site-footer { flex-direction: column; gap: 1.5rem; text-align: center; }
         }

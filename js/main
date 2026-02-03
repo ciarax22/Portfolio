@@ -1,17 +1,160 @@
-        const Portfolio = (() => {
-            // MOCK DATA
+     const Portfolio = (() => {
+            
+            // --- TRANSLATION DATA ---
+            let currentLang = 'it';
+            
+            const translations = {
+                it: {
+                    nav_home: "Home",
+                    nav_about: "About",
+                    nav_projects: "Projects",
+                    hero_headline: "E mo qua che ci metto?",
+                    btn_talk: "Let's Talk",
+                    btn_resume_preview: "Resume preview",
+                    profile_bio: "UX Designer con background in Culture Digitali. Credo che il design non sia solo estetica, ma comunicazione. Sfrutto la mia esperienza nell'Apple Developer Academy per colmare il divario tra bisogni umani e vincoli tecnologici.",
+                    btn_get_cv: "Get CV",
+                    timeline_exp_title: "Esperienza",
+                    role_1_strong_1: "Traduzione di requisiti complessi",
+                    role_1_desc_1: "Trasformo dati tecnici e requisiti di business in interfacce utente chiare e accessibili.",
+                    role_1_strong_2: "Design System Maintenance",
+                    role_1_desc_2: "Gestisco e faccio evolvere la libreria di componenti UI per garantire coerenza visiva e velocizzare lo sviluppo.",
+                    role_1_strong_3: "Collaborazione Cross-funzionale",
+                    role_1_desc_3: "Lavoro a stretto contatto con gli sviluppatori per garantire la fattibilità tecnica dei design (handoff).",
+                    timeline_edu_title: "Studi",
+                    edu_1_role: "Laurea in culture digitali",
+                    edu_1_desc: "Design • Ideazione e sviluppo design • Progettazione interfaccia utente • Scrittura User Experience • Ricerca • Comunicazione • Ricerca sociale • Ricerca UX • Problem solving • Lingua inglese",
+                    edu_2_strong_1: "iOS Design Standards",
+                    edu_2_desc_1: "Progettazione di interfacce native conformi alle Apple Human Interface Guidelines (HIG).",
+                    edu_2_strong_2: "Challenge Based Learning",
+                    edu_2_desc_2: "Sviluppo di soluzioni basate su ricerca utente reale e iterazioni rapide (Prototyping).",
+                    edu_2_strong_3: "App Publishing",
+                    edu_2_desc_3: "Supporto attivo nel ciclo di vita dell'app, dal concept al rilascio su TestFlight/App Store.",
+                    edu_3_desc: "Estensione del percorso accademico focalizzata su progetti reali in partnership esterne. Approfondimento su metodologie e tecnologie di lavoro aziendali.",
+                    section_work: "Work.",
+                    btn_resume: "Resume",
+                    proj_erp_desc: "Progettazione, design-system",
+                    proj_redesign_desc: "Analisi critica.",
+                    proj_musee_desc: "Accessibilità.",
+                    proj_kumbu_desc: "iPad app UX research",
+                    erp_modal_1: "<strong>Overview:</strong> Un sistema gestionale complesso riprogettato per semplificare i flussi di lavoro di oltre 500 dipendenti. L'obiettivo era ridurre il tempo di completamento delle task del 40%.",
+                    erp_modal_2: "<strong>La Sfida:</strong> L'interfaccia precedente soffriva di un debito tecnico elevato e di una scarsa architettura dell'informazione. Gli utenti perdevano tempo prezioso navigando tra decine di sottomenu non necessari.",
+                    erp_modal_3: "<strong>La Soluzione:</strong> Abbiamo introdotto una dashboard modulare e un sistema di ricerca globale intelligente. Utilizzando componenti React riutilizzabili, abbiamo garantito consistenza e scalabilità futura."
+                },
+                en: {
+                    nav_home: "Home",
+                    nav_about: "About",
+                    nav_projects: "Projects",
+                    hero_headline: "Designing digital experiences.",
+                    btn_talk: "Let's Talk",
+                    btn_resume_preview: "Resume preview",
+                    profile_bio: "UX Designer with a background in Digital Cultures. I believe design is not just aesthetics, but communication. I leverage my experience at the Apple Developer Academy to bridge the gap between human needs and technological constraints.",
+                    btn_get_cv: "Get CV",
+                    timeline_exp_title: "Experience",
+                    role_1_strong_1: "Translating complex requirements",
+                    role_1_desc_1: "I transform technical data and business requirements into clear and accessible user interfaces.",
+                    role_1_strong_2: "Design System Maintenance",
+                    role_1_desc_2: "I manage and evolve the UI component library to ensure visual consistency and speed up development.",
+                    role_1_strong_3: "Cross-functional Collaboration",
+                    role_1_desc_3: "I work closely with developers to ensure the technical feasibility of designs (handoff).",
+                    timeline_edu_title: "Education",
+                    edu_1_role: "Bachelor in Digital Cultures",
+                    edu_1_desc: "Design • Design Ideation and Development • User Interface Design • UX Writing • Research • Communication • Social Research • UX Research • Problem Solving • English",
+                    edu_2_strong_1: "iOS Design Standards",
+                    edu_2_desc_1: "Designing native interfaces compliant with Apple Human Interface Guidelines (HIG).",
+                    edu_2_strong_2: "Challenge Based Learning",
+                    edu_2_desc_2: "Developing solutions based on real user research and rapid iterations (Prototyping).",
+                    edu_2_strong_3: "App Publishing",
+                    edu_2_desc_3: "Active support in the app lifecycle, from concept to release on TestFlight/App Store.",
+                    edu_3_desc: "Extension of the academic path focused on real projects in external partnerships. Deepening of corporate work methodologies and technologies.",
+                    section_work: "Work.",
+                    btn_resume: "Resume",
+                    proj_erp_desc: "Design, design-system",
+                    proj_redesign_desc: "Critical analysis.",
+                    proj_musee_desc: "Accessibility.",
+                    proj_kumbu_desc: "iPad app UX research",
+                    erp_modal_1: "<strong>Overview:</strong> A complex management system redesigned to simplify workflows for over 500 employees. The goal was to reduce task completion time by 40%.",
+                    erp_modal_2: "<strong>The Challenge:</strong> The previous interface suffered from high technical debt and poor information architecture. Users wasted valuable time navigating through dozens of unnecessary submenus.",
+                    erp_modal_3: "<strong>The Solution:</strong> We introduced a modular dashboard and an intelligent global search system. Using reusable React components, we ensured consistency and future scalability."
+                },
+                es: {
+                    nav_home: "Inicio",
+                    nav_about: "Sobre mí",
+                    nav_projects: "Proyectos",
+                    hero_headline: "Diseñando experiencias digitales.",
+                    btn_talk: "Hablemos",
+                    btn_resume_preview: "Vista previa CV",
+                    profile_bio: "Diseñador UX con experiencia en Culturas Digitales. Creo que el diseño no es solo estética, sino comunicación. Aprovecho mi experiencia en la Apple Developer Academy para cerrar la brecha entre las necesidades humanas y las limitaciones tecnológicas.",
+                    btn_get_cv: "Obtener CV",
+                    timeline_exp_title: "Experiencia",
+                    role_1_strong_1: "Traducción de requisitos complejos",
+                    role_1_desc_1: "Transformo datos técnicos y requisitos comerciales en interfaces de usuario claras y accesibles.",
+                    role_1_strong_2: "Mantenimiento del Sistema de Diseño",
+                    role_1_desc_2: "Gestiono y evoluciono la biblioteca de componentes UI para garantizar la coherencia visual y acelerar el desarrollo.",
+                    role_1_strong_3: "Colaboración Multifuncional",
+                    role_1_desc_3: "Trabajo en estrecha colaboración con los desarrolladores para garantizar la viabilidad técnica de los diseños (handoff).",
+                    timeline_edu_title: "Educación",
+                    edu_1_role: "Grado en Culturas Digitales",
+                    edu_1_desc: "Diseño • Ideación y desarrollo de diseño • Diseño de interfaz de usuario • Escritura UX • Investigación • Comunicación • Investigación social • Investigación UX • Resolución de problemas • Inglés",
+                    edu_2_strong_1: "Estándares de Diseño iOS",
+                    edu_2_desc_1: "Diseño de interfaces nativas conformes con las Apple Human Interface Guidelines (HIG).",
+                    edu_2_strong_2: "Aprendizaje Basado en Retos",
+                    edu_2_desc_2: "Desarrollo de soluciones basadas en investigación de usuarios reales e iteraciones rápidas (Prototyping).",
+                    edu_2_strong_3: "Publicación de Apps",
+                    edu_2_desc_3: "Apoyo activo en el ciclo de vida de la app, desde el concepto hasta el lanzamiento en TestFlight/App Store.",
+                    edu_3_desc: "Extensión del camino académico enfocado en proyectos reales en asociaciones externas. Profundización en metodologías y tecnologías de trabajo corporativas.",
+                    section_work: "Trabajos.",
+                    btn_resume: "Resumen",
+                    proj_erp_desc: "Diseño, sistema de diseño",
+                    proj_redesign_desc: "Análisis crítico.",
+                    proj_musee_desc: "Accesibilidad.",
+                    proj_kumbu_desc: "Investigación UX app iPad",
+                    erp_modal_1: "<strong>Visión general:</strong> Un sistema de gestión complejo rediseñado para simplificar los flujos de trabajo de más de 500 empleados. El objetivo era reducir el tiempo de finalización de tareas en un 40%.",
+                    erp_modal_2: "<strong>El Desafío:</strong> La interfaz anterior sufría de una alta deuda técnica y una mala arquitectura de la información. Los usuarios perdían tiempo valioso navegando a través de docenas de submenús innecesarios.",
+                    erp_modal_3: "<strong>La Solución:</strong> Introdujimos un panel modular y un sistema de búsqueda global inteligente. Utilizando componentes React reutilizables, garantizamos consistencia y escalabilidad futura."
+                }
+            };
+
+            // MOCK DATA (Multilingual)
             const bioVariations = {
-                'original': "UX Designer con background in Culture Digitali. Credo che il design non sia solo estetica, ma comunicazione. Sfrutto la mia esperienza nell'Apple Developer Academy per colmare il divario tra bisogni umani e vincoli tecnologici.",
-                'analytical': "Profilo ibrido Design/Dev. Specializzato in Design Systems scalabili e fattibilità tecnica. Traduco requisiti complessi in interfacce logiche, ottimizzando il passaggio tra design e codice.",
-                'story': "Progetto ponti tra persone e tecnologia. Ogni interfaccia racconta una storia: la mia missione è renderla fluida, umana e memorabile, mettendo l'empatia al centro di ogni decisione visiva.",
-                'tldr': "UX/UI Designer. Focus: Design Systems & Prototyping. Esperienza Apple Developer Academy. Risolvo problemi complessi con soluzioni pulite."
+                it: {
+                    'original': "UX Designer con background in Culture Digitali. Credo che il design non sia solo estetica, ma comunicazione. Sfrutto la mia esperienza nell'Apple Developer Academy per colmare il divario tra bisogni umani e vincoli tecnologici.",
+                    'analytical': "Profilo ibrido Design/Dev. Specializzato in Design Systems scalabili e fattibilità tecnica. Traduco requisiti complessi in interfacce logiche, ottimizzando il passaggio tra design e codice.",
+                    'story': "Progetto ponti tra persone e tecnologia. Ogni interfaccia racconta una storia: la mia missione è renderla fluida, umana e memorabile, mettendo l'empatia al centro di ogni decisione visiva.",
+                    'tldr': "UX/UI Designer. Focus: Design Systems & Prototyping. Esperienza Apple Developer Academy. Risolvo problemi complessi con soluzioni pulite."
+                },
+                en: {
+                    'original': "UX Designer with a background in Digital Cultures. I believe design is not just aesthetics, but communication. I leverage my experience at the Apple Developer Academy to bridge the gap between human needs and technological constraints.",
+                    'analytical': "Hybrid Design/Dev profile. Specialized in scalable Design Systems and technical feasibility. I translate complex requirements into logical interfaces, optimizing the handoff between design and code.",
+                    'story': "I design bridges between people and technology. Every interface tells a story: my mission is to make it fluid, human, and memorable, putting empathy at the center of every visual decision.",
+                    'tldr': "UX/UI Designer. Focus: Design Systems & Prototyping. Apple Developer Academy Alumni. Solving complex problems with clean solutions."
+                },
+                es: {
+                    'original': "Diseñador UX con experiencia en Culturas Digitales. Creo que el diseño no es solo estética, sino comunicación. Aprovecho mi experiencia en la Apple Developer Academy para cerrar la brecha entre las necesidades humanas y las limitaciones tecnológicas.",
+                    'analytical': "Perfil híbrido Diseño/Dev. Especializado en Sistemas de Diseño escalables y viabilidad técnica. Traduzco requisitos complejos en interfaces lógicas, optimizando el paso entre diseño y código.",
+                    'story': "Diseño puentes entre personas y tecnología. Cada interfaz cuenta una historia: mi misión es hacerla fluida, humana y memorable, poniendo la empatía en el centro de cada decisión visual.",
+                    'tldr': "Diseñador UX/UI. Enfoque: Sistemas de Diseño y Prototipado. Exalumno Apple Developer Academy. Resuelvo problemas complejos con soluciones limpias."
+                }
             };
 
             const projectInsights = {
-                'ERP': "Tech: React, GraphQL. Focus: Dashboarding per big data e riduzione del carico cognitivo in workflow complessi.",
-                'Redesign': "Tech: Vue.js, Tailwind. Focus: Ottimizzazione IA e restyling della gerarchia visiva.",
-                'Musée': "Tech: WebGL, GSAP. Focus: Accessibilità (WCAG) in contesti immersivi e navigazione non lineare.",
-                'Kumbu': "Tech: Swift, UIKit. Focus: UX research per target demografici specifici e pattern di navigazione semplificati."
+                it: {
+                    'ERP': "Tech: React, GraphQL. Focus: Dashboarding per big data e riduzione del carico cognitivo in workflow complessi.",
+                    'Redesign': "Tech: Vue.js, Tailwind. Focus: Ottimizzazione IA e restyling della gerarchia visiva.",
+                    'Musée': "Tech: WebGL, GSAP. Focus: Accessibilità (WCAG) in contesti immersivi e navigazione non lineare.",
+                    'Kumbu': "Tech: Swift, UIKit. Focus: UX research per target demografici specifici e pattern di navigazione semplificati."
+                },
+                en: {
+                    'ERP': "Tech: React, GraphQL. Focus: Big data dashboarding and cognitive load reduction in complex workflows.",
+                    'Redesign': "Tech: Vue.js, Tailwind. Focus: AI optimization and visual hierarchy restyling.",
+                    'Musée': "Tech: WebGL, GSAP. Focus: Accessibility (WCAG) in immersive contexts and non-linear navigation.",
+                    'Kumbu': "Tech: Swift, UIKit. Focus: UX research for specific demographics and simplified navigation patterns."
+                },
+                es: {
+                    'ERP': "Tech: React, GraphQL. Enfoque: Tableros de big data y reducción de carga cognitiva en flujos de trabajo complejos.",
+                    'Redesign': "Tech: Vue.js, Tailwind. Enfoque: Optimización de IA y rediseño de jerarquía visual.",
+                    'Musée': "Tech: WebGL, GSAP. Enfoque: Accesibilidad (WCAG) en contextos inmersivos y navegación no lineal.",
+                    'Kumbu': "Tech: Swift, UIKit. Enfoque: Investigación UX para demografía específica y patrones de navegación simplificados."
+                }
             };
 
             let ui = {};
@@ -25,7 +168,13 @@
                     aiBtns: document.querySelectorAll('.ai-btn'),
                     themeToggle: document.getElementById('theme-toggle'),
                     sunIcon: document.querySelector('.theme-icon.sun'),
-                    moonIcon: document.querySelector('.theme-icon.moon')
+                    moonIcon: document.querySelector('.theme-icon.moon'),
+                    cvModal: document.getElementById('cv-modal'),
+                    langBtns: document.querySelectorAll('.lang-btn'),
+                    langDropdown: document.getElementById('lang-dropdown'),
+                    currentLangLabel: document.getElementById('current-lang-label'),
+                    hamburger: document.querySelector('.hamburger'),
+                    mobileMenu: document.getElementById('mobile-menu')
                 };
             };
 
@@ -52,6 +201,79 @@
                 else { ui.sunIcon.style.display = 'none'; ui.moonIcon.style.display = 'block'; }
             };
 
+            // --- LANGUAGE LOGIC ---
+            const toggleLangMenu = () => {
+                if (ui.langDropdown) {
+                    ui.langDropdown.classList.toggle('active');
+                }
+            };
+
+            const selectLang = (lang) => {
+                setLanguage(lang);
+                if (ui.langDropdown) {
+                    ui.langDropdown.classList.remove('active');
+                }
+            };
+
+            // Toggle Mobile Menu
+            const toggleMobileMenu = () => {
+                if(ui.hamburger && ui.mobileMenu) {
+                    ui.hamburger.classList.toggle('active');
+                    ui.mobileMenu.classList.toggle('active');
+                    
+                    if(ui.mobileMenu.classList.contains('active')) {
+                        document.body.style.overflow = 'hidden';
+                    } else {
+                        document.body.style.overflow = '';
+                    }
+                }
+            };
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                if (ui.langDropdown && !ui.langDropdown.contains(e.target)) {
+                    ui.langDropdown.classList.remove('active');
+                }
+            });
+
+            const setLanguage = (lang) => {
+                currentLang = lang;
+                
+                // Update Dropdown Label
+                if (ui.currentLangLabel) {
+                    const flags = { it: '🇮🇹 IT', en: '🇬🇧 EN', es: '🇪🇸 ES' };
+                    ui.currentLangLabel.textContent = flags[lang];
+                }
+
+                // Update Static Text
+                const elements = document.querySelectorAll('[data-i18n]');
+                elements.forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (translations[lang][key]) {
+                        if (translations[lang][key].includes('<')) {
+                            el.innerHTML = translations[lang][key];
+                        } else {
+                            el.textContent = translations[lang][key];
+                        }
+                    }
+                });
+
+                // Reset Bio to Original in new Lang
+                if (ui.bioText) {
+                    ui.bioText.textContent = bioVariations[lang]['original'];
+                    if (ui.aiBtns) {
+                        ui.aiBtns.forEach(btn => btn.classList.remove('active'));
+                        if(ui.aiBtns[0]) ui.aiBtns[0].classList.add('active'); 
+                    }
+                }
+                
+                // Reset Insights
+                const openInsights = document.querySelectorAll('.bento__ai-result');
+                openInsights.forEach(el => el.remove());
+                const expandBtns = document.querySelectorAll('.expand-btn');
+                expandBtns.forEach(btn => btn.textContent = translations[lang]['btn_resume']);
+            };
+
             // --- MOCK AI LOGIC ---
             const remixBio = async (style) => {
                 if (!ui.aiBtns) return;
@@ -64,7 +286,7 @@
                 ui.bioText.classList.add('loading');
                 await new Promise(r => setTimeout(r, 600));
                 
-                const newBio = bioVariations[style] || bioVariations['original'];
+                const newBio = bioVariations[currentLang][style] || bioVariations[currentLang]['original'];
                 ui.bioText.classList.remove('loading');
                 ui.bioText.style.opacity = 0;
                 setTimeout(() => { 
@@ -79,7 +301,7 @@
 
                 if (existingResult) {
                     existingResult.remove();
-                    btn.textContent = "Resume";
+                    btn.textContent = translations[currentLang]['btn_resume'];
                     return; 
                 }
 
@@ -88,9 +310,9 @@
                 await new Promise(r => setTimeout(r, 800));
                 
                 let insight = "Insight not available.";
-                for (const key in projectInsights) {
+                for (const key in projectInsights[currentLang]) {
                     if (title.includes(key)) {
-                        insight = projectInsights[key];
+                        insight = projectInsights[currentLang][key];
                         break;
                     }
                 }
@@ -159,6 +381,8 @@
                         initTheme();
                         initScrollObserver();
                         initNavActions();
+                        // Initialize default lang (Italian)
+                        setLanguage('it'); 
                     } catch (error) {
                         console.error("Initialization error:", error);
                     } finally {
@@ -168,7 +392,11 @@
                 remixBio,
                 expandConcept,
                 toggleModal,
-                openLink
+                openLink,
+                setLanguage,
+                toggleLangMenu,
+                selectLang,
+                toggleMobileMenu
             };
         })();
 
