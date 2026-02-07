@@ -25,7 +25,7 @@
             --color-text-dim: #888888;
             --color-border: #333333;
             /* Updated Dark Palette */
-            --gradient-primary: linear-gradient(135deg, #1557B8 0%, #010728 50%, #C8D9F3 100%);
+            --gradient-primary: linear-gradient(135deg, #4e84d6 0%, #010728 50%, #9ebff167 100%);
         }
 
         /* --- BASE --- */
@@ -291,7 +291,7 @@
         .timeline-role { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.2rem; }
         .timeline-meta { font-size: 0.85rem; color: var(--color-text-dim); display: block; }
         .timeline-right p { margin-bottom: 0.8rem; font-size: 1rem; line-height: 1.6; color: var(--color-text-dim); }
-        .timeline-right strong { color: var(--color-text); font-weight: 600; }
+        .timeline-right strong { color: var(--color-text); font-weight: 500; }
 
         /* --- BENTO (Projects) --- */
         .bento { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: minmax(280px, auto); gap: 1.5rem; margin-top: 3rem; }

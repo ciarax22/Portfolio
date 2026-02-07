@@ -10,16 +10,16 @@
                     nav_projects: "Projects",
                     hero_headline: "E mo qua che ci metto?",
                     btn_talk: "Let's Talk",
-                    btn_resume_preview: "Resume preview",
-                    profile_bio: "UX Designer con background in Culture Digitali. Credo che il design non sia solo estetica, ma comunicazione. Sfrutto la mia esperienza nell'Apple Developer Academy per colmare il divario tra bisogni umani e vincoli tecnologici.",
+                    btn_resume_preview: "Anteprima CV",
+                    profile_bio: "Sono un UX/UI Designer laureato in Culture Digitali e della Comunicazione, con formazione presso la Apple Developer Academy. Nel mio lavoro mi occupo di progettare interfacce ed esperienze digitali partendo dalle persone e dai processi, con l’idea che il design sia prima di tutto comunicazione, non semplice estetica.",
                     btn_get_cv: "Get CV",
                     timeline_exp_title: "Esperienza",
                     role_1_strong_1: "Traduzione di requisiti complessi",
-                    role_1_desc_1: "Trasformo dati tecnici e requisiti di business in interfacce utente chiare e accessibili.",
-                    role_1_strong_2: "Design System Maintenance",
-                    role_1_desc_2: "Gestisco e faccio evolvere la libreria di componenti UI per garantire coerenza visiva e velocizzare lo sviluppo.",
-                    role_1_strong_3: "Collaborazione Cross-funzionale",
-                    role_1_desc_3: "Lavoro a stretto contatto con gli sviluppatori per garantire la fattibilità tecnica dei design (handoff).",
+                    role_1_desc_1: "Lavoro sulla comprensione di contesti complessi e processi articolati, traducendo esigenze operative e di business in interfacce chiare, funzionali e facilmente utilizzabili.",
+                    role_1_strong_2: "Progettazione e coerenza dell’esperienza",
+                    role_1_desc_2: "Mi occupo della progettazione e dell’evoluzione dell’esperienza utente e delle interfacce, mantenendo coerenza visiva e funzionale anche su sistemi articolati e multi-utenza.",
+                    role_1_strong_3: "Collaborazione e feedback continuo",
+                    role_1_desc_3: "Collaboro costantemente con il team di sviluppo e con gli stakeholder, raccogliendo feedback, valutando vincoli tecnici e affinando le soluzioni durante tutte le fasi del progetto.",
                     timeline_edu_title: "Studi",
                     edu_1_role: "Laurea in culture digitali",
                     edu_1_desc: "Design • Ideazione e sviluppo design • Progettazione interfaccia utente • Scrittura User Experience • Ricerca • Comunicazione • Ricerca sociale • Ricerca UX • Problem solving • Lingua inglese",
@@ -117,7 +117,7 @@
             // MOCK DATA (Multilingual)
             const bioVariations = {
                 it: {
-                    'original': "UX Designer con background in Culture Digitali. Credo che il design non sia solo estetica, ma comunicazione. Sfrutto la mia esperienza nell'Apple Developer Academy per colmare il divario tra bisogni umani e vincoli tecnologici.",
+                    'original': "Sono un UX/UI Designer laureato in Culture Digitali e della Comunicazione, con formazione presso la Apple Developer Academy. Nel mio lavoro mi occupo di progettare interfacce ed esperienze digitali partendo dalle persone e dai processi, con l’idea che il design sia prima di tutto comunicazione, non semplice estetica.",
                     'analytical': "Profilo ibrido Design/Dev. Specializzato in Design Systems scalabili e fattibilità tecnica. Traduco requisiti complessi in interfacce logiche, ottimizzando il passaggio tra design e codice.",
                     'story': "Progetto ponti tra persone e tecnologia. Ogni interfaccia racconta una storia: la mia missione è renderla fluida, umana e memorabile, mettendo l'empatia al centro di ogni decisione visiva.",
                     'tldr': "UX/UI Designer. Focus: Design Systems & Prototyping. Esperienza Apple Developer Academy. Risolvo problemi complessi con soluzioni pulite."
