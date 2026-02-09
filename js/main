@@ -1,4 +1,4 @@
-     const Portfolio = (() => {
+ const Portfolio = (() => {
             
             // --- TRANSLATION DATA ---
             let currentLang = 'it';
@@ -8,11 +8,11 @@
                     nav_home: "Home",
                     nav_about: "About",
                     nav_projects: "Projects",
-                    hero_headline: "E mo qua che ci metto?",
+                    hero_headline: "Oh eh oh?",
                     btn_talk: "Let's Talk",
                     btn_resume_preview: "Anteprima CV",
-                    profile_bio: "Sono un UX/UI Designer laureato in Culture Digitali e della Comunicazione, con formazione presso la Apple Developer Academy. Nel mio lavoro mi occupo di progettare interfacce ed esperienze digitali partendo dalle persone e dai processi, con l’idea che il design sia prima di tutto comunicazione, non semplice estetica.",
-                    btn_get_cv: "Get CV",
+                    profile_bio: "UX/UI Designer con radici nella Comunicazione e formazione Apple Developer Academy. Per me il design non è decorazione, ma linguaggio: progetto interfacce partendo dalle persone e dai loro processi reali, trasformando bisogni complessi in esperienze digitali chiare e funzionali.",
+                    btn_get_cv: "Download CV",
                     timeline_exp_title: "Esperienza",
                     role_1_strong_1: "Traduzione di requisiti complessi",
                     role_1_desc_1: "Lavoro sulla comprensione di contesti complessi e processi articolati, traducendo esigenze operative e di business in interfacce chiare, funzionali e facilmente utilizzabili.",
@@ -47,7 +47,7 @@
                     hero_headline: "Designing digital experiences.",
                     btn_talk: "Let's Talk",
                     btn_resume_preview: "Resume preview",
-                    profile_bio: "UX Designer with a background in Digital Cultures. I believe design is not just aesthetics, but communication. I leverage my experience at the Apple Developer Academy to bridge the gap between human needs and technological constraints.",
+                    profile_bio: "UX/UI Designer blending a Communication background with Apple Developer Academy training. I see design as a functional language, not just aesthetics. My work starts with people and processes, building digital experiences that prioritize clarity and solve real-world problems.",
                     btn_get_cv: "Get CV",
                     timeline_exp_title: "Experience",
                     role_1_strong_1: "Translating complex requirements",
@@ -83,7 +83,7 @@
                     hero_headline: "Diseñando experiencias digitales.",
                     btn_talk: "Hablemos",
                     btn_resume_preview: "Vista previa CV",
-                    profile_bio: "Diseñador UX con experiencia en Culturas Digitales. Creo que el diseño no es solo estética, sino comunicación. Aprovecho mi experiencia en la Apple Developer Academy para cerrar la brecha entre las necesidades humanas y las limitaciones tecnológicas.",
+                    profile_bio: "Diseñador UX/UI con base en Comunicación y formación en la Apple Developer Academy. Entiendo el diseño come una herramienta funcional, más allá de la estética. Creo experiencias digitales partendo de las personas y sus procesos, asegurando que cada interfaz comunique y resuelva problemas reales.",
                     btn_get_cv: "Obtener CV",
                     timeline_exp_title: "Experiencia",
                     role_1_strong_1: "Traducción de requisitos complejos",
@@ -117,19 +117,19 @@
             // MOCK DATA (Multilingual)
             const bioVariations = {
                 it: {
-                    'original': "Sono un UX/UI Designer laureato in Culture Digitali e della Comunicazione, con formazione presso la Apple Developer Academy. Nel mio lavoro mi occupo di progettare interfacce ed esperienze digitali partendo dalle persone e dai processi, con l’idea che il design sia prima di tutto comunicazione, non semplice estetica.",
+                    'original': "Sono un UX/UI Designer laureato in Culture Digitali e della Comunicazione, con formazione presso la Apple Developer Academy. Nel mio lavoro mi occupo di progettare interfacce ed esperienze digitali partendo dalle persone e dai processi, con l’idea che il design sia prima di tutto comunicazione, non semplice estetica",
                     'analytical': "Profilo ibrido Design/Dev. Specializzato in Design Systems scalabili e fattibilità tecnica. Traduco requisiti complessi in interfacce logiche, ottimizzando il passaggio tra design e codice.",
                     'story': "Progetto ponti tra persone e tecnologia. Ogni interfaccia racconta una storia: la mia missione è renderla fluida, umana e memorabile, mettendo l'empatia al centro di ogni decisione visiva.",
-                    'tldr': "UX/UI Designer. Focus: Design Systems & Prototyping. Esperienza Apple Developer Academy. Risolvo problemi complessi con soluzioni pulite."
+                    'tldr': "Trasformo processi complessi in esperienze digitali semplici e intuitive."
                 },
                 en: {
-                    'original': "UX Designer with a background in Digital Cultures. I believe design is not just aesthetics, but communication. I leverage my experience at the Apple Developer Academy to bridge the gap between human needs and technological constraints.",
+                    'original': "Designing interfaces that solve real problems, going beyond just aesthetics",
                     'analytical': "Hybrid Design/Dev profile. Specialized in scalable Design Systems and technical feasibility. I translate complex requirements into logical interfaces, optimizing the handoff between design and code.",
                     'story': "I design bridges between people and technology. Every interface tells a story: my mission is to make it fluid, human, and memorable, putting empathy at the center of every visual decision.",
                     'tldr': "UX/UI Designer. Focus: Design Systems & Prototyping. Apple Developer Academy Alumni. Solving complex problems with clean solutions."
                 },
                 es: {
-                    'original': "Diseñador UX con experiencia en Culturas Digitales. Creo que el diseño no es solo estética, sino comunicación. Aprovecho mi experiencia en la Apple Developer Academy para cerrar la brecha entre las necesidades humanas y las limitaciones tecnológicas.",
+                    'original': "Diseñando interfaces que resuelven problemas reales, más allá de la estética",
                     'analytical': "Perfil híbrido Diseño/Dev. Especializado en Sistemas de Diseño escalables y viabilidad técnica. Traduzco requisitos complejos en interfaces lógicas, optimizando el paso entre diseño y código.",
                     'story': "Diseño puentes entre personas y tecnología. Cada interfaz cuenta una historia: mi misión es hacerla fluida, humana y memorable, poniendo la empatía en el centro de cada decisión visual.",
                     'tldr': "Diseñador UX/UI. Enfoque: Sistemas de Diseño y Prototipado. Exalumno Apple Developer Academy. Resuelvo problemas complejos con soluciones limpias."
@@ -260,7 +260,10 @@
 
                 // Reset Bio to Original in new Lang
                 if (ui.bioText) {
-                    ui.bioText.textContent = bioVariations[lang]['original'];
+                    // FIX: Source original bio from translations object directly, not bioVariations
+                    // This ensures consistency.
+                    ui.bioText.textContent = translations[lang]['profile_bio'];
+                    
                     if (ui.aiBtns) {
                         ui.aiBtns.forEach(btn => btn.classList.remove('active'));
                         if(ui.aiBtns[0]) ui.aiBtns[0].classList.add('active'); 
@@ -286,7 +289,14 @@
                 ui.bioText.classList.add('loading');
                 await new Promise(r => setTimeout(r, 600));
                 
-                const newBio = bioVariations[currentLang][style] || bioVariations[currentLang]['original'];
+                // FIX: If style is 'original', grab from translations object
+                let newBio;
+                if (style === 'original') {
+                    newBio = translations[currentLang]['profile_bio'];
+                } else {
+                    newBio = bioVariations[currentLang][style] || translations[currentLang]['profile_bio'];
+                }
+
                 ui.bioText.classList.remove('loading');
                 ui.bioText.style.opacity = 0;
                 setTimeout(() => { 

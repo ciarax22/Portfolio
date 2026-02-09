@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+       <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -55,6 +56,20 @@
         </div>
     </nav>
 
+    <!-- MOBILE MENU OVERLAY -->
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="#landing" class="mobile-menu-link" onclick="Portfolio.toggleMobileMenu()" data-i18n="nav_home">Home</a>
+        <a href="#about" class="mobile-menu-link" onclick="Portfolio.toggleMobileMenu()" data-i18n="nav_about">About</a>
+        <a href="#projects" class="mobile-menu-link" onclick="Portfolio.toggleMobileMenu()" data-i18n="nav_projects">Projects</a>
+        
+        <div style="margin-top: 2rem; display: flex; gap: 1rem;">
+            <button class="lang-option" onclick="Portfolio.selectLang('it'); Portfolio.toggleMobileMenu()">🇮🇹</button>
+            <button class="lang-option" onclick="Portfolio.selectLang('en'); Portfolio.toggleMobileMenu()">🇬🇧</button>
+            <button class="lang-option" onclick="Portfolio.selectLang('es'); Portfolio.toggleMobileMenu()">🇪🇸</button>
+        </div>
+    </div>
+
+
     <main>
         <section id="landing">
             <h1 class="headline" data-i18n="hero_headline">E mo qua che ci metto?.</h1>
@@ -68,11 +83,11 @@
                 <a href="https://www.linkedin.com/in/francesco-ciaramella-4223762a2/" target="_blank" class="btn-hero-icon" title="LinkedIn">
                     <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
                 </a>
-                <button onclick="Portfolio.toggleModal('cv-modal')" class="btn-hero-link" data-i18n="btn_resume_preview">Resume preview</button>
             </div>
         </section>
 
         <section id="about">
+            <h2 class="cv-item__label" style="color: var(--color-text)" data-i18n="nav_about">About.</h2>
             <div class="about-container">
                 <!-- COLUMN 1: Profile Card (STICKY) -->
                 <div class="profile-card">
@@ -81,7 +96,7 @@
                     </div>
                     <div class="profile-content">
                         <h2 class="profile-name">Francesco Ciaramella</h2>
-                        <p id="bio-text" class="profile-bio" data-i18n="profile_bio">Sono un UX/UI Designer laureato in Culture Digitali e della Comunicazione, con formazione presso la Apple Developer Academy. Nel mio lavoro mi occupo di progettare interfacce ed esperienze digitali partendo dalle persone e dai processi, con l’idea che il design sia prima di tutto comunicazione, non semplice estetica. </p>
+                        <p id="bio-text" class="profile-bio" data-i18n="profile_bio">Sono un UX/UI Designer laureato in Culture Digitali e della Comunicazione, con formazione presso la Apple Developer Academy. Nel mio lavoro mi occupo di progettare interfacce ed esperienze digitali partendo dalle persone e dai processi, con l’idea che il design sia prima di tutto comunicazione, non semplice estetica.</p>
                         <div class="profile-footer">
                             <div class="ai-controls">
                                 <button class="ai-btn active" onclick="Portfolio.remixBio('original')">Original</button>
@@ -89,7 +104,7 @@
                                <!-- <button class="ai-btn" onclick="Portfolio.remixBio('story')">Story</button> -->
                                 <button class="ai-btn ai-btn--magic" onclick="Portfolio.remixBio('tldr')">TL;DR</button>
                             </div>
-                            <button class="btn-cv-full" onclick="Portfolio.toggleModal('cv-modal')" data-i18n="btn_get_cv">Get CV</button>
+                            <button class="btn-cv-full desktop-cv-action" onclick="Portfolio.toggleModal('cv-modal')" data-i18n="btn_get_cv">Get CV</button>
                         </div>
                     </div>
                 </div>
@@ -152,6 +167,9 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="mobile-cv-action">
+                        <button class="btn-cv-full" onclick="Portfolio.toggleModal('cv-modal')" data-i18n="btn_get_cv">Get CV</button>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -160,7 +178,7 @@
         <section id="projects">
             <h2 class="cv-item__label" style="margin-bottom: 2rem; color: var(--color-text)" data-i18n="section_work">Work.</h2>
             <div class="bento">
-                <!-- Card 1: ERP -->
+                <!-- Card 1: ERP (Opens Project Modal) -->
                 <div class="bento__card bento__card--large bento__card--has-image" onclick="Portfolio.toggleModal('erp-modal')">
                     <div class="bento__img-container">
                         <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" alt="MetaOS Project" class="bento__img">
@@ -172,8 +190,8 @@
                     </div>
                 </div>
                 
-                <!-- Card 2: Redesign -->
-                <div class="bento__card bento__card--has-image" onclick="Portfolio.openLink(https://medium.com/@ciarax22/turkish-airlines-ui-ux-analysis-and-solutions-redesign-6b80de81f49a')">
+                <!-- Card 2: Redesign (Opens External Link + Has Image) -->
+                <div class="bento__card bento__card--has-image" onclick="Portfolio.openLink('https://medium.com/@ciarax22/turkish-airlines-ui-ux-analysis-and-solutions-redesign-6b80de81f49a')">
                     <div class="bento__img-container">
                         <img src="https://miro.medium.com/v2/resize:fit:4800/format:webp/1*YyRW-dRKLMiyn5vPp4iE7g.png" alt="Redesign UI" class="bento__img">
                     </div>
@@ -185,12 +203,11 @@
                     </div>
                 </div>
 
-                <!-- Card 3: Musée -->
-                   <div class="bento__card bento__card--has-image" onclick="Portfolio.openLink('https://www.behance.net/gallery/200933677/Muse-App-Project')">
+                <!-- Card 3: Musée (Opens External Link + Has Image) -->
+                <div class="bento__card bento__card--has-image" onclick="Portfolio.openLink('https://www.behance.net/gallery/200933677/Muse-App-Project')">
                     <div class="bento__img-container">
                         <img src="https://images.unsplash.com/photo-1545989253-02cc26577f88?q=80&w=2070&auto=format&fit=crop" alt="Museum Art" class="bento__img">
                     </div>
-                    <!-- External Link Icon -->
                     <svg class="external-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
 
                     <button class="expand-btn" onclick="event.stopPropagation(); Portfolio.expandConcept(this.parentElement, 'Musée', '')" data-i18n="btn_resume">Resume</button>
@@ -200,12 +217,11 @@
                     </div>
                 </div>
 
-                <!-- Card 4: Kumbu -->
+                <!-- Card 4: Kumbu (Opens External Link) -->
                 <div class="bento__card bento__card--wide bento__card--has-image" onclick="Portfolio.openLink('https://www.behance.net/gallery/231135391/Kumbu-App-showcase')">
                     <div class="bento__img-container">
                         <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop" alt="Archive Project" class="bento__img">
                     </div>
-                    <!-- External Link Icon -->
                     <svg class="external-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
 
                     <button class="expand-btn" onclick="event.stopPropagation(); Portfolio.expandConcept(this.parentElement, 'Kumbu', '')" data-i18n="btn_resume">Resume</button>
@@ -274,8 +290,7 @@
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
             </a>
         </div>
-    </footer>
-        <script src="js\main"> </script>
-    </body>
-
-</html>
+ <script src="js\main"> </script>
+ </body>
+ </html>
+ 

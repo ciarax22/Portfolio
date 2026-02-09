@@ -155,10 +155,37 @@
         .theme-toggle:hover { opacity: 1; }
         .theme-icon { width: 20px; height: 20px; fill: currentColor; }
 
+        /* Mobile Menu - Hidden on Desktop by default */
+        .hamburger {
+            display: none;
+            background: none; border: none; cursor: pointer;
+            width: 30px; height: 20px; position: relative;
+            z-index: 1002; color: var(--color-text);
+        }
+        .hamburger span {
+            display: block; width: 100%; height: 2px;
+            background-color: currentColor; position: absolute;
+            transition: all 0.3s ease;
+        }
+        .hamburger span:nth-child(1) { top: 0; }
+        .hamburger span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+        .hamburger span:nth-child(3) { bottom: 0; }
+        .hamburger.active span:nth-child(1) { top: 50%; transform: translateY(-50%) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { bottom: 50%; transform: translateY(50%) rotate(-45deg); }
+
+        /* FIX: Nascondiamo il menu mobile su desktop per evitare che appaia in opacità */
+        .mobile-menu { display: none; }
+
         /* --- SECTIONS GENERAL --- */
         section { min-height: 100vh; padding: 10rem var(--container-padding) 5rem; display: flex; flex-direction: column; }
         #landing { justify-content: center; }
         .headline { font-size: var(--fs-h1); line-height: 0.88; font-weight: 900; letter-spacing: -0.05em; max-width: 14ch; }
+
+        .cv-item__label {
+            font-size: var(--fs-ui); text-transform: uppercase; letter-spacing: 0.1em;
+            color: var(--color-text); margin-bottom: 2rem; display: block;
+        }
 
         /* --- HERO ACTIONS --- */
         .hero-actions {
@@ -212,7 +239,7 @@
         }
         .btn-hero-link:hover { border-color: var(--color-text); }
 
-        /* --- ABOUT LAYOUT (FIXED ALIGNMENT) --- */
+        /* --- ABOUT LAYOUT --- */
         .about-container {
             max-width: 1200px;
             margin: 0;
@@ -223,7 +250,7 @@
             align-items: start;
         }
 
- .profile-card {
+        .profile-card {
             background: var(--color-surface);
             border: 1px solid var(--color-border);
             border-radius: var(--radius-card);
@@ -263,7 +290,6 @@
             width: 100%;
         }
         
-        
         .btn-cv-full {
             background: var(--color-text); color: var(--color-bg);
             border: none; padding: 0.8rem 2rem; border-radius: 50px;
@@ -273,6 +299,9 @@
             text-align: center;
         }
         .btn-cv-full:hover { opacity: 0.8; }
+
+        .desktop-cv-action { display: block; }
+        .mobile-cv-action { display: none; margin-top: 3rem; text-align: center; width: 100%;}
 
         .timeline-wrapper { display: flex; flex-direction: column; gap: 5rem; }
         .timeline-title {
@@ -291,7 +320,7 @@
         .timeline-role { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.2rem; }
         .timeline-meta { font-size: 0.85rem; color: var(--color-text-dim); display: block; }
         .timeline-right p { margin-bottom: 0.8rem; font-size: 1rem; line-height: 1.6; color: var(--color-text-dim); }
-        .timeline-right strong { color: var(--color-text); font-weight: 500; }
+        .timeline-right strong { color: var(--color-text); font-weight: 600; }
 
         /* --- BENTO (Projects) --- */
         .bento { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: minmax(280px, auto); gap: 1.5rem; margin-top: 3rem; }
@@ -442,8 +471,6 @@
         .footer-socials { display: flex; gap: 1.5rem; }
         .social-link { color: var(--color-text); transition: opacity 0.3s; display: flex; align-items: center; justify-content: center; }
         .social-link:hover { opacity: 0.6; }
-        
-        /* FIX: Remove explicit fill inherit to allow SVG attrs to work, increase size */
         .social-link svg { width: 22px; height: 22px; }
 
         /* Responsive */
@@ -459,27 +486,37 @@
         @media (max-width: 640px) {
             .navbar { padding: 1.5rem 5%; }
             .navbar__links { display: none; }
+            .desktop-only { display: none !important; }
+            /* Hamburger logic */
+            .hamburger { display: block; margin-right: 1rem; }
+            
+            /* FIX: Show mobile menu only when active via JS class */
+            .mobile-menu { 
+                display: flex; 
+                position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+                background: var(--color-bg);
+                flex-direction: column; justify-content: center; align-items: center;
+                gap: 2rem; z-index: 1000;
+                opacity: 0; pointer-events: none;
+                transition: opacity 0.3s ease;
+            }
+            .mobile-menu.active { opacity: 1; pointer-events: all; }
+            
             .navbar__left { gap: 0; }
-            
-            /* Reduce section padding for harmony */
-            section { padding: 6rem var(--container-padding) 4rem; }
-            .headline { font-size: clamp(2.5rem, 10vw, 4rem); } /* Less huge on mobile */
-            
-            .hero-actions { flex-direction: column; align-items: flex-start; gap: 1rem; }
-            
             .bento { grid-template-columns: 1fr; }
             .bento__card { grid-column: span 1 !important; grid-row: span 1 !important; }
-            
-            /* About Section Harmony */
+            .headline { font-size: 4rem; }
+            .hero-actions { flex-direction: column; align-items: flex-start; gap: 1rem; }
             .profile-card { flex-direction: column; text-align: center; padding: 2rem; }
             .profile-avatar { margin: 0 auto 1rem; }
             .profile-footer { align-items: stretch; }
+            .ai-controls { justify-content: center; margin-bottom: 1rem; }
             
-            /* Hide CV button in card, show at bottom */
+            /* Mobile/Desktop button switch for About section */
             .desktop-cv-action { display: none; }
             .mobile-cv-action { display: block; }
-
-            .ai-controls { justify-content: center; margin-bottom: 1rem; }
+            
+            .timeline-wrapper { gap: 3rem; } /* Adjusted gap for mobile */
             .timeline-item { grid-template-columns: 1fr; gap: 0.5rem; }
             .timeline-meta { margin-bottom: 0.5rem; }
             
