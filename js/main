@@ -35,7 +35,7 @@
                     proj_erp_desc: "Progettazione, design-system",
                     proj_redesign_desc: "Analisi critica.",
                     proj_musee_desc: "Accessibilità.",
-                    proj_kumbu_desc: "iPad app UX research",
+                    proj_kumbu_desc: "iPad app, accessibilità, UX research",
                     erp_modal_1: "<strong>Overview:</strong> Un sistema gestionale complesso riprogettato per semplificare i flussi di lavoro di oltre 500 dipendenti. L'obiettivo era ridurre il tempo di completamento delle task del 40%.",
                     erp_modal_2: "<strong>La Sfida:</strong> L'interfaccia precedente soffriva di un debito tecnico elevato e di una scarsa architettura dell'informazione. Gli utenti perdevano tempo prezioso navigando tra decine di sottomenu non necessari.",
                     erp_modal_3: "<strong>La Soluzione:</strong> Abbiamo introdotto una dashboard modulare e un sistema di ricerca globale intelligente. Utilizzando componenti React riutilizzabili, abbiamo garantito consistenza e scalabilità futura."
