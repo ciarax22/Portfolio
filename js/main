@@ -1,7 +1,6 @@
         const Portfolio = (() => {
             
             // --- TRANSLATION DATA ---
-            let currentLang = 'it';
             
             const translations = {
                 it: {
@@ -135,7 +134,8 @@
                 }
             };
 
-            let ui = {};
+          let ui = {};
+            let currentLang = 'it'; // Default fallback
 
             const initUI = () => {
                 ui = {
@@ -156,7 +156,7 @@
                 };
             };
 
-            // --- THEME ---
+               // --- THEME ---
             const initTheme = () => {
                 const savedTheme = localStorage.getItem('theme');
                 const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -352,9 +352,28 @@
                 if (isOpen) {
                     modal.classList.add('active');
                     document.body.style.overflow = 'hidden'; 
+                    
+                    // Lazy load PDF only when CV modal is opened
+                    if (modalId === 'cv-modal') {
+                        const iframe = modal.querySelector('iframe');
+                        if (iframe && !iframe.getAttribute('src')) {
+                            // Use setTimeout to allow animation to start before heavy lifting
+                            setTimeout(() => {
+                                iframe.setAttribute('src', iframe.getAttribute('data-src'));
+                            }, 50);
+                        }
+                    }
                 } else {
                     modal.classList.remove('active');
                     document.body.style.overflow = '';
+                    
+                    // Clean up PDF src when closing to fix Safari hijacking issue
+                    if (modalId === 'cv-modal') {
+                        const iframe = modal.querySelector('iframe');
+                        if (iframe) {
+                            iframe.setAttribute('src', '');
+                        }
+                    }
                 }
             };
 

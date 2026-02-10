@@ -155,7 +155,7 @@
         .theme-toggle:hover { opacity: 1; }
         .theme-icon { width: 20px; height: 20px; fill: currentColor; }
 
-        /* Mobile Menu - Hidden on Desktop by default */
+     /* Mobile Menu - Hidden on Desktop by default */
         .hamburger {
             display: none;
             background: none; border: none; cursor: pointer;
@@ -300,8 +300,16 @@
         }
         .btn-cv-full:hover { opacity: 0.8; }
 
+
+        /* Logic for mobile/desktop button visibility */
         .desktop-cv-action { display: block; }
-        .mobile-cv-action { display: none; margin-top: 3rem; text-align: center; width: 100%;}
+        /* Mobile action hidden by default on desktop */
+        .mobile-cv-action { 
+            display: none; 
+            margin-top: 3rem; 
+            text-align: center; 
+            width: 100%;
+        }
 
         .timeline-wrapper { display: flex; flex-direction: column; gap: 5rem; }
         .timeline-title {
@@ -456,8 +464,7 @@
         .project-modal-title { font-size: 2.5rem; margin-bottom: 1rem; }
         .project-modal-meta { color: var(--color-text-dim); margin-bottom: 2rem; font-size: 1rem; display: block; }
         .project-modal-text { font-size: 1.1rem; line-height: 1.7; color: var(--color-text-dim); margin-bottom: 1.5rem; }
-
-        /* --- FOOTER --- */
+      /* --- FOOTER --- */
         .site-footer {
             padding: 5rem var(--container-padding);
             border-top: 1px solid var(--color-border);
@@ -512,11 +519,9 @@
             .profile-footer { align-items: stretch; }
             .ai-controls { justify-content: center; margin-bottom: 1rem; }
             
-            /* Mobile/Desktop button switch for About section */
             .desktop-cv-action { display: none; }
             .mobile-cv-action { display: block; }
             
-            .timeline-wrapper { gap: 3rem; } /* Adjusted gap for mobile */
             .timeline-item { grid-template-columns: 1fr; gap: 0.5rem; }
             .timeline-meta { margin-bottom: 0.5rem; }
             
