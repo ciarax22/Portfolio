@@ -181,15 +181,24 @@
                 <!-- Card 1: ERP (Opens Project Modal) -->
                 <div class="bento__card bento__card--large bento__card--has-image" onclick="Portfolio.toggleModal('erp-modal')">
                     <div class="bento__img-container">
-                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" alt="MetaOS Project" class="bento__img">
+                        <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?q=80&w=1112&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="MetaOS Project" class="bento__img">
                     </div>
                     <button class="expand-btn" onclick="event.stopPropagation(); Portfolio.expandConcept(this.parentElement, 'ERP', '')" data-i18n="btn_resume">Resume</button>
                     <div class="bento__content">
-                        <h3 class="bento__title">ERP</h3>
-                        <p class="bento__desc" data-i18n="proj_erp_desc">Progettazione, design-system</p>
+                        <h3 class="bento__title">B2B Order Management System (Settore Retail/Moda)</h3>
+                        <p class="bento__desc" data-i18n="proj_erp_desc"></p>
                     </div>
                 </div>
-                
+                            <div class="bento__card bento__card--large bento__card--has-image" onclick="Portfolio.toggleModal('erp-modal')">
+                    <div class="bento__img-container">
+                        <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?q=80&w=1112&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="MetaOS Project" class="bento__img">
+                    </div>
+                    <button class="expand-btn" onclick="event.stopPropagation(); Portfolio.expandConcept(this.parentElement, 'ERP', '')" data-i18n="btn_resume">Resume</button>
+                    <div class="bento__content">
+                        <h3 class="bento__title">Manufacturing Management Software (Settore Industriale)</h3>
+                        <p class="bento__desc" data-i18n="proj_erp_desc"></p>
+                    </div>
+                </div>
                 <!-- Card 2: Redesign (Opens External Link + Has Image) -->
                 <div class="bento__card bento__card--has-image" onclick="Portfolio.openLink('https://medium.com/@ciarax22/turkish-airlines-ui-ux-analysis-and-solutions-redesign-6b80de81f49a')">
                     <div class="bento__img-container">
@@ -260,18 +269,32 @@
             <button class="modal-close" onclick="Portfolio.toggleModal('erp-modal', false)">✕</button>
             <div class="modal-body">
                 <div class="project-modal-content">
-                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" alt="ERP Dashboard" class="project-modal-hero">
-                    <h2 class="project-modal-title">ERP Dashboard System</h2>
-                    <span class="project-modal-meta">Product Design • 2024</span>
-                    
+                    <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?q=80&w=1112&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="ERP Dashboard" class="project-modal-hero">
+                    <h2 class="project-modal-title">B2B Order Management System (Settore Retail/Moda)</h2>
+                    <span class="project-modal-meta">Product Design • 2025 -</span>        
                     <p class="project-modal-text" data-i18n="erp_modal_1">
-                        <strong>Overview:</strong> Un sistema gestionale complesso riprogettato per semplificare i flussi di lavoro di oltre 500 dipendenti. L'obiettivo era ridurre il tempo di completamento delle task del 40%.
-                    </p>
+               </p>
+                    <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?q=80&w=1112&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="ERP Dashboard" class="project-modal-hero">
                     <p class="project-modal-text" data-i18n="erp_modal_2">
-                        <strong>La Sfida:</strong> L'interfaccia precedente soffriva di un debito tecnico elevato e di una scarsa architettura dell'informazione. Gli utenti perdevano tempo prezioso navigando tra decine di sottomenu non necessari.
                     </p>
-                    <p class="project-modal-text" data-i18n="erp_modal_3">
-                        <strong>La Soluzione:</strong> Abbiamo introdotto una dashboard modulare e un sistema di ricerca globale intelligente. Utilizzando componenti React riutilizzabili, abbiamo garantito consistenza e scalabilità futura.
+                  <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?q=80&w=1112&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="ERP Dashboard" class="project-modal-hero">
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div id="erp-modal" class="modal-backdrop" onclick="Portfolio.toggleModal('erp-modal', false)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="Portfolio.toggleModal('erp-modal', false)">✕</button>
+            <div class="modal-body">
+                <div class="project-modal-content">
+                    <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?q=80&w=1112&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="ERP Dashboard" class="project-modal-hero">
+                    <h2 class="project-modal-title">Manufacturing Management Software (Settore Industriale)</h2>
+                    <span class="project-modal-meta">Product Design, Ricerca • 2025 -</span>        
+                    <p class="project-modal-text" data-i18n="erp_modal_B1"> </p>
+                    <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?q=80&w=1112&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="ERP Dashboard" class="project-modal-hero">
+                    <p class="project-modal-text" data-i18n="erp_modal_B2"></p>
+                  <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?q=80&w=1112&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="ERP Dashboard" class="project-modal-hero">
                     </p>
                 </div>
             </div>

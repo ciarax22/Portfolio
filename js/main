@@ -31,13 +31,24 @@
                     edu_3_desc: "UX/UI Designer - Sviluppo di progetti in partnership esterne tramite <strong>metodologia Agile (Scrum)</strong>. Focus sulla progettazione di interfacce e user experience <strong>accessibili</strong> in un contesto di lavoro aziendale strutturato.",
                     section_work: "Work.",
                     btn_resume: "Resume",
-                    proj_erp_desc: "Progettazione, design-system",
+                    proj_erp_desc: "Product Design, Design System, Ricerca",
                     proj_redesign_desc: "Analisi critica.",
                     proj_musee_desc: "Accessibilità.",
                     proj_kumbu_desc: "iPad app, accessibilità, UX research",
-                    erp_modal_1: "<strong>Overview:</strong> Un sistema gestionale complesso riprogettato per semplificare i flussi di lavoro di oltre 500 dipendenti. L'obiettivo era ridurre il tempo di completamento delle task del 40%.",
-                    erp_modal_2: "<strong>La Sfida:</strong> L'interfaccia precedente soffriva di un debito tecnico elevato e di una scarsa architettura dell'informazione. Gli utenti perdevano tempo prezioso navigando tra decine di sottomenu non necessari.",
-                    erp_modal_3: "<strong>La Soluzione:</strong> Abbiamo introdotto una dashboard modulare e un sistema di ricerca globale intelligente. Utilizzando componenti React riutilizzabili, abbiamo garantito consistenza e scalabilità futura."
+                    erp_modal_1: "<strong>Overview:</strong> Ho guidato l'evoluzione di un semplice tool di monitoraggio quantitativo in una piattaforma completa per la gestione degli ordini B2B. Lavorando a stretto contatto con il cliente, ho dato ordine all'entusiamo individuando il bisogno di nuove utenze e progettando da zero feature potenzialmente insidiose.",
+                    erp_modal_2: `
+                    <strong>Il mio contributo::</strong> <br>
+                        - Progettazione dei flussi di creazione e assegnazione cataloghi personalizzati. <br>
+                        - Ideazione di una dashboard per i rappresentanti per la gestione degli ordini in mobilità. <br>
+                        - Risoluzione di un problema di visibilità dell'inventario per i produttori, introducendo due stati di disponibilità (reale e virtuale).<br>
+                        - Realizzazione di wireframe, prototipi e documentazione per l'hand-off al team di sviluppo.`,
+                    erp_modal_3: "<strong>La Soluzione:</strong> Abbiamo introdotto una dashboard modulare e un sistema di ricerca globale intelligente. Utilizzando componenti React riutilizzabili, abbiamo garantito consistenza e scalabilità futura.",
+                    erp_modal_B1: "<strong>Overview:</strong> Ricerca e progettazione UX/UI per un nuovo software gestionale destinato al tracciamento della lavorazione dei materiali e all'archiviazione documentale.",
+                    erp_modal_B2:`<strong>Il mio contributo::</strong> <br>
+                        - Condotto ricerca sul campo tramite interviste dirette con gli operatori di fabbrica per mappare l'as-is e definire la user journey per 3 diversi ruoli utente. <br>
+                        - Tradotto rigidi vincoli legali e di conformità (documentazione obbligatoria) in step chiari e non bloccanti all'interno dell'interfaccia. <br>
+                        - Progettato l'intera architettura dell'informazione e i wireframe, fino alla consegna UI.<br>
+                        - Costruito un Design System scalabile e documentato da zero, per agevolare lo sviluppo iterativo futuro.`
                 },
                 en: {
                     nav_home: "Home",
@@ -67,7 +78,7 @@
                     edu_3_desc: "UX/UI Designer - Development of projects in external partnerships using <strong>Agile methodology (Scrum)</strong>. Focus on designing <strong>accessible</strong> interfaces and user experiences in a structured corporate work context.",
                     section_work: "Work.",
                     btn_resume: "Resume",
-                    proj_erp_desc: "Design, design-system",
+                    proj_erp_desc: "Design, design-system, research",
                     proj_redesign_desc: "Critical analysis.",
                     proj_musee_desc: "Accessibility.",
                     proj_kumbu_desc: "iPad app UX research",
@@ -113,6 +124,26 @@
                 }
             };
 
+            const bioVariations = {
+                it: {
+                    'original': "Sono un UX/UI Designer laureato in Culture Digitali e della Comunicazione, con formazione presso la Apple Developer Academy. Nel mio lavoro mi occupo di progettare interfacce ed esperienze digitali partendo dalle persone e dai loro processi, con l’idea che il design sia prima di tutto comunicazione, non semplice estetica.",
+                    // 'analytical': "Profilo ibrido Design/Dev...",
+                    // 'story': "Progetto ponti tra persone...",
+                    'tldr': "UX/UI Designer. Focus: Design Systems & Prototyping. Esperienza Apple Developer Academy. Risolvo problemi complessi con soluzioni pulite."
+                },
+                en: {
+                    'original': "UX Designer with a background in Digital Cultures. I believe design is not just aesthetics, but communication. I leverage my experience at the Apple Developer Academy to bridge the gap between human needs and technological constraints.",
+                    // 'analytical': "Hybrid Design/Dev...",
+                    // 'story': "I design bridges...",
+                    'tldr': "UX/UI Designer. Focus: Design Systems & Prototyping. Apple Developer Academy Alumni. Solving complex problems with clean solutions."
+                },
+                es: {
+                    'original': "Diseñador UX con experiencia en Culturas Digitales. Creo que el diseño no es solo estética, sino comunicación. Aprovecho mi experiencia en la Apple Developer Academy para cerrar la brecha entre las necesidades humanas y las limitaciones tecnológicas.",
+                    // 'analytical': "Perfil híbrido...",
+                    // 'story': "Diseño puentes...",
+                    'tldr': "Diseñador UX/UI. Enfoque: Sistemas de Diseño y Prototipado. Exalumno Apple Developer Academy. Resuelvo problemas complejos con soluciones limpias."
+                }
+            };
             const projectInsights = {
                 it: {
                     'ERP': "Tech: React, GraphQL. Focus: Dashboarding per big data e riduzione del carico cognitivo in workflow complessi.",
