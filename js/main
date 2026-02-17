@@ -1,13 +1,35 @@
-        const Portfolio = (() => {
-            
+    const Portfolio= (() => {
+            // --- DATA SOURCE (Refactored) ---
+            const projectsData = {
+                'erp-retail': {
+                    title: "B2B Order Management System (Settore Retail/Moda)",
+                    meta: "Product Design • 2025 -",
+                    images: [
+                        "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop", // Immagine Hero (già presente)
+                        "assets/erp-retail-screen-1.png", // <-- INSERISCI QUI IL NOME DEL TUO FILE (es. 'assets/dashboard-1.jpg')
+                        "assets/erp-retail-screen-2.png"  // <-- INSERISCI QUI IL NOME DEL TUO FILE
+                    ],
+                    contentKeys: ['erp_modal_1', 'erp_modal_2'] 
+                },
+                'erp-industrial': {
+                    title: "Manufacturing Management Software (Settore Industriale)",
+                    meta: "Product Design, Ricerca • 2025 -",
+                    images: [
+                        "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop", // Immagine Hero
+                        "assets/erp-industrial-screen-1.png", // <-- INSERISCI QUI IL NOME DEL TUO FILE
+                        "assets/erp-industrial-screen-2.png"  // <-- INSERISCI QUI IL NOME DEL TUO FILE
+                    ],
+                    contentKeys: ['erp_modal_B1', 'erp_modal_B2']
+                }
+            };
+
             // --- TRANSLATION DATA ---
-            
             const translations = {
                 it: {
                     nav_home: "Home",
                     nav_about: "About",
                     nav_projects: "Projects",
-                    hero_headline: "E mo qua che ci metto?",
+                    hero_headline: "E mo qua che ci metto?.",
                     btn_talk: "Let's Talk",
                     btn_resume_preview: "Anteprima CV",
                     profile_bio: "Sono un UX/UI Designer laureato in Culture Digitali e della Comunicazione, con formazione presso la Apple Developer Academy. Nel mio lavoro mi occupo di progettare interfacce ed esperienze digitali partendo dalle persone e dai processi, con l’idea che il design sia prima di tutto comunicazione, non semplice estetica.",
@@ -42,13 +64,15 @@
                         - Ideazione di una dashboard per i rappresentanti per la gestione degli ordini in mobilità. <br>
                         - Risoluzione di un problema di visibilità dell'inventario per i produttori, introducendo due stati di disponibilità (reale e virtuale).<br>
                         - Realizzazione di wireframe, prototipi e documentazione per l'hand-off al team di sviluppo.`,
-                    erp_modal_3: "<strong>La Soluzione:</strong> Abbiamo introdotto una dashboard modulare e un sistema di ricerca globale intelligente. Utilizzando componenti React riutilizzabili, abbiamo garantito consistenza e scalabilità futura.",
                     erp_modal_B1: "<strong>Overview:</strong> Ricerca e progettazione UX/UI per un nuovo software gestionale destinato al tracciamento della lavorazione dei materiali e all'archiviazione documentale.",
                     erp_modal_B2:`<strong>Il mio contributo::</strong> <br>
                         - Condotto ricerca sul campo tramite interviste dirette con gli operatori di fabbrica per mappare l'as-is e definire la user journey per 3 diversi ruoli utente. <br>
                         - Tradotto rigidi vincoli legali e di conformità (documentazione obbligatoria) in step chiari e non bloccanti all'interno dell'interfaccia. <br>
                         - Progettato l'intera architettura dell'informazione e i wireframe, fino alla consegna UI.<br>
-                        - Costruito un Design System scalabile e documentato da zero, per agevolare lo sviluppo iterativo futuro.`
+                        - Costruito un Design System scalabile e documentato da zero, per agevolare lo sviluppo iterativo futuro.`,
+                    bento_full_title: "Questo portfolio",
+                    bento_full_desc: "Design e sviluppo creati con il supporto di AI generativa",
+                    bento_full_label: "Sperimentale"
                 },
                 en: {
                     nav_home: "Home",
@@ -84,7 +108,15 @@
                     proj_kumbu_desc: "iPad app UX research",
                     erp_modal_1: "<strong>Overview:</strong> A complex management system redesigned to simplify workflows for over 500 employees. The goal was to reduce task completion time by 40%.",
                     erp_modal_2: "<strong>The Challenge:</strong> The previous interface suffered from high technical debt and poor information architecture. Users wasted valuable time navigating through dozens of unnecessary submenus.",
-                    erp_modal_3: "<strong>The Solution:</strong> We introduced a modular dashboard and an intelligent global search system. Using reusable React components, we ensured consistency and future scalability."
+                    erp_modal_B1: "<strong>Overview:</strong> UX/UI research and design for a new management software aimed at tracking material processing and document archiving.",
+                    erp_modal_B2: `<strong>My Contribution:</strong> <br>
+                        - Conducted field research via direct interviews with factory operators to map the as-is and define user journeys for 3 different roles. <br>
+                        - Translated rigid legal and compliance constraints (mandatory documentation) into clear, non-blocking steps within the interface. <br>
+                        - Designed the entire information architecture and wireframes, up to UI delivery. <br>
+                        - Built a scalable and documented Design System from scratch to facilitate future iterative development.`,
+                    bento_full_title: "This portfolio",
+                    bento_full_desc: "Design and development created with generative AI support",
+                    bento_full_label: "Experimental"
                 },
                 es: {
                     nav_home: "Inicio",
@@ -98,6 +130,8 @@
                     timeline_exp_title: "Experiencia",
                     role_1_strong_1: "Traducción de requisitos complejos",
                     role_1_desc_1: "Transformo datos técnicos y requisitos comerciales en interfaces de usuario claras y accesibles.",
+                    role_1_strong_2: "Mantenimiento del Sistema de Diseño",
+                    role_1_desc_2: "Gestiono y evoluciono la biblioteca de componentes UI para garantizar la coherencia visual y acelerar el desarrollo.",
                     role_1_strong_2: "Mantenimiento del Sistema de Diseño",
                     role_1_desc_2: "Gestiono y evoluciono la biblioteca de componentes UI para garantizar la coherencia visual y acelerar el desarrollo.",
                     role_1_strong_3: "Colaboración Multifuncional",
@@ -120,27 +154,29 @@
                     proj_kumbu_desc: "Investigación UX app iPad",
                     erp_modal_1: "<strong>Visión general:</strong> Un sistema de gestión complejo rediseñado para simplificar los flujos de trabajo de más de 500 empleados. El objetivo era reducir el tiempo de finalización de tareas en un 40%.",
                     erp_modal_2: "<strong>El Desafío:</strong> La interfaz anterior sufría de una alta deuda técnica y una mala arquitectura de la información. Los usuarios perdían tiempo valioso navegando a través de docenas de submenús innecesarios.",
-                    erp_modal_3: "<strong>La Solución:</strong> Introdujimos un panel modular y un sistema de búsqueda global inteligente. Utilizando componentes React reutilizables, garantizamos consistencia y escalabilidad futura."
+                    erp_modal_B1: "<strong>Visión general:</strong> Investigación y diseño UX/UI para un nuevo software de gestión destinado al seguimiento del procesamiento de materiales y archivo documental.",
+                    erp_modal_B2: `<strong>Mi Contribución:</strong> <br>
+                        - Realicé investigación de campo mediante entrevistas directas con operarios de fábrica para mapear la situación actual y definir los viajes de usuario para 3 roles diferentes. <br>
+                        - Traduje rígidas restricciones legales y de cumplimiento (documentación obligatoria) en pasos claros y no bloqueantes dentro de la interfaz. <br>
+                        - Diseñé toda la arquitectura de la información y wireframes, hasta la entrega de UI. <br>
+                        - Construí un Sistema de Diseño escalable y documentado desde cero para facilitar el desarrollo iterativo futuro.`,
+                    bento_full_title: "Este portafolio",
+                    bento_full_desc: "Diseño y desarrollo creados con el apoyo de IA generativa",
+                    bento_full_label: "Experimental"
                 }
             };
 
             const bioVariations = {
                 it: {
                     'original': "Sono un UX/UI Designer laureato in Culture Digitali e della Comunicazione, con formazione presso la Apple Developer Academy. Nel mio lavoro mi occupo di progettare interfacce ed esperienze digitali partendo dalle persone e dai loro processi, con l’idea che il design sia prima di tutto comunicazione, non semplice estetica.",
-                    // 'analytical': "Profilo ibrido Design/Dev...",
-                    // 'story': "Progetto ponti tra persone...",
                     'tldr': "UX/UI Designer. Focus: Design Systems & Prototyping. Esperienza Apple Developer Academy. Risolvo problemi complessi con soluzioni pulite."
                 },
                 en: {
                     'original': "UX Designer with a background in Digital Cultures. I believe design is not just aesthetics, but communication. I leverage my experience at the Apple Developer Academy to bridge the gap between human needs and technological constraints.",
-                    // 'analytical': "Hybrid Design/Dev...",
-                    // 'story': "I design bridges...",
                     'tldr': "UX/UI Designer. Focus: Design Systems & Prototyping. Apple Developer Academy Alumni. Solving complex problems with clean solutions."
                 },
                 es: {
                     'original': "Diseñador UX con experiencia en Culturas Digitales. Creo que el diseño no es solo estética, sino comunicación. Aprovecho mi experiencia en la Apple Developer Academy para cerrar la brecha entre las necesidades humanas y las limitaciones tecnológicas.",
-                    // 'analytical': "Perfil híbrido...",
-                    // 'story': "Diseño puentes...",
                     'tldr': "Diseñador UX/UI. Enfoque: Sistemas de Diseño y Prototipado. Exalumno Apple Developer Academy. Resuelvo problemas complejos con soluciones limpias."
                 }
             };
@@ -376,6 +412,42 @@
             };
 
             // --- MODAL & LINK LOGIC ---
+            
+            // New Function: Dynamically Inject Content based on Project ID
+            const openProjectModal = (projectId) => {
+                const data = projectsData[projectId];
+                if (!data) return;
+
+                const injectionPoint = document.getElementById('project-modal-injection-point');
+                if (!injectionPoint) return;
+
+                // Build HTML string
+                let html = `
+                    <img src="${data.images[0]}" alt="${data.title}" class="project-modal-hero">
+                    <h2 class="project-modal-title">${data.title}</h2>
+                    <span class="project-modal-meta">${data.meta}</span>
+                `;
+
+                // Loop through content keys and images interleaved (simple logic for now)
+                data.contentKeys.forEach((key, index) => {
+                    // Inject Text (translated)
+                    // We grab directly from current lang translations to support dynamic language switching?
+                    // NOTE: This grabs the text at the moment of opening. If user changes lang while modal is open, 
+                    // it won't update unless we re-render or use data attributes.
+                    // For simplicity, we assume re-render on open.
+                    const text = translations[currentLang][key] || "Translation missing";
+                    html += `<p class="project-modal-text">${text}</p>`;
+
+                    // Inject Image if available (next in array)
+                    if (data.images[index + 1]) {
+                        html += `<img src="${data.images[index + 1]}" alt="Project detail" class="project-modal-hero">`;
+                    }
+                });
+
+                injectionPoint.innerHTML = html;
+                toggleModal('project-modal', true);
+            };
+
             const toggleModal = (modalId, isOpen = true) => {
                 const modal = document.getElementById(modalId);
                 if (!modal) return;
@@ -430,6 +502,7 @@
                 remixBio,
                 expandConcept,
                 toggleModal,
+                openProjectModal, // Exposed
                 openLink,
                 setLanguage,
                 toggleLangMenu,

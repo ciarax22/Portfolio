@@ -1,5 +1,4 @@
-        /* --- DESIGN TOKENS --- */
-        :root {
+:root {
             --color-bg: #fcfcfc;
             --color-surface: #ffffff;
             --color-text: #111111;
@@ -351,9 +350,102 @@
         .bento__card--wide  { grid-column: span 2; }
         .bento__card--tall  { grid-row: span 2; }
 
+        /* --- NEW FANCY FULL CARD --- */
+        .bento__card--full { 
+            grid-column: 1 / -1; /* Spans all columns */
+            min-height: 240px;
+            justify-content: center;
+            align-items: flex-start;
+            flex-direction: column;
+        }
+
+        .fancy-bg-wrapper {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .fancy-image {
+            position: absolute;
+            right: -10%; /* Offset to make it look organic */
+            top: 0; bottom: 0;
+            width: 70%; 
+            /* REPLACED IMAGE URL WITH PURE CSS GRADIENTS */
+            background-image: 
+                radial-gradient(circle at 70% 30%, #3DC5FF 0%, transparent 50%),
+                radial-gradient(circle at 30% 70%, #8A38F5 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, #3D6AFF 0%, transparent 60%);
+            background-size: 100% 100%;
+            /* THE MASK:
+               To achieve "opacity 100% to 4%" while keeping text on the left readable:
+               We use a mask that is OPAQUE (black) on the right (where the image is)
+               and TRANSPARENT (alpha near 0) on the left (where the text is).
+            */
+            mask-image: linear-gradient(to left, black 20%, rgba(0,0,0,0.04) 100%);
+            -webkit-mask-image: linear-gradient(to left, black 20%, rgba(0,0,0,0.04) 100%);
+            z-index: 0;
+            opacity: 0.8;
+            transition: transform 1s ease, opacity 0.5s ease;
+        }
+        
+        .bento__card--full:hover .fancy-image {
+            transform: scale(1.05) rotate(2deg); /* Added subtle rotation */
+            opacity: 1;
+        }
+
+        /* --- FANCY STAR ICON --- */
+        .bento__star-icon {
+            position: absolute;
+            right: 2.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            /* Glassmorphism base */
+            background: rgba(255, 255, 255, 0.1); 
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            /* The REQUESTED border radius applied to the container */
+            border-radius: 4px;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            z-index: 5;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        [data-theme="dark"] .bento__star-icon {
+            background: rgba(0, 0, 0, 0.2); 
+            border-color: rgba(255, 255, 255, 0.1);
+            color: #8a62d3;
+        }
+
+        .bento__card--full:hover .bento__star-icon {
+            transform: translateY(-50%) scale(1.1) rotate(5deg);
+        }
+
         .bento__content { z-index: 2; position: relative; }
         .bento__title { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.5rem; letter-spacing: -0.03em; }
         .bento__desc { font-size: 1rem; opacity: 0.8; }
+        
+        /* New styling for the small label in full card */
+        .bento__label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-accent);
+            margin-bottom: 0.8rem;
+            display: block;
+            font-weight: 700;
+        }
+        [data-theme="dark"] .bento__label { color: #8a62d3; }
 
         .bento__ai-result { font-size: 0.85rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.2); opacity: 0; transform: translateY(10px); animation: fadeInMove 0.5s ease forwards; }
         .bento__card:not(.bento__card--has-image) .bento__ai-result { border-top-color: rgba(0,0,0,0.1); }
@@ -489,6 +581,7 @@
             .btn-cv-full { width: auto; }
             .bento { grid-template-columns: repeat(2, 1fr); }
             .bento__card--large, .bento__card--wide { grid-column: span 2; }
+            .bento__card--full { grid-column: 1 / -1; }
         }
         @media (max-width: 640px) {
             .navbar { padding: 1.5rem 5%; }

@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <div class="bg-canvas">
+ <div class="bg-canvas">
         <div id="sphere-wrapper" class="sphere-wrapper">
             <div class="gradient-sphere"></div>
         </div>
@@ -71,7 +71,7 @@
 
     <main>
         <section id="landing">
-            <h1 class="headline" data-i18n="hero_headline">E mo qua che ci metto?.</h1>
+            <h1 class="headline" data-i18n="hero_headline">E mo qua che ci metto?</h1>
             
             <!-- HERO ACTIONS -->
             <div class="hero-actions">
@@ -178,8 +178,8 @@
         <section id="projects">
             <h2 class="cv-item__label" style="margin-bottom: 2rem; color: var(--color-text)" data-i18n="section_work">Work.</h2>
             <div class="bento">
-                <!-- Card 1: ERP (Opens Project Modal) -->
-                <div class="bento__card bento__card--large bento__card--has-image" onclick="Portfolio.toggleModal('erp-modal')">
+                <!-- Card 1: ERP -->
+                <div class="bento__card bento__card--large bento__card--has-image" onclick="Portfolio.openProjectModal('erp-retail')">
                     <div class="bento__img-container">
                         <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?q=80&w=1112&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="MetaOS Project" class="bento__img">
                     </div>
@@ -189,9 +189,10 @@
                         <p class="bento__desc" data-i18n="proj_erp_desc"></p>
                     </div>
                 </div>
-                            <div class="bento__card bento__card--large bento__card--has-image" onclick="Portfolio.toggleModal('erp-modal')">
+                <!-- Card 2: Industrial ERP -->
+                <div class="bento__card bento__card--large bento__card--has-image" onclick="Portfolio.openProjectModal('erp-industrial')">
                     <div class="bento__img-container">
-                        <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?q=80&w=1112&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="MetaOS Project" class="bento__img">
+                        <img src="https://images.unsplash.com/photo-1721622045835-51a5447f281c?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="MetaOS Project" class="bento__img">
                     </div>
                     <button class="expand-btn" onclick="event.stopPropagation(); Portfolio.expandConcept(this.parentElement, 'ERP', '')" data-i18n="btn_resume">Resume</button>
                     <div class="bento__content">
@@ -199,7 +200,30 @@
                         <p class="bento__desc" data-i18n="proj_erp_desc"></p>
                     </div>
                 </div>
-                <!-- Card 2: Redesign (Opens External Link + Has Image) -->
+
+                <!-- Card NEW: Fancy Full Width -->
+                <div class="bento__card bento__card--full" onclick="Portfolio.openLink('#contact-or-somewhere')">
+                    <div class="fancy-bg-wrapper">
+                        <div class="fancy-image"></div>
+                    </div>
+                    
+                    <!-- NEW FANCY STAR ICON CONTAINER -->
+                    <div class="bento__star-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                            <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z"/>
+                        </svg>
+                    </div>
+
+                    <div class="bento__content" style="max-width: 400px; padding-right: 2rem;">
+                         <span class="bento__label" data-i18n="bento_full_label">SPERIMENTALE</span>
+                         <h3 class="bento__title" data-i18n="bento_full_title">Questo portfolio</h3>
+                         <p class="bento__desc" style="opacity: 0.9;" data-i18n="bento_full_desc">
+                             Design e sviluppo creati con il supporto di AI generativa
+                         </p>
+                    </div>
+                </div>
+
+                <!-- Card 3: Redesign -->
                 <div class="bento__card bento__card--has-image" onclick="Portfolio.openLink('https://medium.com/@ciarax22/turkish-airlines-ui-ux-analysis-and-solutions-redesign-6b80de81f49a')">
                     <div class="bento__img-container">
                         <img src="https://miro.medium.com/v2/resize:fit:4800/format:webp/1*YyRW-dRKLMiyn5vPp4iE7g.png" alt="Redesign UI" class="bento__img">
@@ -212,7 +236,7 @@
                     </div>
                 </div>
 
-                <!-- Card 3: Musée (Opens External Link + Has Image) -->
+                <!-- Card 4: Musée -->
                 <div class="bento__card bento__card--has-image" onclick="Portfolio.openLink('https://www.behance.net/gallery/200933677/Muse-App-Project')">
                     <div class="bento__img-container">
                         <img src="https://images.unsplash.com/photo-1545989253-02cc26577f88?q=80&w=2070&auto=format&fit=crop" alt="Museum Art" class="bento__img">
@@ -226,10 +250,11 @@
                     </div>
                 </div>
 
-                <!-- Card 4: Kumbu (Opens External Link) -->
+                <!-- Card 5: Kumbu -->
                 <div class="bento__card bento__card--wide bento__card--has-image" onclick="Portfolio.openLink('https://www.behance.net/gallery/231135391/Kumbu-App-showcase')">
                     <div class="bento__img-container">
-                        <img src="assets/cover-kumb.png" alt="Copertina Kumbu" class="bento__img">
+                        <!-- Use placeholder fallback if asset fails -->
+                        <img src="assets/cover-kumb.png" onerror="this.src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop'" alt="Copertina Kumbu" class="bento__img">
                     </div>
                     <svg class="external-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
 
@@ -262,40 +287,14 @@
             </div>
         </div>
     </div>
-    </div>
-    <!-- MODAL 2: ERP PROJECT -->
-    <div id="erp-modal" class="modal-backdrop" onclick="Portfolio.toggleModal('erp-modal', false)">
+    
+    <!-- GENERIC PROJECT MODAL (Dynamic Injection) -->
+    <div id="project-modal" class="modal-backdrop" onclick="Portfolio.toggleModal('project-modal', false)">
         <div class="modal-content" onclick="event.stopPropagation()">
-            <button class="modal-close" onclick="Portfolio.toggleModal('erp-modal', false)">✕</button>
+            <button class="modal-close" onclick="Portfolio.toggleModal('project-modal', false)">✕</button>
             <div class="modal-body">
-                <div class="project-modal-content">
-                    <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?q=80&w=1112&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="ERP Dashboard" class="project-modal-hero">
-                    <h2 class="project-modal-title">B2B Order Management System (Settore Retail/Moda)</h2>
-                    <span class="project-modal-meta">Product Design • 2025 -</span>        
-                    <p class="project-modal-text" data-i18n="erp_modal_1">
-               </p>
-                    <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?q=80&w=1112&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="ERP Dashboard" class="project-modal-hero">
-                    <p class="project-modal-text" data-i18n="erp_modal_2">
-                    </p>
-                  <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?q=80&w=1112&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="ERP Dashboard" class="project-modal-hero">
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-        <div id="erp-modal" class="modal-backdrop" onclick="Portfolio.toggleModal('erp-modal', false)">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <button class="modal-close" onclick="Portfolio.toggleModal('erp-modal', false)">✕</button>
-            <div class="modal-body">
-                <div class="project-modal-content">
-                    <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?q=80&w=1112&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="ERP Dashboard" class="project-modal-hero">
-                    <h2 class="project-modal-title">Manufacturing Management Software (Settore Industriale)</h2>
-                    <span class="project-modal-meta">Product Design, Ricerca • 2025 -</span>        
-                    <p class="project-modal-text" data-i18n="erp_modal_B1"> </p>
-                    <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?q=80&w=1112&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="ERP Dashboard" class="project-modal-hero">
-                    <p class="project-modal-text" data-i18n="erp_modal_B2"></p>
-                  <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?q=80&w=1112&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="ERP Dashboard" class="project-modal-hero">
-                    </p>
+                <div class="project-modal-content" id="project-modal-injection-point">
+                    <!-- CONTENT INJECTED VIA JS -->
                 </div>
             </div>
         </div>
@@ -314,7 +313,9 @@
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
             </a>
         </div>
- <script src="js/main"> </script>
- </body>
- </html>
+            </footer>
+        <script src="/js/main"></script>
+
+    </body>
+</html>
  
