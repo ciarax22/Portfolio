@@ -13,7 +13,7 @@
 </head>
 
 <body>
- <div class="bg-canvas">
+    <div class="bg-canvas">
         <div id="sphere-wrapper" class="sphere-wrapper">
             <div class="gradient-sphere"></div>
         </div>
@@ -30,8 +30,8 @@
         </div>
 
         <div class="navbar__actions">
-            <!-- Desktop Lang Dropdown (Hidden on Mobile) -->
-            <div class="lang-dropdown desktop-only" id="lang-dropdown">
+            <!-- Language Dropdown -->
+            <div class="lang-dropdown" id="lang-dropdown">
                 <button class="lang-trigger" onclick="Portfolio.toggleLangMenu()">
                     <span id="current-lang-label">🇮🇹 IT</span>
                     <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1L5 5L9 1"/></svg>
@@ -52,11 +52,21 @@
                     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2" fill="none"/>
                 </svg>
             </button>
+
+            <!-- Hamburger Button -->
+            <button class="hamburger" onclick="Portfolio.toggleMobileMenu()" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
     <!-- MOBILE MENU OVERLAY -->
     <div class="mobile-menu" id="mobile-menu">
+        <!-- Close Button -->
+        <button class="mobile-menu-close" onclick="Portfolio.toggleMobileMenu()" aria-label="Close Menu">✕</button>
+
         <a href="#landing" class="mobile-menu-link" onclick="Portfolio.toggleMobileMenu()" data-i18n="nav_home">Home</a>
         <a href="#about" class="mobile-menu-link" onclick="Portfolio.toggleMobileMenu()" data-i18n="nav_about">About</a>
         <a href="#projects" class="mobile-menu-link" onclick="Portfolio.toggleMobileMenu()" data-i18n="nav_projects">Projects</a>
@@ -71,7 +81,7 @@
 
     <main>
         <section id="landing">
-            <h1 class="headline" data-i18n="hero_headline">E mo qua che ci metto?</h1>
+            <h1 class="headline" data-i18n="hero_headline">E mo qua che ci metto?.</h1>
             
             <!-- HERO ACTIONS -->
             <div class="hero-actions">
@@ -181,7 +191,8 @@
                 <!-- Card 1: ERP -->
                 <div class="bento__card bento__card--large bento__card--has-image" onclick="Portfolio.openProjectModal('erp-retail')">
                     <div class="bento__img-container">
-                        <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?q=80&w=1112&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="MetaOS Project" class="bento__img">
+                        <!-- REPLACE IMAGE HERE FOR RETAIL -->
+                        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop" alt="Fashion Retail Dashboard" class="bento__img">
                     </div>
                     <button class="expand-btn" onclick="event.stopPropagation(); Portfolio.expandConcept(this.parentElement, 'ERP', '')" data-i18n="btn_resume">Resume</button>
                     <div class="bento__content">
@@ -192,7 +203,8 @@
                 <!-- Card 2: Industrial ERP -->
                 <div class="bento__card bento__card--large bento__card--has-image" onclick="Portfolio.openProjectModal('erp-industrial')">
                     <div class="bento__img-container">
-                        <img src="https://images.unsplash.com/photo-1721622045835-51a5447f281c?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="MetaOS Project" class="bento__img">
+                        <!-- REPLACE IMAGE HERE FOR INDUSTRIAL -->
+                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop" alt="Industrial Software Interface" class="bento__img">
                     </div>
                     <button class="expand-btn" onclick="event.stopPropagation(); Portfolio.expandConcept(this.parentElement, 'ERP', '')" data-i18n="btn_resume">Resume</button>
                     <div class="bento__content">
@@ -209,7 +221,7 @@
                     
                     <!-- NEW FANCY STAR ICON CONTAINER -->
                     <div class="bento__star-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z"/>
                         </svg>
                     </div>
@@ -299,6 +311,7 @@
             </div>
         </div>
     </div>
+
 
     <footer class="site-footer">
         <p>© 2026 - Francesco Ciaramella.</p>

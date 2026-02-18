@@ -1,4 +1,5 @@
-    const Portfolio= (() => {
+        const Portfolio = (() => {
+            
             // --- DATA SOURCE (Refactored) ---
             const projectsData = {
                 'erp-retail': {
@@ -224,26 +225,55 @@
             };
 
                // --- THEME ---
-            const initTheme = () => {
-                const savedTheme = localStorage.getItem('theme');
-                const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                if (savedTheme === 'dark' || (!savedTheme && systemDark)) setTheme('dark');
-                else setTheme('light');
+            const setTheme = (theme) => {
+                document.documentElement.setAttribute('data-theme', theme);
+                if (!ui.sunIcon || !ui.moonIcon) return; 
+                // Toggle Logic: If theme is dark, show Sun (to switch to light), else show Moon
+                if (theme === 'dark') { ui.sunIcon.style.display = 'block'; ui.moonIcon.style.display = 'none'; }
+                else { ui.sunIcon.style.display = 'none'; ui.moonIcon.style.display = 'block'; }
+            };
 
+            const initTheme = () => {
+                // 1. Check LocalStorage
+                const savedTheme = localStorage.getItem('theme');
+                
+                // 2. Check System Preference
+                const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+                
+                // Logic: Storage > System > Default Light
+                const getPreferredTheme = () => {
+                    if (savedTheme) {
+                        console.log(`Theme loaded from Storage: ${savedTheme}`);
+                        return savedTheme;
+                    }
+                    const sysTheme = mediaQuery.matches ? 'dark' : 'light';
+                    console.log(`Theme loaded from System: ${sysTheme}`);
+                    return sysTheme;
+                };
+
+                // Apply initial
+                setTheme(getPreferredTheme());
+
+                // 3. Listener for System Changes
+                // If the user hasn't explicitly set a preference (no localStorage), update live.
+                mediaQuery.addEventListener('change', (e) => {
+                    if (!localStorage.getItem('theme')) {
+                        const newSysTheme = e.matches ? 'dark' : 'light';
+                        console.log(`System theme changed to: ${newSysTheme}`);
+                        setTheme(newSysTheme);
+                    }
+                });
+
+                // 4. Toggle Button Logic
                 if (ui.themeToggle) {
                     ui.themeToggle.addEventListener('click', () => {
                         const current = document.documentElement.getAttribute('data-theme');
                         const newTheme = current === 'dark' ? 'light' : 'dark';
+                        console.log(`User toggled theme to: ${newTheme}`);
                         setTheme(newTheme);
                         localStorage.setItem('theme', newTheme);
                     });
                 }
-            };
-            const setTheme = (theme) => {
-                document.documentElement.setAttribute('data-theme', theme);
-                if (!ui.sunIcon || !ui.moonIcon) return; 
-                if (theme === 'dark') { ui.sunIcon.style.display = 'block'; ui.moonIcon.style.display = 'none'; }
-                else { ui.sunIcon.style.display = 'none'; ui.moonIcon.style.display = 'block'; }
             };
 
             // --- LANGUAGE LOGIC ---
@@ -487,12 +517,14 @@
             return {
                 init: () => {
                     try {
+                        console.log("Initializing Portfolio...");
                         initUI();
                         initTheme();
                         initScrollObserver();
                         initNavActions();
                         // Initialize default lang (Italian)
                         setLanguage('it'); 
+                        console.log("Portfolio Initialized");
                     } catch (error) {
                         console.error("Initialization error:", error);
                     } finally {
