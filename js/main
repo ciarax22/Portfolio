@@ -58,15 +58,15 @@
                     proj_redesign_desc: "Analisi critica.",
                     proj_musee_desc: "Accessibilità.",
                     proj_kumbu_desc: "iPad app, accessibilità, UX research",
-                    erp_modal_1: "<strong>Overview:</strong> Ho guidato l'evoluzione di un semplice tool di monitoraggio quantitativo in una piattaforma completa per la gestione degli ordini B2B. Lavorando a stretto contatto con il cliente, ho dato ordine all'entusiamo individuando il bisogno di nuove utenze e progettando da zero feature potenzialmente insidiose.",
+                    erp_modal_1: "<strong>Overview:</strong> Ho guidato l'evoluzione di un semplice tool di monitoraggio quantitativo in una piattaforma SaaS per la gestione degli ordini B2B. Lavorando a stretto contatto con il cliente, ho razionalizzato le loro richieste, mappato i bisogni di nuove tipologie di utenti e progettato da zero flussi logici per gestire scenari complessi.",
                     erp_modal_2: `
-                    <strong>Il mio contributo::</strong> <br>
-                        - Progettazione dei flussi di creazione e assegnazione cataloghi personalizzati. <br>
-                        - Ideazione di una dashboard per i rappresentanti per la gestione degli ordini in mobilità. <br>
-                        - Risoluzione di un problema di visibilità dell'inventario per i produttori, introducendo due stati di disponibilità (reale e virtuale).<br>
-                        - Realizzazione di wireframe, prototipi e documentazione per l'hand-off al team di sviluppo.`,
+                    <strong>Il mio contributo:</strong> <br>
+                        - <strong> Definizione dei ruoli e dell'architettura</strong>:Invece di limitare il tool al solo monitoraggio, ho identificato e separato le necessità di due utenze chiave (Rappresentanti e Produttori), strutturando flussi dedicati per l'anagrafica clienti e la gestione dei cataloghi personalizzati. <br>
+                        - <strong> Risoluzione logica dell'inventario</strong>: Il cliente aveva bisogno di tracciare le quantità ordinate per i produttori. Ho tradotto questa esigenza in un nuovo modello mentale per i rappresentanti, introducendo in fase d'ordine un sistema a doppio stato (disponibilità reale e virtuale) per avere una panoramica chiara ed evitare overbooking. <br>
+                        - <strong> Dalla logica all'interfaccia</strong>: Ho disegnato l'intera esperienza, dalla creazione di una dashboard mobile-friendly per i rappresentanti sul campo, fino alla realizzazione dei wireframe e prototipi ad alta fedeltà.<br>
+                        - <strong>Allineamento tecnico</strong>: Ho curato in prima persona l'hand-off, fornendo documentazione chiara al team di sviluppo per garantire che le logiche di business (come il doppio stato degli articoli) fossero implementate correttamente.`,
                     erp_modal_B1: "<strong>Overview:</strong> Ricerca e progettazione UX/UI per un nuovo software gestionale destinato al tracciamento della lavorazione dei materiali e all'archiviazione documentale.",
-                    erp_modal_B2:`<strong>Il mio contributo::</strong> <br>
+                    erp_modal_B2:`<strong>Il mio contributo:</strong> <br>
                         - Condotto ricerca sul campo tramite interviste dirette con gli operatori di fabbrica per mappare l'as-is e definire la user journey per 3 diversi ruoli utente. <br>
                         - Tradotto rigidi vincoli legali e di conformità (documentazione obbligatoria) in step chiari e non bloccanti all'interno dell'interfaccia. <br>
                         - Progettato l'intera architettura dell'informazione e i wireframe, fino alla consegna UI.<br>
