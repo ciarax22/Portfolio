@@ -4,6 +4,7 @@
             const projectsData = {
                 'erp-retail': {
                     title: "B2B Order Management System (Settore Retail/Moda)",
+                    titleKey: "proj_retail_title",
                     meta: "Product Design • 2025 -",
                     images: [
                         "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop", // Immagine Hero (già presente)
@@ -14,6 +15,7 @@
                 },
                 'erp-industrial': {
                     title: "Manufacturing Management Software (Settore Industriale)",
+                    titleKey: "proj_industrial_title",
                     meta: "Product Design, Ricerca • 2025 -",
                     images: [
                         "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop", // Immagine Hero
@@ -33,7 +35,7 @@
                     hero_headline: "E mo qua che ci metto?.",
                     btn_talk: "Let's Talk",
                     btn_resume_preview: "Anteprima CV",
-                    profile_bio: "Sono un UX/UI Designer laureato in Culture Digitali e della Comunicazione, con formazione presso la Apple Developer Academy. Nel mio lavoro mi occupo di progettare interfacce ed esperienze digitali partendo dalle persone e dai processi, con l’idea che il design sia prima di tutto comunicazione, non semplice estetica.",
+                    profile_bio: "Sono un UX/UI Designer con una forte attitudine alla risoluzione di problemi complessi. Con una laurea in Culture Digitali e una formazione pratica presso l'Apple Developer Academy, ho imparato a far dialogare i bisogni degli utenti con gli obiettivi di business e i vincoli di sviluppo. <br><br> Nel mio ultimo anno e mezzo di esperienza, ho guidato il design di software B2B e piattaforme SaaS, gestendo l'intero ciclo di prodotto: dalla ricerca sul campo per mappare flussi complessi (come i vincoli legali in ambito industriale), fino alla creazione di interfacce scalabili e Design System. <br><br> Lavorare su architetture complesse mi ha insegnato il pragmatismo: che si tratti di un gestionale aziendale o di un'applicazione mobile, il mio obiettivo è progettare strumenti logici, usabili e pronti per lo sviluppo.",
                     btn_get_cv: "Visualizza CV",
                     timeline_exp_title: "Esperienza",
                     role_1_strong_1: "Traduzione di requisiti complessi",
@@ -65,15 +67,17 @@
                         - <strong> Risoluzione logica dell'inventario</strong>: Il cliente aveva bisogno di tracciare le quantità ordinate per i produttori. Ho tradotto questa esigenza in un nuovo modello mentale per i rappresentanti, introducendo in fase d'ordine un sistema a doppio stato (disponibilità reale e virtuale) per avere una panoramica chiara ed evitare overbooking. <br>
                         - <strong> Dalla logica all'interfaccia</strong>: Ho disegnato l'intera esperienza, dalla creazione di una dashboard mobile-friendly per i rappresentanti sul campo, fino alla realizzazione dei wireframe e prototipi ad alta fedeltà.<br>
                         - <strong>Allineamento tecnico</strong>: Ho curato in prima persona l'hand-off, fornendo documentazione chiara al team di sviluppo per garantire che le logiche di business (come il doppio stato degli articoli) fossero implementate correttamente.`,
-                    erp_modal_B1: "<strong>Overview:</strong> Ricerca e progettazione UX/UI per un nuovo software gestionale destinato al tracciamento della lavorazione dei materiali e all'archiviazione documentale.",
+                    erp_modal_B1: "<strong>Overview:</strong> Ricerca e progettazione end-to-end per un nuovo software gestionale B2B, creato per tracciare la lavorazione dei materiali e l'archiviazione documentale in ambito industriale. Partendo da zero, ho definito il flusso di lavoro di tre diverse tipologie di utenti, bilanciando l'efficienza operativa con rigidi vincoli di conformità legale.",
                     erp_modal_B2:`<strong>Il mio contributo:</strong> <br>
-                        - Condotto ricerca sul campo tramite interviste dirette con gli operatori di fabbrica per mappare l'as-is e definire la user journey per 3 diversi ruoli utente. <br>
-                        - Tradotto rigidi vincoli legali e di conformità (documentazione obbligatoria) in step chiari e non bloccanti all'interno dell'interfaccia. <br>
-                        - Progettato l'intera architettura dell'informazione e i wireframe, fino alla consegna UI.<br>
-                        - Costruito un Design System scalabile e documentato da zero, per agevolare lo sviluppo iterativo futuro.`,
+                        - <strong>Ricerca sul campo e Architettura</strong>: Invece di basarmi su assunzioni, ho condotto interviste dirette con gli operatori in fabbrica. Questo mi ha permesso di mappare il reale flusso di lavoro (as-is) e progettare un'architettura dell'informazione (to-be) che rispecchiasse fedelmente le loro necessità quotidiane. <br>
+                        - <strong>UX per la Compliance Legale</strong>: Il software richiedeva la presenza obbligatoria di certificazioni per ogni lotto di materiale. Per evitare colli di bottiglia nella produzione, ho tradotto questi vincoli in un'interfaccia flessibile, progettando un sistema di caricamento documentale a due livelli (massivo per l'intera colata e granulare per il singolo lotto). <br>
+                        - <strong>Progettazione e Handoff</strong>: Ho curato l'intero ciclo di design, dai wireframe a bassa fedeltà fino alla UI finale, assicurandomi che ogni step fosse validato con gli stakeholder.<br>
+                        - <strong>Fondamenta scalabili</strong>: Essendo un prodotto destinato a crescere, ho costruito e documentato da zero un Design System. Questo ha garantito coerenza visiva e ha fornito al team di sviluppo componenti pronti e logiche chiare per le iterazioni future.`,
                     bento_full_title: "Questo portfolio",
                     bento_full_desc: "Design e sviluppo creati con il supporto di AI generativa",
-                    bento_full_label: "Sperimentale"
+                    bento_full_label: "Sperimentale",
+                    proj_retail_title: "B2B Order Management System (Settore Retail/Moda)",
+                    proj_industrial_title: "Manufacturing Management Software (Settore Industriale)"
                 },
                 en: {
                     nav_home: "Home",
@@ -82,7 +86,7 @@
                     hero_headline: "Designing digital experiences.",
                     btn_talk: "Let's Talk",
                     btn_resume_preview: "Resume preview",
-                    profile_bio: "UX Designer with a background in Digital Cultures. I believe design is not just aesthetics, but communication. I leverage my experience at the Apple Developer Academy to bridge the gap between human needs and technological constraints.",
+                    profile_bio: "I am a UX/UI Designer with a strong aptitude for solving complex problems. With a degree in Digital Cultures and practical training at the Apple Developer Academy, I learned how to bridge user needs with business goals and development constraints. <br><br> In my last year and a half of experience, I led the design of B2B software and SaaS platforms, managing the entire product cycle: from field research to map complex flows (such as legal constraints in the industrial sector), to creating scalable interfaces and Design Systems. <br><br> Working on complex architectures taught me pragmatism: whether it's business management software or a mobile application, my goal is to design logical, usable tools ready for development.",
                     btn_get_cv: "Get CV",
                     timeline_exp_title: "Experience",
                     role_1_strong_1: "Translating complex requirements",
@@ -107,17 +111,24 @@
                     proj_redesign_desc: "Critical analysis.",
                     proj_musee_desc: "Accessibility.",
                     proj_kumbu_desc: "iPad app UX research",
-                    erp_modal_1: "<strong>Overview:</strong> A complex management system redesigned to simplify workflows for over 500 employees. The goal was to reduce task completion time by 40%.",
-                    erp_modal_2: "<strong>The Challenge:</strong> The previous interface suffered from high technical debt and poor information architecture. Users wasted valuable time navigating through dozens of unnecessary submenus.",
-                    erp_modal_B1: "<strong>Overview:</strong> UX/UI research and design for a new management software aimed at tracking material processing and document archiving.",
+                    erp_modal_1: "<strong>Overview:</strong> I led the evolution of a simple quantitative monitoring tool into a SaaS platform for B2B order management. Working closely with the client, I rationalized their requests, mapped the needs of new user types, and designed logical flows from scratch to handle complex scenarios.",
+                    erp_modal_2: `
+                    <strong>My Contribution:</strong> <br>
+                        - <strong>Role Definition and Architecture</strong>: Instead of limiting the tool to monitoring only, I identified and separated the needs of two key user groups (Representatives and Producers), structuring dedicated flows for client records and custom catalog management. <br>
+                        - <strong>Inventory Logic Resolution</strong>: The client needed to track ordered quantities for producers. I translated this need into a new mental model for representatives, introducing a dual-state system (real vs. virtual availability) during the ordering phase to provide a clear overview and avoid overbooking. <br>
+                        - <strong>From Logic to Interface</strong>: I designed the entire experience, from creating a mobile-friendly dashboard for field representatives to producing wireframes and high-fidelity prototypes.<br>
+                        - <strong>Technical Alignment</strong>: I personally managed the hand-off, providing clear documentation to the development team to ensure that business logic (such as the dual-state items) was implemented correctly.`,
+                    erp_modal_B1: "<strong>Overview:</strong> End-to-end research and design for a new B2B management software, created to track material processing and document archiving in the industrial sector. Starting from scratch, I defined the workflow for three different user types, balancing operational efficiency with strict legal compliance constraints.",
                     erp_modal_B2: `<strong>My Contribution:</strong> <br>
-                        - Conducted field research via direct interviews with factory operators to map the as-is and define user journeys for 3 different roles. <br>
-                        - Translated rigid legal and compliance constraints (mandatory documentation) into clear, non-blocking steps within the interface. <br>
-                        - Designed the entire information architecture and wireframes, up to UI delivery. <br>
-                        - Built a scalable and documented Design System from scratch to facilitate future iterative development.`,
+                        - <strong>Field Research and Architecture</strong>: Instead of relying on assumptions, I conducted direct interviews with factory operators. This allowed me to map the actual workflow (as-is) and design an information architecture (to-be) that faithfully reflected their daily needs. <br>
+                        - <strong>UX for Legal Compliance</strong>: The software required mandatory certifications for each batch of material. To avoid production bottlenecks, I translated these constraints into a flexible interface, designing a two-level document upload system (bulk for the entire heat and granular for single batch). <br>
+                        - <strong>Design and Handoff</strong>: I managed the entire design cycle, from low-fidelity wireframes to the final UI, ensuring that every step was validated with stakeholders.<br>
+                        - <strong>Scalable Foundations</strong>: As a product destined to grow, I built and documented a Design System from scratch. This ensured visual consistency and provided the development team with ready-made components and clear logic for future iterations.`,
                     bento_full_title: "This portfolio",
                     bento_full_desc: "Design and development created with generative AI support",
-                    bento_full_label: "Experimental"
+                    bento_full_label: "Experimental",
+                    proj_retail_title: "B2B Order Management System (Retail/Fashion Sector)",
+                    proj_industrial_title: "Manufacturing Management Software (Industrial Sector)"
                 },
                 es: {
                     nav_home: "Inicio",
@@ -126,7 +137,7 @@
                     hero_headline: "Diseñando experiencias digitales.",
                     btn_talk: "Hablemos",
                     btn_resume_preview: "Vista previa CV",
-                    profile_bio: "Diseñador UX con experiencia en Culturas Digitales. Creo que el diseño no es solo estética, sino comunicación. Aprovecho mi experiencia en la Apple Developer Academy para cerrar la brecha entre las necesidades humanas y las limitaciones tecnológicas.",
+                    profile_bio: "Soy un Diseñador UX/UI con una fuerte aptitud para resolver problemas complejos. Con un título en Culturas Digitales y formación práctica en la Apple Developer Academy, aprendí a conectar las necesidades de los usuarios con los objetivos comerciales y las limitaciones de desarrollo. <br><br> En mi último año y medio de experiencia, lideré el diseño de software B2B y plataformas SaaS, gestionando todo el ciclo del producto: desde la investigación de campo para mapear flujos complejos (como restricciones legales en el sector industrial), hasta la creación de interfaces escalables y Sistemas de Diseño. <br><br> Trabajar en arquitecturas complejas me enseñó pragmatismo: ya sea un software de gestión empresarial o una aplicación móvil, mi objetivo es diseñar herramientas lógicas, utilizables y listas para el desarrollo.",
                     btn_get_cv: "Obtener CV",
                     timeline_exp_title: "Experiencia",
                     role_1_strong_1: "Traducción de requisitos complejos",
@@ -153,32 +164,39 @@
                     proj_redesign_desc: "Análisis crítico.",
                     proj_musee_desc: "Accesibilidad.",
                     proj_kumbu_desc: "Investigación UX app iPad",
-                    erp_modal_1: "<strong>Visión general:</strong> Un sistema de gestión complejo rediseñado para simplificar los flujos de trabajo de más de 500 empleados. El objetivo era reducir el tiempo de finalización de tareas en un 40%.",
-                    erp_modal_2: "<strong>El Desafío:</strong> La interfaz anterior sufría de una alta deuda técnica y una mala arquitectura de la información. Los usuarios perdían tiempo valioso navegando a través de docenas de submenús innecesarios.",
-                    erp_modal_B1: "<strong>Visión general:</strong> Investigación y diseño UX/UI para un nuevo software de gestión destinado al seguimiento del procesamiento de materiales y archivo documental.",
+                    erp_modal_1: "<strong>Visión general:</strong> Lideré la evolución de una herramienta simple de monitoreo cuantitativo a una plataforma SaaS para la gestión de pedidos B2B. Trabajando estrechamente con el cliente, racionalicé sus solicitudes, mapeé las necesidades de nuevos tipos de usuarios y diseñé flujos lógicos desde cero para gestionar escenarios complejos.",
+                    erp_modal_2: `
+                    <strong>Mi Contribución:</strong> <br>
+                        - <strong>Definición de roles y arquitectura</strong>: En lugar de limitar la herramienta solo al monitoreo, identifiqué y separé las necesidades de dos grupos clave (Representantes y Productores), estructurando flujos dedicados para registros de clientes y gestión de catálogos personalizados. <br>
+                        - <strong>Resolución lógica del inventario</strong>: El cliente necesitaba rastrear las cantidades pedidas para los productores. Traduje esta necesidad en un nuevo modelo mental para los representantes, introduciendo un sistema de doble estado (disponibilidad real y virtual) durante la fase de pedido para ofrecer una visión clara y evitar el overbooking. <br>
+                        - <strong>De la lógica a la interfaz</strong>: Diseñé toda la experiencia, desde la creación de un panel compatible con móviles para representantes de campo, hasta la realización de wireframes y prototipos de alta fidelidad.<br>
+                        - <strong>Alineación técnica</strong>: Gestioné personalmente el traspaso (hand-off), proporcionando documentación clara al equipo de desarrollo para garantizar que la lógica de negocio (como el doble estado de los artículos) se implementara correctamente.`,
+                    erp_modal_B1: "<strong>Visión general:</strong> Investigación y diseño de extremo a extremo para un nuevo software de gestión B2B, creado para rastrear el procesamiento de materiales y el archivo de documentos en el sector industrial. Empezando desde cero, definí el flujo de trabajo para tres tipos diferentes de usuarios, equilibrando la eficiencia operativa con estrictas restricciones de cumplimiento legal.",
                     erp_modal_B2: `<strong>Mi Contribución:</strong> <br>
-                        - Realicé investigación de campo mediante entrevistas directas con operarios de fábrica para mapear la situación actual y definir los viajes de usuario para 3 roles diferentes. <br>
-                        - Traduje rígidas restricciones legales y de cumplimiento (documentación obligatoria) en pasos claros y no bloqueantes dentro de la interfaz. <br>
-                        - Diseñé toda la arquitectura de la información y wireframes, hasta la entrega de UI. <br>
-                        - Construí un Sistema de Diseño escalable y documentado desde cero para facilitar el desarrollo iterativo futuro.`,
+                        - <strong>Investigación de campo y Arquitectura</strong>: En lugar de basarme en suposiciones, realicé entrevistas directas con operadores de fábrica. Esto me permitió mapear el flujo de trabajo real (as-is) y diseñar una arquitectura de información (to-be) que reflejara fielmente sus necesidades diarias. <br>
+                        - <strong>UX para el Cumplimiento Legal</strong>: El software requería certificaciones obligatorias para cada lote de material. Para evitar cuellos de botella en la producción, traduje estas restricciones en una interfaz flexible, diseñando un sistema de carga de documentos de dos niveles (masivo para la fundición completo y granular para lote). <br>
+                        - <strong>Diseño y Traspaso</strong>: Gestioné todo el ciclo de diseño, desde wireframes de baja fidelidad hasta la UI final, asegurándome de que cada paso fuera validado con los interesados.<br>
+                        - <strong>Cimientos escalables</strong>: Al ser un producto destinado a crecer, construí y documenté un Sistema de Diseño desde cero. Esto garantizó la coherencia visual y proporcionó al equipo de desarrollo componentes listos y lógica clara para futuras iteraciones.`,
                     bento_full_title: "Este portafolio",
                     bento_full_desc: "Diseño y desarrollo creados con el apoyo de IA generativa",
-                    bento_full_label: "Experimental"
+                    bento_full_label: "Experimental",
+                    proj_retail_title: "Sistema de Gestión de Pedidos B2B (Sector Retail/Moda)",
+                    proj_industrial_title: "Software de Gestión de Manufactura (Sector Industrial)"
                 }
             };
 
             const bioVariations = {
                 it: {
-                    'original': "Sono un UX/UI Designer laureato in Culture Digitali e della Comunicazione, con formazione presso la Apple Developer Academy. Nel mio lavoro mi occupo di progettare interfacce ed esperienze digitali partendo dalle persone e dai loro processi, con l’idea che il design sia prima di tutto comunicazione, non semplice estetica.",
-                    'tldr': "UX/UI Designer. Focus: Design Systems & Prototyping. Esperienza Apple Developer Academy. Risolvo problemi complessi con soluzioni pulite."
+                    'original': "Sono un UX/UI Designer con una forte attitudine alla risoluzione di problemi complessi. Con una laurea in Culture Digitali e una formazione pratica presso l'Apple Developer Academy, ho imparato a far dialogare i bisogni degli utenti con gli obiettivi di business e i vincoli di sviluppo. <br><br> Nel mio ultimo anno e mezzo di esperienza, ho guidato il design di software B2B e piattaforme SaaS, gestendo l'intero ciclo di prodotto: dalla ricerca sul campo per mappare flussi complessi (come i vincoli legali in ambito industriale), fino alla creazione di interfacce scalabili e Design System. <br><br> Lavorare su architetture complesse mi ha insegnato il pragmatismo: che si tratti di un gestionale aziendale o di un'applicazione mobile, il mio obiettivo è progettare strumenti logici, usabili e pronti per lo sviluppo.",
+                    'tldr': "UX/UI Designer B2B & SaaS. Focus: Ricerca, Architetture complesse e Design System. Pragmatismo al servizio dello sviluppo."
                 },
                 en: {
-                    'original': "UX Designer with a background in Digital Cultures. I believe design is not just aesthetics, but communication. I leverage my experience at the Apple Developer Academy to bridge the gap between human needs and technological constraints.",
-                    'tldr': "UX/UI Designer. Focus: Design Systems & Prototyping. Apple Developer Academy Alumni. Solving complex problems with clean solutions."
+                    'original': "I am a UX/UI Designer with a strong aptitude for solving complex problems. With a degree in Digital Cultures and practical training at the Apple Developer Academy, I learned how to bridge user needs with business goals and development constraints. <br><br> In my last year and a half of experience, I led the design of B2B software and SaaS platforms, managing the entire product cycle: from field research to map complex flows (such as legal constraints in the industrial sector), to creating scalable interfaces and Design Systems. <br><br> Working on complex architectures taught me pragmatism: whether it's business management software or a mobile application, my goal is to design logical, usable tools ready for development.",
+                    'tldr': "B2B & SaaS UX/UI Designer. Focus: Research, Complex Architectures, and Design Systems. Pragmatism driven by development."
                 },
                 es: {
-                    'original': "Diseñador UX con experiencia en Culturas Digitales. Creo que el diseño no es solo estética, sino comunicación. Aprovecho mi experiencia en la Apple Developer Academy para cerrar la brecha entre las necesidades humanas y las limitaciones tecnológicas.",
-                    'tldr': "Diseñador UX/UI. Enfoque: Sistemas de Diseño y Prototipado. Exalumno Apple Developer Academy. Resuelvo problemas complejos con soluciones limpias."
+                    'original': "Soy un Diseñador UX/UI con una fuerte aptitud para resolver problemas complejos. Con un título en Culturas Digitales y formación práctica en la Apple Developer Academy, aprendí a conectar las necesidades de los usuarios con los objetivos comerciales y las limitaciones de desarrollo. <br><br> En mi último año y medio de experiencia, lideré el diseño de software B2B y plataformas SaaS, gestionando todo el ciclo del producto: desde la investigación de campo para mapear flujos complejos (como restricciones legales en el sector industrial), hasta la creación de interfaces escalables y Sistemas de Diseño. <br><br> Trabajar en arquitecturas complejas me enseñó pragmatismo: ya sea un software de gestión empresarial o una aplicación móvil, mi objetivo es diseñar herramientas lógicas, utilizables y listas para el desarrollo.",
+                    'tldr': "Diseñador UX/UI B2B y SaaS. Enfoque: Investigación, Arquitecturas complejas y Sistemas de Diseño. Pragmatismo orientado al desarrollo."
                 }
             };
             const projectInsights = {
@@ -202,8 +220,8 @@
                 }
             };
 
-          let ui = {};
-            let currentLang = 'it'; // Default fallback
+                  let ui = {};
+            let currentLang = 'it'; 
 
             const initUI = () => {
                 ui = {
@@ -224,78 +242,53 @@
                 };
             };
 
-               // --- THEME ---
             const setTheme = (theme) => {
                 document.documentElement.setAttribute('data-theme', theme);
                 if (!ui.sunIcon || !ui.moonIcon) return; 
-                // Toggle Logic: If theme is dark, show Sun (to switch to light), else show Moon
                 if (theme === 'dark') { ui.sunIcon.style.display = 'block'; ui.moonIcon.style.display = 'none'; }
                 else { ui.sunIcon.style.display = 'none'; ui.moonIcon.style.display = 'block'; }
             };
 
             const initTheme = () => {
-                // 1. Check LocalStorage
                 const savedTheme = localStorage.getItem('theme');
-                
-                // 2. Check System Preference
                 const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
                 
-                // Logic: Storage > System > Default Light
                 const getPreferredTheme = () => {
-                    if (savedTheme) {
-                        console.log(`Theme loaded from Storage: ${savedTheme}`);
-                        return savedTheme;
-                    }
+                    if (savedTheme) { return savedTheme; }
                     const sysTheme = mediaQuery.matches ? 'dark' : 'light';
-                    console.log(`Theme loaded from System: ${sysTheme}`);
                     return sysTheme;
                 };
 
-                // Apply initial
                 setTheme(getPreferredTheme());
 
-                // 3. Listener for System Changes
-                // If the user hasn't explicitly set a preference (no localStorage), update live.
                 mediaQuery.addEventListener('change', (e) => {
                     if (!localStorage.getItem('theme')) {
                         const newSysTheme = e.matches ? 'dark' : 'light';
-                        console.log(`System theme changed to: ${newSysTheme}`);
                         setTheme(newSysTheme);
                     }
                 });
 
-                // 4. Toggle Button Logic
                 if (ui.themeToggle) {
                     ui.themeToggle.addEventListener('click', () => {
                         const current = document.documentElement.getAttribute('data-theme');
                         const newTheme = current === 'dark' ? 'light' : 'dark';
-                        console.log(`User toggled theme to: ${newTheme}`);
                         setTheme(newTheme);
                         localStorage.setItem('theme', newTheme);
                     });
                 }
             };
 
-            // --- LANGUAGE LOGIC ---
-            const toggleLangMenu = () => {
-                if (ui.langDropdown) {
-                    ui.langDropdown.classList.toggle('active');
-                }
-            };
+            const toggleLangMenu = () => { if (ui.langDropdown) { ui.langDropdown.classList.toggle('active'); } };
 
             const selectLang = (lang) => {
                 setLanguage(lang);
-                if (ui.langDropdown) {
-                    ui.langDropdown.classList.remove('active');
-                }
+                if (ui.langDropdown) { ui.langDropdown.classList.remove('active'); }
             };
 
-            // Toggle Mobile Menu
             const toggleMobileMenu = () => {
                 if(ui.hamburger && ui.mobileMenu) {
                     ui.hamburger.classList.toggle('active');
                     ui.mobileMenu.classList.toggle('active');
-                    
                     if(ui.mobileMenu.classList.contains('active')) {
                         document.body.style.overflow = 'hidden';
                     } else {
@@ -304,7 +297,6 @@
                 }
             };
 
-            // Close dropdown when clicking outside
             document.addEventListener('click', (e) => {
                 if (ui.langDropdown && !ui.langDropdown.contains(e.target)) {
                     ui.langDropdown.classList.remove('active');
@@ -313,14 +305,11 @@
 
             const setLanguage = (lang) => {
                 currentLang = lang;
-                
-                // Update Dropdown Label
                 if (ui.currentLangLabel) {
                     const flags = { it: '🇮🇹 IT', en: '🇬🇧 EN', es: '🇪🇸 ES' };
                     ui.currentLangLabel.textContent = flags[lang];
                 }
 
-                // Update Static Text
                 const elements = document.querySelectorAll('[data-i18n]');
                 elements.forEach(el => {
                     const key = el.getAttribute('data-i18n');
@@ -333,26 +322,30 @@
                     }
                 });
 
-                // Reset Bio to Original in new Lang
                 if (ui.bioText) {
-                    // FIX: Source original bio from translations object directly, not bioVariations
-                    // This ensures consistency.
-                    ui.bioText.textContent = translations[lang]['profile_bio'];
-                    
+                    // ui.bioText.textContent = translations[lang]['profile_bio']; // Removed to avoid overwriting innerHTML set by data-i18n loop
                     if (ui.aiBtns) {
                         ui.aiBtns.forEach(btn => btn.classList.remove('active'));
                         if(ui.aiBtns[0]) ui.aiBtns[0].classList.add('active'); 
                     }
                 }
+
+                // Update Project Insights (Bento Grid)
+                const currentInsights = projectInsights[lang];
+                document.querySelectorAll('.bento-item').forEach(item => {
+                    const projectKey = item.getAttribute('data-project'); 
+                    const insight = currentInsights[projectKey];
+                    // logic to update insight if needed... 
+                    // Actually the loop below handles the expansion logic. 
+                });
                 
-                // Reset Insights
+                // Re-render open insights if any
                 const openInsights = document.querySelectorAll('.bento__ai-result');
                 openInsights.forEach(el => el.remove());
                 const expandBtns = document.querySelectorAll('.expand-btn');
                 expandBtns.forEach(btn => btn.textContent = translations[lang]['btn_resume']);
             };
 
-            // --- MOCK AI LOGIC ---
             const remixBio = async (style) => {
                 if (!ui.aiBtns) return;
                 
@@ -364,7 +357,6 @@
                 ui.bioText.classList.add('loading');
                 await new Promise(r => setTimeout(r, 600));
                 
-                // FIX: If style is 'original', grab from translations object
                 let newBio;
                 if (style === 'original') {
                     newBio = translations[currentLang]['profile_bio'];
@@ -375,7 +367,7 @@
                 ui.bioText.classList.remove('loading');
                 ui.bioText.style.opacity = 0;
                 setTimeout(() => { 
-                    ui.bioText.textContent = newBio; 
+                    ui.bioText.innerHTML = newBio; 
                     ui.bioText.style.opacity = 1; 
                 }, 300);
             };
@@ -409,7 +401,6 @@
                 btn.textContent = "Close";
             };
 
-            // --- ANIMATION LOGIC ---
             const handleBackgroundState = (sectionId) => {
                 const states = {
                     'landing':  { y: '0%', opacity: 0.15, scale: 1 }, 
@@ -417,7 +408,6 @@
                     'projects': { y: '20%',  opacity: 0.15, scale: 1.1 }  
                 };
                 const state = states[sectionId] || states.landing;
-                
                 if (ui.sphereWrapper) {
                     ui.sphereWrapper.style.transform = `translate(-50%, calc(-50% + ${state.y})) scale(${state.scale})`;
                 }
@@ -432,6 +422,29 @@
                 ui.sections.forEach(section => observer.observe(section));
             };
 
+                     /* SENIOR FIX: Nuovo observer dedicato esclusivamente al Bento Grid per i device Touch */
+            const initBentoMobileObserver = () => {
+                // Attiviamo la logica guidata dallo scroll per schermi Tablet e Mobile
+                if (window.innerWidth <= 1024) {
+                    const bentoCards = document.querySelectorAll('.bento__card');
+                    const bentoObserver = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add('is-in-view');
+                            } else {
+                                entry.target.classList.remove('is-in-view');
+                            }
+                        });
+                    }, { 
+                        // Area di attivazione più permissiva: centro del 50% dello schermo
+                        rootMargin: "-25% 0px -25% 0px", 
+                        threshold: 0.15 
+                    });
+
+                    bentoCards.forEach(card => bentoObserver.observe(card));
+                }
+            };
+
             const initNavActions = () => {
                 ui.navLinks.forEach(link => {
                     link.addEventListener('click', (e) => {
@@ -441,9 +454,6 @@
                 });
             };
 
-            // --- MODAL & LINK LOGIC ---
-            
-            // New Function: Dynamically Inject Content based on Project ID
             const openProjectModal = (projectId) => {
                 const data = projectsData[projectId];
                 if (!data) return;
@@ -451,24 +461,16 @@
                 const injectionPoint = document.getElementById('project-modal-injection-point');
                 if (!injectionPoint) return;
 
-                // Build HTML string
                 let html = `
                     <img src="${data.images[0]}" alt="${data.title}" class="project-modal-hero">
                     <h2 class="project-modal-title">${data.title}</h2>
                     <span class="project-modal-meta">${data.meta}</span>
                 `;
 
-                // Loop through content keys and images interleaved (simple logic for now)
                 data.contentKeys.forEach((key, index) => {
-                    // Inject Text (translated)
-                    // We grab directly from current lang translations to support dynamic language switching?
-                    // NOTE: This grabs the text at the moment of opening. If user changes lang while modal is open, 
-                    // it won't update unless we re-render or use data attributes.
-                    // For simplicity, we assume re-render on open.
                     const text = translations[currentLang][key] || "Translation missing";
                     html += `<p class="project-modal-text">${text}</p>`;
 
-                    // Inject Image if available (next in array)
                     if (data.images[index + 1]) {
                         html += `<img src="${data.images[index + 1]}" alt="Project detail" class="project-modal-hero">`;
                     }
@@ -486,33 +488,24 @@
                     modal.classList.add('active');
                     document.body.style.overflow = 'hidden'; 
                     
-                    // Lazy load PDF only when CV modal is opened
                     if (modalId === 'cv-modal') {
                         const iframe = modal.querySelector('iframe');
                         if (iframe && !iframe.getAttribute('src')) {
-                            // Use setTimeout to allow animation to start before heavy lifting
-                            setTimeout(() => {
-                                iframe.setAttribute('src', iframe.getAttribute('data-src'));
-                            }, 50);
+                            setTimeout(() => { iframe.setAttribute('src', iframe.getAttribute('data-src')); }, 50);
                         }
                     }
                 } else {
                     modal.classList.remove('active');
                     document.body.style.overflow = '';
                     
-                    // Clean up PDF src when closing to fix Safari hijacking issue
                     if (modalId === 'cv-modal') {
                         const iframe = modal.querySelector('iframe');
-                        if (iframe) {
-                            iframe.setAttribute('src', '');
-                        }
+                        if (iframe) { iframe.setAttribute('src', ''); }
                     }
                 }
             };
 
-            const openLink = (url) => {
-                window.open(url, '_blank');
-            };
+            const openLink = (url) => { window.open(url, '_blank'); };
 
             return {
                 init: () => {
@@ -521,25 +514,17 @@
                         initUI();
                         initTheme();
                         initScrollObserver();
+                        initBentoMobileObserver(); /* FIX: Inizializza l'observer del Bento */
                         initNavActions();
-                        // Initialize default lang (Italian)
                         setLanguage('it'); 
-                        console.log("Portfolio Initialized");
                     } catch (error) {
                         console.error("Initialization error:", error);
                     } finally {
                         setTimeout(() => document.body.classList.add('is-loaded'), 50);
                     }
                 },
-                remixBio,
-                expandConcept,
-                toggleModal,
-                openProjectModal, // Exposed
-                openLink,
-                setLanguage,
-                toggleLangMenu,
-                selectLang,
-                toggleMobileMenu
+                remixBio, expandConcept, toggleModal, openProjectModal, openLink,
+                setLanguage, toggleLangMenu, selectLang, toggleMobileMenu
             };
         })();
 
