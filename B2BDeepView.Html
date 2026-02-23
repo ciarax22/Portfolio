@@ -58,17 +58,21 @@
     </nav>
 
     <!-- HERO SECTION -->
-    <section class="section-padding text-center container" id="landing">
-        <span class="tag" data-i18n="tag_hero">B2B SaaS / Fashion & Retail</span>
-        <h1 data-i18n="hero_title">Riprogettazione Piattaforma Gestione Ordini</h1>
-        <p class="subtitle" data-i18n="hero_subtitle">Evoluzione di un semplice tool di monitoraggio in una piattaforma
-            SaaS completa. Dalla mappatura dei bisogni utente alla progettazione di flussi complessi per scenari di
-            vendita B2B.</p>
-        <div
-            style="display: flex; gap: 1rem; justify-content: center; color: var(--color-text-dim); font-size: 0.9rem; font-weight: 600;">
-            <span><i class="fa-solid fa-pen-ruler"></i> UX/UI Design</span>
-            <span><i class="fa-solid fa-sitemap"></i> <span data-i18n="tag_arch">Architettura</span></span>
-            <span><i class="fa-solid fa-users"></i> User Research</span>
+    <section class="section-padding text-center container" id="landing" style="padding-bottom: 3rem;">
+        <h1 data-i18n="hero_title" style="margin-bottom: 2rem;">Riprogettazione Piattaforma Gestione Ordini B2B (SaaS)</h1>
+        
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: var(--color-text-dim); margin-bottom: 2.5rem; font-size: 0.95rem;">
+            <div><strong data-i18n="lbl_role">Ruolo:</strong> <span data-i18n="val_role">UX/UI Designer</span></div>
+            <div><strong data-i18n="lbl_sector">Settore:</strong> <span data-i18n="val_sector">B2B SaaS / Fashion & Retail</span></div>
+            <div style="font-size: 0.85rem; font-style: italic; color: #b45309; background: #fef3c7; padding: 4px 12px; border-radius: 20px; font-weight: 600; margin-top: 0.5rem;" data-i18n="lbl_nda">
+                <i class="fa-solid fa-shield-halved"></i> (Progetto coperto da NDA - Dati e loghi anonimizzati)
+            </div>
+        </div>
+
+
+
+        <div style="display: inline-flex; align-items: center; gap: 0.6rem; background: var(--color-surface); border: 1px solid var(--color-border); padding: 0.6rem 1.2rem; border-radius: 30px; color: var(--color-accent); font-weight: 600; font-size: 0.85rem;" class="desktop-only-notice">
+            <i class="fa-solid fa-desktop"></i> <span data-i18n="desktop_notice">Per un'esperienza completa è consigliato visitare il sito con un PC</span>
         </div>
     </section>
 
@@ -120,7 +124,6 @@
                 <div class="mobile-placeholder" style="margin-top:0; padding: 2rem;">
                     <i class="fa-solid fa-chart-pie"></i>
                     <p data-i18n="mob_placeholder_chart">Contenuto ottimizzato per Desktop.</p>
-                    <div class="img-container" style="height: 200px;">[Inserisci screen grafico]</div>
                 </div>
             </div>
         </div>
@@ -139,7 +142,9 @@
             <i class="fa-solid fa-desktop"></i>
             <p><strong data-i18n="mob_placeholder_title">Accedi da Desktop</strong><br>
             <span data-i18n="mob_placeholder_desc">Per un'esperienza interattiva al 100%, visualizza questo prototipo su uno schermo desktop.</span></p>
-            <div class="img-container" style="height: 300px;">[Inserisci screen Nuova UI]</div>
+            <div class="img-container" style="height: auto; max-height: 400px; padding: 0;">
+                <img src="assets/b2b/Dopo_catalogo_view_operativo.png" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;" alt="Nuova UI Task-Oriented">
+            </div>
         </div>
 
         <div class="cs-card desktop-only" style="padding: 0; overflow: hidden;">
@@ -288,44 +293,42 @@
 
     <!-- SECTION 3: DUAL MODES -->
     <section class="container section-padding">
-        <div class="cs-grid-2">
+        <div class="cs-grid-2" style="align-items: stretch;">
             <div>
                 <h2 data-i18n="sec3_title">Modalità Doppia</h2>
-                <p class="subtitle" style="margin-left: 0; text-align: left;" data-i18n="sec3_desc">I rappresentanti
-                    usano il catalogo per <strong>ispirare</strong> (con il cliente) o per <strong>inserire</strong> (da
-                    soli). Ho creato un toggle per cambiare UI istantaneamente, rispettando le loro abitudini d'uso.</p>
-
-                <div
-                    style="background: var(--color-surface); padding: 1.5rem; border-radius: var(--radius-md); border: 1px solid var(--color-border);">
-                    <h4 style="font-size: 0.85rem; margin-bottom: 1rem; color: var(--color-text-dim);"
-                        data-i18n="lbl_try">Prova il Toggle:</h4>
-                    <div
-                        style="display: flex; background: var(--color-bg); padding: 4px; border-radius: var(--radius-sm); border: 1px solid var(--color-border);">
-                        <button id="btn-mode-showroom" class="btn btn--primary"
-                            style="flex:1; padding: 0.6rem; border-radius: 4px;"
-                            onclick="Portfolio.setMode('showroom')">
-                            <i class="fa-solid fa-border-all"></i> Showroom
-                        </button>
-                        <button id="btn-mode-operative" class="btn btn--ghost"
-                            style="flex:1; padding: 0.6rem; border-radius: 4px;"
-                            onclick="Portfolio.setMode('operative')">
-                            <i class="fa-solid fa-list"></i> <span data-i18n="btn_op">Operativa</span>
-                        </button>
-                    </div>
-                </div>
+                <p class="subtitle" style="margin-left: 0; text-align: left;" data-i18n="sec3_desc">Durante la ricerca è emerso che i rappresentanti usano il catalogo in due momenti distinti: in solitaria per inserire dati velocemente, o fianco a fianco con il cliente per mostrare la collezione.<br><br>Per risolvere questa dualità senza creare due pagine diverse, ho introdotto un Toggle View (Showroom / Operativa):<br><br><strong>Modalità Showroom (Visuale):</strong> Enfatizza le immagini dei prodotti con grandi card pulite. Mostra le varianti di colore in modo visivo (pallini colore) ed è pensata per ispirare il compratore durante la trattativa.<br><br><strong>Modalità Operativa (Dati):</strong> Comprime l'immagine e si espande per rivelare la lista d'inserimento rapido discussa sopra, ottimizzando lo spazio verticale per il data-entry puro.<br><br><em>I pulsanti d'azione si attiveranno solo dopo aver scelto il cliente, per evitare aggiunte involontarie.</em></p>
             </div>
 
             <div class="mobile-placeholder" style="margin-top: 0;">
                 <i class="fa-solid fa-desktop"></i>
                 <p><strong data-i18n="mob_placeholder_title">Accedi da Desktop</strong><br>
                 <span data-i18n="mob_placeholder_desc">Per un'esperienza interattiva al 100%, visualizza questo prototipo su uno schermo desktop.</span></p>
-                <div class="img-container" style="height: 400px;">[Inserisci screen Catalogo]</div>
+                <div class="img-container" style="height: auto; max-height: 400px; padding: 0;">
+                    <img src="assets/b2b/Dopo_catalogo_view_card.png" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;" alt="Catalogo Card View">
+                </div>
             </div>
 
             <div class="catalog-container desktop-only">
-                <div
-                    style="position: absolute; top: 10px; right: 15px; font-size: 0.7rem; font-weight: bold; color: var(--color-text-dim); text-transform: uppercase;">
-                    Live Preview</div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; background: var(--color-surface); padding: 0.8rem 1.5rem; border-radius: 40px; border: 1px solid var(--color-border); box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <span style="font-size: 0.8rem; font-weight: bold; color: var(--color-text-dim); text-transform: uppercase; letter-spacing: 0.05em;" data-i18n="lbl_try">Prova il Toggle:</span>
+                        <div style="display: flex; background: var(--color-bg); padding: 4px; border-radius: 24px; border: 1px solid var(--color-border); gap: 4px;">
+                            <button id="btn-mode-showroom" class="btn btn--primary"
+                                style="padding: 0.5rem 1.2rem; border-radius: 20px; font-weight: 600; font-size: 0.85rem;"
+                                onclick="Portfolio.setMode('showroom')">
+                                <i class="fa-solid fa-border-all"></i> Showroom
+                            </button>
+                            <button id="btn-mode-operative" class="btn btn--ghost"
+                                style="padding: 0.5rem 1.2rem; border-radius: 20px; font-weight: 600; font-size: 0.85rem;"
+                                onclick="Portfolio.setMode('operative')">
+                                <i class="fa-solid fa-list"></i> <span data-i18n="btn_op">Operativa</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div style="font-size: 0.70rem; font-weight: 800; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 8px; white-space: nowrap; flex-shrink: 0;">
+                        <span class="live-dot" style="width: 8px; height: 8px; background: var(--color-success); border-radius: 50%; display: inline-block;"></span> Live Preview
+                    </div>
+                </div>
                 <div id="catalog-content" class="catalog-mode-showroom"></div>
             </div>
         </div>
@@ -344,7 +347,9 @@
             <i class="fa-solid fa-desktop"></i>
             <p><strong data-i18n="mob_placeholder_title">Accedi da Desktop</strong><br>
             <span data-i18n="mob_placeholder_desc">Per un'esperienza interattiva al 100%, visualizza questo prototipo su uno schermo desktop.</span></p>
-            <div class="img-container" style="height: 350px;">[Inserisci screen Dashboard Table & Drawer]</div>
+            <div class="img-container" style="height: auto; max-height: 400px; padding: 0;">
+                <img src="assets/b2b/Ordini_4.png" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;" alt="Dashboard Ordini">
+            </div>
         </div>
 
         <div class="dashboard-wrapper desktop-only">
@@ -410,7 +415,7 @@
                             <div>
                                 <p style="font-weight: 600; font-size: 0.9rem;" data-i18n="item_1">Scarpa Tacco Nero</p>
                                 <p style="font-size: 0.8rem; color: var(--color-text-dim);"><span
-                                        data-i18n="lbl_pairs">10 Paia</span> - 970â‚¬</p>
+                                        data-i18n="lbl_pairs">10 Paia</span> - 970€</p>
                             </div>
                         </div>
                     </div>
@@ -430,7 +435,9 @@
             <i class="fa-solid fa-desktop"></i>
             <p><strong data-i18n="mob_placeholder_title">Accedi da Desktop</strong><br>
             <span data-i18n="mob_placeholder_desc">Per un'esperienza interattiva al 100%, visualizza questo prototipo su uno schermo desktop.</span></p>
-            <div class="img-container" style="height: 450px;">[Inserisci screen Anagrafica Master-Detail]</div>
+            <div class="img-container" style="height: auto; max-height: 400px; padding: 0;">
+                <img src="assets/b2b/Clienti_new.png" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;" alt="Anagrafica Master-Detail">
+            </div>
         </div>
 
         <div class="master-detail desktop-only">

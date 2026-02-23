@@ -1210,9 +1210,42 @@
 
        .project-modal-text {
            font-size: 1.1rem;
-           line-height: 1.7;
+           line-height: 1.85;
            color: var(--color-text-dim);
            margin-bottom: 1.5rem;
+       }
+
+       .project-modal-text p {
+           margin-bottom: 1.5rem;
+       }
+
+       .project-modal-text h3 {
+           color: var(--color-text) !important;
+           font-size: 1.4rem;
+           font-weight: 800;
+           letter-spacing: -0.01em;
+           margin-top: 3rem !important;
+           margin-bottom: 1.2rem !important;
+       }
+
+       .project-modal-text h3:first-child {
+           margin-top: 0 !important;
+       }
+
+       .project-modal-text h4 {
+           color: var(--color-text) !important;
+           font-size: 1.15rem;
+           font-weight: 700;
+           margin-top: 2rem !important;
+           margin-bottom: 0.8rem !important;
+       }
+
+       .project-modal-text ul {
+           margin-bottom: 2rem;
+       }
+
+       .project-modal-text li {
+           margin-bottom: 0.8rem;
        }
 
        /* --- FOOTER --- */

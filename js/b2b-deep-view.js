@@ -6,8 +6,12 @@
             const translations = {
                 it: {
                     tag_hero: "B2B SaaS / Fashion & Retail",
-                    hero_title: "Riprogettazione Piattaforma Gestione Ordini",
-                    hero_subtitle: "Evoluzione di un semplice tool di monitoraggio in una piattaforma SaaS completa. Dalla mappatura dei bisogni utente alla progettazione di flussi complessi per scenari di vendita B2B.",
+                    hero_title: "Riprogettazione Piattaforma Gestione Ordini B2B (SaaS)",
+                    lbl_role: "Ruolo:", val_role: "UX/UI Designer",
+                    lbl_sector: "Settore:", val_sector: "B2B SaaS / Fashion & Retail",
+                    lbl_nda: "<i class=\"fa-solid fa-shield-halved\"></i> (Progetto coperto da NDA - Dati e loghi anonimizzati)",
+                    hero_desc: "Ho guidato l'evoluzione di un semplice tool di monitoraggio quantitativo, trasformandolo in una piattaforma SaaS completa per la gestione degli ordini B2B. Lavorando a stretto contatto con gli stakeholder, ho razionalizzato le loro richieste, mappato i bisogni di nuove tipologie di utenti e progettato da zero flussi logici per gestire scenari di vendita complessi.",
+                    desktop_notice: "Per un'esperienza completa è consigliato visitare il sito con un PC",
                     tag_arch: "Architettura",
                     sec1_title: "Overview & Contributo",
                     sec1_desc: "Ho guidato l'evoluzione di un semplice tool di monitoraggio quantitativo, trasformandolo in una piattaforma SaaS completa. Lavorando a stretto contatto con gli stakeholder, ho razionalizzato le loro richieste e progettato da zero flussi logici per gestire scenari complessi.",
@@ -27,7 +31,7 @@
                     stat2_title: "Contesto Fisso", stat2_desc: "Header 'sticky' per non perdere mai il riferimento economico.",
                     stat3_title: "Micro-interazioni", stat3_desc: "Stepper per piccoli aggiustamenti sicuri su touch.",
                     sec3_title: "Modalità Doppia",
-                    sec3_desc: "I rappresentanti usano il catalogo per <strong>ispirare</strong> (con il cliente) o per <strong>inserire</strong> (da soli). Ho creato un toggle per cambiare UI istantaneamente, rispettando le loro abitudini d'uso.",
+                    sec3_desc: "Durante la ricerca è emerso che i rappresentanti usano il catalogo in due momenti distinti: in solitaria per inserire dati velocemente, o fianco a fianco con il cliente per mostrare la collezione.<br><br>Per risolvere questa dualità senza creare due pagine diverse, ho introdotto un Toggle View (Showroom / Operativa):<br><br><strong>Modalità Showroom (Visuale):</strong> Enfatizza le immagini dei prodotti con grandi card pulite. Mostra le varianti di colore in modo visivo (pallini colore) ed è pensata per ispirare il compratore durante la trattativa.<br><br><strong>Modalità Operativa (Dati):</strong> Comprime l'immagine e si espande per rivelare la lista d'inserimento rapido discussa sopra, ottimizzando lo spazio verticale per il data-entry puro.<br><br><em>I pulsanti d'azione si attiveranno solo dopo aver scelto il cliente, per evitare aggiunte involontarie.</em>",
                     lbl_try: "Prova il Toggle:", btn_op: "Operativa", btn_add: "+ Ordina", btn_ins: "Inserisci",
                     sec4_title: "Da 'Database Cieco' a Triage Operativo",
                     sec4_desc: "Il pattern <strong>Side-Drawer</strong> permette di revisionare ordini multipli senza perdere il contesto della lista.",
@@ -45,8 +49,12 @@
                 },
                 en: {
                     tag_hero: "B2B SaaS / Fashion & Retail",
-                    hero_title: "Redesigning a B2B Order Platform",
-                    hero_subtitle: "Evolution of a simple tracking tool into a comprehensive SaaS platform. From mapping user needs to designing complex flows for B2B sales scenarios.",
+                    hero_title: "Redesigning a B2B Order Platform (SaaS)",
+                    lbl_role: "Role:", val_role: "UX/UI Designer",
+                    lbl_sector: "Sector:", val_sector: "B2B SaaS / Fashion & Retail",
+                    lbl_nda: "<i class=\"fa-solid fa-shield-halved\"></i> (Project under NDA - Data and logos anonymized)",
+                    hero_desc: "I led the evolution of a basic quantitative monitoring tool, transforming it into a full-fledged SaaS platform for B2B order management. Working closely with stakeholders, I rationalized requests, mapped the needs of new user types, and designed logical flows from scratch to handle complex sales scenarios.",
+                    desktop_notice: "For a complete experience, it is recommended to visit the site on a PC",
                     tag_arch: "Architecture",
                     sec1_title: "Overview & My Role",
                     sec1_desc: "I led the evolution of a basic quantitative monitoring tool, transforming it into a full-fledged SaaS platform. Working closely with stakeholders, I rationalized requests and designed logical flows from scratch.",
@@ -66,7 +74,7 @@
                     stat2_title: "Fixed Context", stat2_desc: "Sticky header to never lose economic reference.",
                     stat3_title: "Micro-interactions", stat3_desc: "Stepper for safe, small adjustments on touch.",
                     sec3_title: "Dual Mode",
-                    sec3_desc: "Reps use the catalog to <strong>inspire</strong> (with clients) or to <strong>input</strong> (alone). I created a toggle to instantly change the UI.",
+                    sec3_desc: "During research, it emerged that reps use the catalog at two distinct moments: alone, to enter data quickly, or side-by-side with the client to showcase the collection.<br><br>To resolve this duality without creating two separate pages, I introduced a Toggle View (Showroom / Operative):<br><br><strong>Showroom Mode (Visual):</strong> Emphasizes product images with large, clean cards. It shows color variants visually (color dots) and is designed to inspire the buyer during negotiations.<br><br><strong>Operative Mode (Data):</strong> Compresses the image and expands to reveal the quick-entry list discussed above, optimizing vertical space for pure data-entry.<br><br><em>Action buttons will only activate after the client has been selected, preventing accidental additions.</em>",
                     lbl_try: "Try Toggle:", btn_op: "Operational", btn_add: "+ Order", btn_ins: "Add",
                     sec4_title: "From 'Blind DB' to Operational Triage",
                     sec4_desc: "The <strong>Side-Drawer</strong> pattern allows reviewing multiple orders without losing list context.",
@@ -90,15 +98,21 @@
             };
 
             const ordersData = [
-                { id: "#ORD-001", date: "2026-02-20", client: "Forniture Scarpe SAS", total: "4.500€", statusKey: "status_prod", color: "warning" },
-                { id: "#ORD-002", date: "2026-02-19", client: "Boutique Roma", total: "1.200€", statusKey: "status_del", color: "success" },
-                { id: "#ORD-003", date: "2026-02-18", client: "Zalando EU", total: "12.300€", statusKey: "status_prod", color: "warning" },
-                { id: "#ORD-004", date: "2026-02-15", client: "Foot Locker IT", total: "8.900€", statusKey: "status_del", color: "success" },
-                { id: "#ORD-005", date: "2026-02-10", client: "AW Lab IT", total: "5.100€", statusKey: "status_del", color: "success" },
+                { id: "#ORD-001", date: "2026-02-20", client: "Aura Boutique Srl", total: "4.500€", statusKey: "status_prod", color: "warning" },
+                { id: "#ORD-002", date: "2026-02-19", client: "Antonio Caruso", total: "1.200€", statusKey: "status_del", color: "success" },
+                { id: "#ORD-003", date: "2026-02-18", client: "Lumia Retail Group", total: "12.300€", statusKey: "status_prod", color: "warning" },
+                { id: "#ORD-004", date: "2026-02-15", client: "Footwear Prime Italia", total: "8.900€", statusKey: "status_del", color: "success" },
+                { id: "#ORD-005", date: "2026-02-10", client: "Stile & Moda SpA", total: "5.100€", statusKey: "status_del", color: "success" },
             ];
 
-            const cData = { name: "FORNITURE SCARPE SAS", city: "20100 Milano (MI)·Via monaco, 24", vat: "98568-4277", email: "Charlie_Halvorson@Gmail.Com", phone: "(958) 765-5168 X1142", legal: "Chief Markets Assistant", bill: "41558 Schaefer Extension", prov: "NA", city_full: "Torre Del Greco", method: "Ri.Ba. 30/60 GG Fine Mese", iban: "978-0-07-758642-3", iva: "22%" };
-            const clientsData = [cData, cData, cData, cData, cData, cData];
+            const clientsData = [
+                { name: "AURA BOUTIQUE SRL", city: "20100 Milano (MI) · Via della Spiga, 15", vat: "11223344556", email: "acquisti@auraboutique.it", phone: "+39 02 12345678", legal: "Via della Spiga, 15", bill: "Via della Spiga, 15", prov: "MI", city_full: "Milano", method: "Ri.Ba. 30/60 GG Fine Mese", iban: "IT89 A 01234 56789 000000123456", iva: "22%" },
+                { name: "ANTONIO CARUSO", city: "80100 Napoli (NA) · Via Torino, 42", vat: "99887766554", email: "info@caruso-lusso.it", phone: "+39 081 9876543", legal: "Via Torino, 42", bill: "Via Torino, 42", prov: "NA", city_full: "Napoli", method: "Bonifico Bancario", iban: "IT12 B 98765 43210 000000654321", iva: "22%" },
+                { name: "LUMIA RETAIL GROUP", city: "00100 Roma (RM) · Viale Europa, 88", vat: "55443322110", email: "ordini@lumia-retail.com", phone: "+39 06 44556677", legal: "Viale Europa, 88", bill: "Viale Europa, 88", prov: "RM", city_full: "Roma", method: "SDD Core 30 GG", iban: "IT34 C 11223 33445 000000998877", iva: "22%" },
+                { name: "FOOTWEAR PRIME ITALIA", city: "10100 Torino (TO) · Corso Roma, 120", vat: "66778899001", email: "store.torino@footwearprime.it", phone: "+39 011 2233445", legal: "Corso Roma, 120", bill: "Corso Roma, 120", prov: "TO", city_full: "Torino", method: "Ri.Ba. 60 GG", iban: "IT56 D 55667 77889 000000112233", iva: "22%" },
+                { name: "STILE & MODA SPA", city: "50100 Firenze (FI) · Piazza della Signoria, 3", vat: "10293847560", email: "amministrazione@stilemoda.it", phone: "+39 055 6677889", legal: "Piazza della Signoria, 3", bill: "Piazza della Signoria, 3", prov: "FI", city_full: "Firenze", method: "Bonifico Bancario", iban: "IT78 E 99001 11223 000000445566", iva: "22%" },
+                { name: "VENEXIA SHOES SNC", city: "30100 Venezia (VE) · San Marco, 456", vat: "09871234567", email: "commerciale@venexiashoes.it", phone: "+39 041 5566778", legal: "San Marco, 456", bill: "San Marco, 456", prov: "VE", city_full: "Venezia", method: " Carta di Credito", iban: "IT90 F 33445 55667 000000778899", iva: "22%" }
+            ];
 
             // --- THEME LOGIC ---
             const initTheme = () => {
@@ -229,85 +243,103 @@
                 box.className = mode === 'showroom' ? 'catalog-mode-showroom' : 'catalog-mode-operative';
 
                 const pList = [
-                    { n: "MB-1997-B", p: "00,00€", img: "linear-gradient(45deg, #222, #444)", brand: "Chanel" }, 
-                    { n: "SNK-202-A", p: "00,00€", img: "linear-gradient(45deg, #444, #666)", brand: "Chanel" }
+                    { n: "ART-101-X", p: "00,00€", img: "url('https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=600&auto=format&fit=crop')", brand: "Premium Brand" }, 
+                    { n: "SNK-202-Y", p: "00,00€", img: "url('https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=600&auto=format&fit=crop')", brand: "Premium Brand" }
                 ];
 
                 let html = '';
                 pList.forEach(p => {
                     if (mode === 'showroom') {
                         html += `
-                        <div class="product-card showroom" style="padding: 0; display: flex; flex-direction: column;">
-                            <div class="product-img" style="background:${p.img}; height: 160px; border-radius: 8px 8px 0 0; margin: 0;"></div>
-                            <div style="padding: 1rem; flex: 1; display: flex; flex-direction: column;">
-                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
-                                    <p style="font-size: 0.8rem; font-weight: 800; margin:0; color: var(--color-text);">${p.n}</p>
-                                    <strong style="font-size: 0.8rem; color: var(--color-text);">${p.p}</strong>
+                        <div class="product-card showroom" style="padding: 0; display: flex; flex-direction: column; border: 1px solid var(--color-border); border-radius: 12px; overflow: hidden; background: var(--color-surface); box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+                            <div class="product-img" style="background:${p.img} center/cover; height: 220px; margin: 0; border-bottom: 1px solid var(--color-border);"></div>
+                            <div style="padding: 1.2rem; flex: 1; display: flex; flex-direction: column;">
+                                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px;">
+                                    <p style="font-size: 0.9rem; font-weight: 800; margin:0; color: var(--color-text);">${p.n}</p>
+                                    <strong style="font-size: 0.9rem; color: var(--color-text);">${p.p}</strong>
                                 </div>
-                                <p style="font-size: 0.75rem; color: var(--color-text-dim); margin-bottom: 12px;">${p.brand}</p>
-                                <div style="display: flex; gap: 5px; margin-bottom: 15px;">
-                                    <span style="font-size: 0.65rem; border: 1px solid var(--color-border); padding: 3px 10px; border-radius: 20px; color: var(--color-text-dim);">LIZ</span>
-                                    <span style="font-size: 0.65rem; border: 1px solid var(--color-border); padding: 3px 10px; border-radius: 20px; color: var(--color-text-dim);">VIT</span>
+                                <p style="font-size: 0.75rem; color: var(--color-text-dim); margin-bottom: 16px;">${p.brand}</p>
+                                <div style="display: flex; gap: 8px; margin-bottom: 15px;">
+                                    <span style="font-size: 0.65rem; border: 1px solid var(--color-border); padding: 4px 12px; border-radius: 20px; color: var(--color-text-dim);">MAT-A</span>
+                                    <span style="font-size: 0.65rem; border: 1px solid var(--color-border); padding: 4px 12px; border-radius: 20px; color: var(--color-text-dim);">MAT-B</span>
                                 </div>
-                                <div style="display: flex; gap: 8px; align-items: center; background: var(--color-bg); padding: 10px; border-radius: 4px; margin-bottom: 15px;">
-                                    <span style="font-size: 0.75rem; font-weight: 600; color: var(--color-text);">Colori Liz:</span>
-                                    <div style="width: 14px; height: 14px; border-radius: 50%; background: #000;"></div>
-                                    <div style="width: 14px; height: 14px; border-radius: 50%; background: #a67c52;"></div>
-                                    <div style="width: 14px; height: 14px; border-radius: 50%; background: #8e8a00;"></div>
-                                    <div style="width: 14px; height: 14px; border-radius: 50%; background: #e8e3d3;"></div>
+                                <div style="display: flex; gap: 8px; align-items: center; background: var(--color-bg); padding: 12px; border-radius: 6px; margin-bottom: 20px; border: 1px solid var(--color-border);">
+                                    <span style="font-size: 0.75rem; font-weight: 600; color: var(--color-text);">Colori MAT-A:</span>
+                                    <div style="display: flex; gap: 6px;">
+                                        <div style="width: 14px; height: 14px; border-radius: 50%; background: #000; border: 1px solid rgba(0,0,0,0.1);"></div>
+                                        <div style="width: 14px; height: 14px; border-radius: 50%; background: #a67c52; border: 1px solid rgba(0,0,0,0.1);"></div>
+                                        <div style="width: 14px; height: 14px; border-radius: 50%; background: #8e8a00; border: 1px solid rgba(0,0,0,0.1);"></div>
+                                        <div style="width: 14px; height: 14px; border-radius: 50%; background: #e8e3d3; border: 1px solid rgba(0,0,0,0.1);"></div>
+                                    </div>
                                 </div>
                                 <div style="margin-top: auto;">
-                                    <button class="btn" style="width: 100%; border-radius: 6px; background: #6b7280; color: white; border: none; padding: 0.6rem; font-size: 0.8rem;"><i class="fa-regular fa-bookmark"></i> Aggiungi all'ordine</button>
+                                    <button class="btn" style="width: 100%; border-radius: 8px; background: #64748b; color: white; border: none; padding: 0.7rem; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: background 0.2s;"><i class="fa-regular fa-bookmark"></i> Aggiungi all'ordine</button>
                                 </div>
                             </div>
                         </div>`;
                     } else {
                         html += `
-                        <div class="product-card operative" style="padding: 0; border: none; display: block; border: 1px solid var(--color-border); border-radius: 8px;">
-                            <div class="new-ui-operative-header" style="display: flex; justify-content: space-between; align-items: center; background: #dbeafe; padding: 1rem 1.5rem; border-radius: 8px 8px 0 0;">
+                        <div class="product-card operative" style="padding: 0; border: none; display: block; border: 1px solid var(--color-border); border-radius: 12px; overflow: hidden; background: var(--color-surface); box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+                            <div class="new-ui-operative-header" onclick="this.nextElementSibling.classList.toggle('collapsed'); this.querySelector('.fa-chevron-down').classList.toggle('rotated');" style="display: flex; justify-content: space-between; align-items: center; background: #e0e7ff; padding: 1rem 1.5rem; border-bottom: 1px solid #c7d2fe; cursor: pointer;">
                                 <div style="display: flex; align-items: center; gap: 15px;">
-                                    <div class="product-img" style="background:${p.img}; width: 60px; height: 40px; border-radius: 4px; margin: 0;"></div>
-                                    <span style="font-weight: 800; font-size: 0.9rem; color: #1e3a8a;">${p.n}</span>
+                                    <div class="product-img" style="background:${p.img} center/cover; width: 64px; height: 44px; border-radius: 6px; margin: 0; border: 1px solid rgba(0,0,0,0.1);"></div>
+                                    <span style="font-weight: 800; font-size: 0.95rem; color: #1e3a8a;">${p.n}</span>
                                 </div>
-                                <div style="display: flex; align-items: center; gap: 2rem;">
+                                <div style="display: flex; align-items: center; gap: 2.5rem;">
                                     <div style="text-align: right;">
-                                        <span style="font-size: 0.7rem; color: #15803d; font-weight: 800;">REALE<br><span style="font-size: 0.85rem;">200</span></span>
+                                        <span style="font-size: 0.7rem; color: #15803d; font-weight: 800; letter-spacing: 0.05em;">REALE<br><span style="font-size: 0.9rem;">200</span></span>
                                     </div>
                                     <div style="text-align: right;">
-                                        <span style="font-size: 0.7rem; color: #b45309; font-weight: 800;">VIRTUALE<br><span style="font-size: 0.85rem;">300</span></span>
+                                        <span style="font-size: 0.7rem; color: #b45309; font-weight: 800; letter-spacing: 0.05em;">VIRTUALE<br><span style="font-size: 0.9rem;">300</span></span>
                                     </div>
-                                    <strong style="color: #1e3a8a;">4000,00€</strong>
-                                    <i class="fa-solid fa-chevron-down" style="color: #1e3a8a; font-size: 0.8rem;"></i>
+                                    <strong style="color: #1e3a8a; font-size: 1.1rem;">4000,00€</strong>
+                                    <i class="fa-solid fa-chevron-down" style="color: #1e3a8a; font-size: 0.9rem;"></i>
                                 </div>
                             </div>
                             
-                            <div style="padding: 1.5rem; background: var(--color-surface); border-radius: 0 0 8px 8px;">
-                                <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 1.5rem;">
-                                    <span style="font-size: 0.8rem; font-weight: 600; color: var(--color-text);">Scegli materiale:</span>
-                                    <span style="font-size: 0.7rem; font-weight: 600; background: #1e3a8a; color: white; padding: 4px 12px; border-radius: 20px;">LIZ</span>
-                                    <span style="font-size: 0.7rem; font-weight: 600; border: 1px solid var(--color-border); color: var(--color-text); padding: 4px 12px; border-radius: 20px;">VIT</span>
+                            <div class="operative-details" style="padding: 1.5rem; background: var(--color-surface);">
+                                <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 1.5rem;">
+                                    <span style="font-size: 0.85rem; font-weight: 600; color: var(--color-text);">Scegli materiale:</span>
+                                    <button style="font-size: 0.75rem; font-weight: 700; background: #1e3a8a; color: white; border: none; padding: 6px 16px; border-radius: 20px; cursor: pointer;">MAT-A</button>
+                                    <button style="font-size: 0.75rem; font-weight: 600; border: 1px solid var(--color-border); background: transparent; color: var(--color-text); padding: 6px 16px; border-radius: 20px; cursor: pointer;">MAT-B</button>
                                 </div>
                                 
-                                <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--color-border);">
-                                    <div style="display: flex; align-items: center; gap: 10px;">
-                                        <div style="width: 18px; height: 18px; border-radius: 50%; background: #c8a2a2;"></div>
-                                        <span style="font-size: 0.9rem; color: var(--color-text);">Nude &nbsp;<strong>A</strong></span>
+                                <div style="display: flex; flex-direction: column;">
+                                    <!-- Row 1 -->
+                                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--color-border);">
+                                        <div style="display: flex; align-items: center; gap: 12px;">
+                                            <div style="width: 20px; height: 20px; border-radius: 50%; background: #c8a2a2; border: 1px solid rgba(0,0,0,0.1);"></div>
+                                            <span style="font-size: 0.95rem; color: var(--color-text);">Colore 1 &nbsp;<strong>Taglia 36</strong></span>
+                                        </div>
+                                        <div class="qty-controls" style="background: white; border-radius: 6px; overflow: hidden; display: flex; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
+                                            <button style="border: 1px solid #bfdbfe; color: #1e3a8a; background: white; width: 40px; height: 36px; border-radius: 6px 0 0 6px; font-weight: bold; font-size: 1.1rem; cursor: pointer;">-</button>
+                                            <input type="text" value="0" style="width: 48px; text-align: center; border: 1px solid #bfdbfe; border-left: none; border-right: none; height: 36px; box-sizing: border-box; background: white; font-weight: 600; color: #1e3a8a;" readonly>
+                                            <button style="border: none; color: #1e3a8a; background: #bfdbfe; width: 40px; height: 36px; border-radius: 0 6px 6px 0; font-weight: bold; font-size: 1.1rem; cursor: pointer;">+</button>
+                                        </div>
                                     </div>
-                                    <div class="qty-controls" style="background: white; border-radius: 6px; overflow: hidden; display: flex;">
-                                        <button style="border: 1px solid #bfdbfe; color: #1e3a8a; background: white; width: 36px; height: 32px; border-radius: 6px 0 0 6px;">-</button>
-                                        <input type="text" value="0" style="width: 40px; text-align: center; border: 1px solid #bfdbfe; border-left: none; border-right: none; height: 32px; box-sizing: border-box; background: white;" readonly>
-                                        <button style="border: none; color: #1e3a8a; background: #bfdbfe; width: 36px; height: 32px; border-radius: 0 6px 6px 0;">+</button>
+                                    <!-- Row 2 -->
+                                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--color-border);">
+                                        <div style="display: flex; align-items: center; gap: 12px;">
+                                            <div style="width: 20px; height: 20px; border-radius: 50%; background: #000; border: 1px solid rgba(0,0,0,0.1);"></div>
+                                            <span style="font-size: 0.95rem; color: var(--color-text);">Colore 2 &nbsp;<strong>Taglia 36</strong></span>
+                                        </div>
+                                        <div class="qty-controls" style="background: white; border-radius: 6px; overflow: hidden; display: flex; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
+                                            <button style="border: 1px solid #bfdbfe; color: #1e3a8a; background: white; width: 40px; height: 36px; border-radius: 6px 0 0 6px; font-weight: bold; font-size: 1.1rem; cursor: pointer;">-</button>
+                                            <input type="text" value="0" style="width: 48px; text-align: center; border: 1px solid #bfdbfe; border-left: none; border-right: none; height: 36px; box-sizing: border-box; background: white; font-weight: 600; color: #1e3a8a;" readonly>
+                                            <button style="border: none; color: #1e3a8a; background: #bfdbfe; width: 40px; height: 36px; border-radius: 0 6px 6px 0; font-weight: bold; font-size: 1.1rem; cursor: pointer;">+</button>
+                                        </div>
                                     </div>
-                                </div>
-                                <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0;">
-                                    <div style="display: flex; align-items: center; gap: 10px;">
-                                        <div style="width: 18px; height: 18px; border-radius: 50%; background: #000;"></div>
-                                        <span style="font-size: 0.9rem; color: var(--color-text);">Nero &nbsp;<strong>A</strong></span>
-                                    </div>
-                                    <div class="qty-controls" style="background: white; border-radius: 6px; overflow: hidden; display: flex;">
-                                        <button style="border: 1px solid #bfdbfe; color: #1e3a8a; background: white; width: 36px; height: 32px; border-radius: 6px 0 0 6px;">-</button>
-                                        <input type="text" value="0" style="width: 40px; text-align: center; border: 1px solid #bfdbfe; border-left: none; border-right: none; height: 32px; box-sizing: border-box; background: white;" readonly>
-                                        <button style="border: none; color: #1e3a8a; background: #bfdbfe; width: 36px; height: 32px; border-radius: 0 6px 6px 0;">+</button>
+                                    <!-- Row 3 -->
+                                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 14px 0;">
+                                        <div style="display: flex; align-items: center; gap: 12px;">
+                                            <div style="width: 20px; height: 20px; border-radius: 50%; background: #e8e3d3; border: 1px solid rgba(0,0,0,0.1);"></div>
+                                            <span style="font-size: 0.95rem; color: var(--color-text);">Colore 3 &nbsp;<strong>Taglia 36</strong></span>
+                                        </div>
+                                        <div class="qty-controls" style="background: white; border-radius: 6px; overflow: hidden; display: flex; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
+                                            <button style="border: 1px solid #bfdbfe; color: #1e3a8a; background: white; width: 40px; height: 36px; border-radius: 6px 0 0 6px; font-weight: bold; font-size: 1.1rem; cursor: pointer;">-</button>
+                                            <input type="text" value="0" style="width: 48px; text-align: center; border: 1px solid #bfdbfe; border-left: none; border-right: none; height: 36px; box-sizing: border-box; background: white; font-weight: 600; color: #1e3a8a;" readonly>
+                                            <button style="border: none; color: #1e3a8a; background: #bfdbfe; width: 40px; height: 36px; border-radius: 0 6px 6px 0; font-weight: bold; font-size: 1.1rem; cursor: pointer;">+</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

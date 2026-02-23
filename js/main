@@ -7,11 +7,9 @@
                     titleKey: "proj_retail_title",
                     meta: "Product Design • 2025 -",
                     images: [
-                        "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop", // Immagine Hero (già presente)
-                        "assets/erp-retail-screen-1.png", // <-- INSERISCI QUI IL NOME DEL TUO FILE (es. 'assets/dashboard-1.jpg')
-                        "assets/erp-retail-screen-2.png"  // <-- INSERISCI QUI IL NOME DEL TUO FILE
+                        "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop"
                     ],
-                    contentKeys: ['erp_modal_1', 'erp_modal_2'],
+                    contentKeys: ['erp_modal_1'],
                     prototypeLink: 'B2BDeepView.Html'
                 },
                 'erp-industrial': {
@@ -62,13 +60,111 @@
                     proj_redesign_desc: "Analisi critica.",
                     proj_musee_desc: "Accessibilità.",
                     proj_kumbu_desc: "iPad app, accessibilità, UX research",
-                    erp_modal_1: "<strong>Overview:</strong> Ho guidato l'evoluzione di un semplice tool di monitoraggio quantitativo in una piattaforma SaaS per la gestione degli ordini B2B. Lavorando a stretto contatto con il cliente, ho razionalizzato le loro richieste, mappato i bisogni di nuove tipologie di utenti e progettato da zero flussi logici per gestire scenari complessi.",
-                    erp_modal_2: `
-                    <strong>Il mio contributo:</strong> <br>
-                        - <strong> Definizione dei ruoli e dell'architettura</strong>:Invece di limitare il tool al solo monitoraggio, ho identificato e separato le necessità di due utenze chiave (Rappresentanti e Produttori), strutturando flussi dedicati per l'anagrafica clienti e la gestione dei cataloghi personalizzati. <br>
-                        - <strong> Risoluzione logica dell'inventario</strong>: Il cliente aveva bisogno di tracciare le quantità ordinate per i produttori. Ho tradotto questa esigenza in un nuovo modello mentale per i rappresentanti, introducendo in fase d'ordine un sistema a doppio stato (disponibilità reale e virtuale) per avere una panoramica chiara ed evitare overbooking. <br>
-                        - <strong> Dalla logica all'interfaccia</strong>: Ho disegnato l'intera esperienza, dalla creazione di una dashboard mobile-friendly per i rappresentanti sul campo, fino alla realizzazione dei wireframe e prototipi ad alta fedeltà.<br>
-                        - <strong>Allineamento tecnico</strong>: Ho curato in prima persona l'hand-off, fornendo documentazione chiara al team di sviluppo per garantire che le logiche di business (come il doppio stato degli articoli) fossero implementate correttamente.`,
+                    erp_modal_1: `
+
+<h3>Overview</h3>
+<p>Ho guidato l'evoluzione di un semplice tool di monitoraggio quantitativo, trasformandolo in una piattaforma SaaS completa per la gestione degli ordini B2B. Lavorando a stretto contatto con gli stakeholder, ho razionalizzato le loro richieste, mappato i bisogni di nuove tipologie di utenti e progettato da zero flussi logici per gestire scenari di vendita complessi.</p>
+
+<h3>Il mio contributo</h3>
+
+<ul style="margin-left: 20px; list-style-type: disc; margin-bottom: 2rem;">
+    <li><strong style="color:var(--color-text);">Definizione dei ruoli e dell'architettura:</strong> Invece di limitare il tool al solo monitoraggio, ho identificato e separato le necessità di due utenze chiave (Rappresentanti e Produttori), strutturando flussi dedicati per l'anagrafica clienti e la gestione dei cataloghi personalizzati.</li>
+    <li><strong style="color:var(--color-text);">Risoluzione logica dell'inventario:</strong> Il cliente aveva bisogno di tracciare le quantità ordinate per i produttori. Ho tradotto questa esigenza in un nuovo modello mentale per i rappresentanti, introducendo in fase d'ordine un sistema a doppio stato (Disponibilità Reale vs Virtuale) per avere una panoramica chiara ed evitare overbooking.</li>
+    <li><strong style="color:var(--color-text);">Dalla logica all'interfaccia:</strong> Ho disegnato l'intera esperienza, dalla creazione di una dashboard mobile-friendly per i rappresentanti sul campo, fino alla realizzazione dei wireframe e prototipi ad alta fedeltà.</li>
+    <li><strong style="color:var(--color-text);">Allineamento tecnico:</strong> Ho curato in prima persona l'hand-off, fornendo documentazione chiara al team di sviluppo per garantire che le logiche di business (come il doppio stato degli articoli) fossero implementate e comprese correttamente.</li>
+</ul>
+
+<h3 style="margin-top: 2rem; margin-bottom: 1rem;">Redesign della fase di Inserimento Ordine: Da Tabella a Task-Oriented UI</h3>
+
+<div style="display:flex; align-items: flex-start; gap: 1rem; margin: 2rem 0; flex-wrap: wrap;">
+  <img src="assets/b2b/PRIMA_image_1.png" style="flex:1; min-width: 250px; border-radius: 8px; width: 100%; height: auto; object-fit: contain; border: 1px solid var(--color-border); box-shadow: 0 4px 6px rgba(0,0,0,0.05); cursor: zoom-in;" onclick="Portfolio.openLightbox(this.src)" alt="Prima">
+  <img src="assets/b2b/Dopo_catalogo_view_operativo.png" style="flex:1; min-width: 250px; border-radius: 8px; width: 100%; height: auto; object-fit: contain; border: 1px solid var(--color-border); box-shadow: 0 4px 6px rgba(0,0,0,0.05); cursor: zoom-in;" onclick="Portfolio.openLightbox(this.src)" alt="Dopo">
+</div>
+
+<h4>🚨 Il Problema: Il Carico Cognitivo della Vecchia Griglia</h4>
+<p>L'interfaccia legacy obbligava i rappresentanti a inserire le quantità tramite una modale a tabella indifferenziata. Analizzando il flusso, ho identificato tre criticità UX principali:</p>
+
+<ul style="margin-left: 20px; list-style-type: disc; margin-bottom: 2rem;">
+    <li><strong style="color:var(--color-text);">Assenza di Gerarchia e Rischio di Errore:</strong> Le varianti di prodotto (Materiale, Colore, Taglia) venivano presentate come un blocco monolitico di testo. In un contesto operativo frenetico, la mancanza di demarcazione visiva aumentava drasticamente il rischio di errori di data-entry (es. inserire quantità per la variante "Nude" anziché "Nero").</li>
+    <li><strong style="color:var(--color-text);">Rumore Visivo:</strong> L'utente era costretto a rileggere informazioni ridondanti su ogni riga (es. "LIZ - NERO" ripetuto 3 volte), affaticando la scansione visiva.</li>
+    <li><strong style="color:var(--color-text);">Perdita di Contesto (Stress Test):</strong> Per articoli con molte combinazioni, la modale generava uno scroll infinito, nascondendo l'immagine del prodotto e facendo perdere all'utente il quadro generale di ciò che stava ordinando.</li>
+</ul>
+
+<h4>✨ La Soluzione: Riorganizzazione Architetturale</h4>
+<p>Ho completamente riprogettato il layout dell'inserimento passando da una logica "database" a un'interfaccia task-oriented, ottimizzata per l'uso su tablet e desktop:</p>
+
+<ul style="margin-left: 20px; list-style-type: disc; margin-bottom: 2rem;">
+    <li><strong style="color:var(--color-text);">Raggruppamento per Attributi (Legge della Prossimità):</strong> Ho eliminato la ripetizione dei dati estraendo "Materiale" e "Colore" come intestazioni di gruppo. Ora l'utente seleziona il materiale tramite dei pill/chips in alto (es. LIZ / VIT), e sotto vede solo i blocchi colore raggruppati, riducendo il carico cognitivo di oltre il 60%.</li>
+    <li><strong style="color:var(--color-text);">Contesto Fisso:</strong> Il prodotto base, insieme all'innovativo indicatore di disponibilità "Reale/Virtuale" e all'importo totale in tempo reale, rimangono "sticky" in alto. Questo risolve il problema dello scroll: l'utente sa sempre cosa sta configurando e qual è l'impatto economico immediato.</li>
+    <li><strong style="color:var(--color-text);">Micro-interazioni Sicure:</strong> Ho sostituito la semplice casella di input con uno stepper (- 0 +). Questo permette aggiustamenti rapidi col mouse/touchscreen per piccole quantità, mantenendo comunque la possibilità di digitazione diretta (typing) per inserimenti massivi, garantendo sia prevenzione dell'errore che efficienza.</li>
+</ul>
+
+<h3 style="margin-top: 2rem; margin-bottom: 1rem;">Modalità Doppia: Showroom vs Operativa</h3>
+
+<div style="display:flex; align-items: flex-start; gap: 1rem; margin: 2rem 0; flex-wrap: wrap;">
+  <img src="assets/b2b/Creazione_ordine.png" style="flex:1; min-width: 250px; border-radius: 8px; width: 100%; height: auto; object-fit: contain; border: 1px solid var(--color-border); box-shadow: 0 4px 6px rgba(0,0,0,0.05); cursor: zoom-in;" onclick="Portfolio.openLightbox(this.src)" alt="Creazione ordine">
+  <img src="assets/b2b/Dopo_catalogo_view_card.png" style="flex:1; min-width: 250px; border-radius: 8px; width: 100%; height: auto; object-fit: contain; border: 1px solid var(--color-border); box-shadow: 0 4px 6px rgba(0,0,0,0.05); cursor: zoom-in;" onclick="Portfolio.openLightbox(this.src)" alt="Dopo catalogo card">
+</div>
+
+<p style="margin-bottom: 1rem;">Durante la ricerca è emerso che i rappresentanti usano il catalogo in due momenti distinti: in solitaria per inserire dati velocemente, o fianco a fianco con il cliente per mostrare la collezione.</p>
+
+<p>Per risolvere questa dualità senza creare due pagine diverse, ho introdotto un Toggle View (Showroom / Operativa):</p>
+
+<ul style="margin-left: 20px; list-style-type: disc; margin-bottom: 2rem;">
+    <li><strong style="color:var(--color-text);">Modalità Showroom (Visuale):</strong> Enfatizza le immagini dei prodotti con grandi card pulite. Mostra le varianti di colore in modo visivo (pallini colore) ed è pensata per ispirare il compratore durante la trattativa.</li>
+    <li><strong style="color:var(--color-text);">Modalità Operativa (Dati):</strong> Comprime l'immagine e si espande per rivelare la lista d'inserimento rapido discussa sopra, ottimizzando lo spazio verticale per il data-entry puro.</li>
+</ul>
+
+<h3 style="margin-top: 2rem; margin-bottom: 1rem;">Gestione Lista Ordini: Da "Database Cieco" a Triage Operativo</h3>
+
+<div style="display:flex; align-items: flex-start; gap: 1rem; margin: 2rem 0; flex-wrap: wrap;">
+  <img src="assets/b2b/Ordini_prima.png" style="flex:1; min-width: 150px; border-radius: 8px; width: 100%; height: auto; object-fit: contain; border: 1px solid var(--color-border); box-shadow: 0 4px 6px rgba(0,0,0,0.05); cursor: zoom-in;" onclick="Portfolio.openLightbox(this.src)" alt="Ordini prima">
+  <img src="assets/b2b/Ordini.png" style="flex:1; min-width: 150px; border-radius: 8px; width: 100%; height: auto; object-fit: contain; border: 1px solid var(--color-border); box-shadow: 0 4px 6px rgba(0,0,0,0.05); cursor: zoom-in;" onclick="Portfolio.openLightbox(this.src)" alt="Ordini">
+  <img src="assets/b2b/Ordini_4.png" style="flex:1; min-width: 150px; border-radius: 8px; width: 100%; height: auto; object-fit: contain; border: 1px solid var(--color-border); box-shadow: 0 4px 6px rgba(0,0,0,0.05); cursor: zoom-in;" onclick="Portfolio.openLightbox(this.src)" alt="Ordini 4">
+</div>
+
+<h4>🚨 Il Problema: Interaction Cost e Mancanza di Overview</h4>
+<p>La vecchia pagina ordini era essenzialmente un dump di database privo di gerarchia. Presentava due grossi limiti per l'operatività B2B:</p>
+
+<ul style="margin-left: 20px; list-style-type: disc; margin-bottom: 2rem;">
+    <li><strong style="color:var(--color-text);">Zero Overview:</strong> L'utente doveva calcolare mentalmente i volumi di vendita o cercare ciecamente. Non c'era alcuna visibilità sulle performance in tempo reale.</li>
+    <li><strong style="color:var(--color-text);">Context Switching e Tempi Morti:</strong> Per modificare o visualizzare un ordine, l'utente doveva cliccare un'icona di espansione che apriva un overlay a schermo intero. Questo oscurava la tabella sottostante. Se l'utente doveva revisionare tre ordini di fila, subiva un altissimo Interaction Cost (apri, chiudi, cerca la riga successiva, apri di nuovo).</li>
+</ul>
+
+<h4>✨ La Soluzione: Dashboarding e Side-Drawer Pattern</h4>
+<p>Ho trasformato la sezione da un semplice log passivo a uno strumento di controllo attivo:</p>
+
+<ul style="margin-left: 20px; list-style-type: disc; margin-bottom: 2rem;">
+    <li><strong style="color:var(--color-text);">Iniezione di KPI (Macro-livello):</strong> Ho introdotto una fascia di widget "glanceable" (Ordini settimanali, Entrate, Paia vendute). Questo converte istantaneamente la pagina in una vera e propria Dashboard, allineando l'interfaccia agli obiettivi di business e di fatturato.</li>
+    <li><strong style="color:var(--color-text);">Il Pattern Side-Drawer per il Triage (Micro-livello):</strong> Ho eliminato l'overlay bloccante in favore di un Side-Drawer (Pannello laterale scorrevole) richiamabile al semplice click sull'intera riga.</li>
+    <li><strong style="color:var(--color-text);">Il vantaggio UX:</strong> Mentre il drawer mostra i dettagli e i tasti di azione (come "Modifica" o "Stampa PDF"), la tabella principale rimane visibile e interattiva in background. L'utente può scorrere rapidamente i dettagli di molteplici ordini semplicemente cliccando in successione sulle righe, azzerando i tempi di apertura/chiusura e mantenendo intatto il proprio orientamento spaziale.</li>
+    <li><strong style="color:var(--color-text);">Dati strutturati e Azioni immediate:</strong> All'interno del drawer, informazioni vitali come lo stato di avanzamento ("In produzione") e i tasti di modifica primaria sono stati spostati all'apice visivo, immediatamente accessibili senza dover scrollare i dettagli dell'intero carrello.</li>
+</ul>
+
+<h3 style="margin-top: 2rem; margin-bottom: 1rem;">Gestione Anagrafica Clienti: Scalabilità nel B2B</h3>
+
+<div style="display:flex; align-items: flex-start; gap: 1rem; margin: 2rem 0; flex-wrap: wrap;">
+  <img src="assets/b2b/Clienti.png" style="flex:1; min-width: 250px; border-radius: 8px; width: 100%; height: auto; object-fit: contain; border: 1px solid var(--color-border); box-shadow: 0 4px 6px rgba(0,0,0,0.05); cursor: zoom-in;" onclick="Portfolio.openLightbox(this.src)" alt="Clienti prima">
+  <img src="assets/b2b/Clienti_new.png" style="flex:1; min-width: 250px; border-radius: 8px; width: 100%; height: auto; object-fit: contain; border: 1px solid var(--color-border); box-shadow: 0 4px 6px rgba(0,0,0,0.05); cursor: zoom-in;" onclick="Portfolio.openLightbox(this.src)" alt="Clienti nuovo">
+</div>
+
+<h4>🚨 Il Problema: I limiti del Card Design nei CRM complessi</h4>
+<p>Il sistema originale mostrava i clienti tramite una griglia di Card. Pur essendo esteticamente gradevoli, nell'operatività quotidiana presentavano severi limiti di usabilità:</p>
+
+<ul style="margin-left: 20px; list-style-type: disc; margin-bottom: 2rem;">
+    <li><strong style="color:var(--color-text);">Problema di Scalabilità:</strong> Nel settore Fashion B2B, un singolo cliente può avere molteplici sedi logistiche e complesse condizioni di pagamento. Una Card a dimensione fissa non ha lo spazio fisico per ospitare dati in espansione senza diventare illeggibile o costringere a fastidiosi overlay/modali.</li>
+    <li><strong style="color:var(--color-text);">Dispersione del focus:</strong> La paginazione numerica in basso obbligava l'utente a continui ricaricamenti di pagina, rompendo il flusso cognitivo durante la ricerca di una specifica anagrafica.</li>
+</ul>
+
+<h4>✨ La Soluzione: Il Pattern Master-Detail</h4>
+<p>Per supportare la densità di dati tipica di un vero SaaS gestionale, ho completamente ristrutturato la vista adottando un pattern Master-Detail (Split Screen):</p>
+
+<ul style="margin-left: 20px; list-style-type: disc; margin-bottom: 2rem;">
+    <li><strong style="color:var(--color-text);">Colonna "Master" (Navigazione Rapida):</strong> Sulla sinistra, una lista fissa e scrollabile con la propria barra di ricerca contestuale. Permette al rappresentante di saltare da un cliente all'altro istantaneamente, offrendo un riscontro visivo chiaro (stato attivo) di chi si sta esaminando.</li>
+    <li><strong style="color:var(--color-text);">Area "Detail" (Categorizzazione Logica):</strong> Sulla destra, lo spazio si espande per ospitare la scheda completa. Ho introdotto un'architettura dell'informazione rigorosa, suddividendo i dati in cluster semantici: Dati Fiscali, Logistica e Sedi (con possibilità di aggiungere multipli indirizzi di spedizione), e Pagamenti (condizioni e IBAN).</li>
+    <li><strong style="color:var(--color-text);">Razionalizzazione dei Dati:</strong> Ho rimosso informazioni superficiali o ridondanti presenti nel vecchio design (come il counter "Ordini Totali", che l'utente consulta già nella tab dedicata agli Ordini), focalizzando l'interfaccia solo sui dati strettamente necessari all'avvio della trattativa.</li>
+</ul>`,
+                    erp_modal_2: ``,
                     erp_modal_B1: "<strong>Overview:</strong> Ricerca e progettazione end-to-end per un nuovo software gestionale B2B, creato per tracciare la lavorazione dei materiali e l'archiviazione documentale in ambito industriale. Partendo da zero, ho definito il flusso di lavoro di tre diverse tipologie di utenti, bilanciando l'efficienza operativa con rigidi vincoli di conformità legale.",
                     erp_modal_B2:`<strong>Il mio contributo:</strong> <br>
                         - <strong>Ricerca sul campo e Architettura</strong>: Invece di basarmi su assunzioni, ho condotto interviste dirette con gli operatori in fabbrica. Questo mi ha permesso di mappare il reale flusso di lavoro (as-is) e progettare un'architettura dell'informazione (to-be) che rispecchiasse fedelmente le loro necessità quotidiane. <br>
@@ -458,6 +554,98 @@
                 });
             };
 
+            const openLightbox = (imgSrc) => {
+                let lightbox = document.getElementById('portfolio-lightbox');
+                if (!lightbox) {
+                    lightbox = document.createElement('div');
+                    lightbox.id = 'portfolio-lightbox';
+                    lightbox.style.cssText = `
+                        position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+                        background: rgba(0,0,0,0.85); z-index: 99999;
+                        display: flex; justify-content: center; align-items: center;
+                        opacity: 0; transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1); cursor: zoom-out;
+                        padding: 2rem; box-sizing: border-box; backdrop-filter: blur(5px);
+                    `;
+                    const img = document.createElement('img');
+                    img.id = 'portfolio-lightbox-img';
+                    img.style.cssText = `
+                        max-width: 100%; max-height: 100%; border-radius: 8px;
+                        box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+                        transform: translateY(30px) scale(0.95); transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+                        user-select: none; pointer-events: none; -webkit-user-drag: none;
+                        object-fit: contain;
+                    `;
+                    img.oncontextmenu = () => false;
+                    img.draggable = false;
+
+                    lightbox.appendChild(img);
+                    document.body.appendChild(lightbox);
+
+                    lightbox.onclick = () => {
+                        lightbox.style.opacity = '0';
+                        img.style.transform = 'translateY(30px) scale(0.95)';
+                        setTimeout(() => lightbox.style.display = 'none', 300);
+                    };
+                }
+
+                const img = document.getElementById('portfolio-lightbox-img');
+                img.src = imgSrc;
+                lightbox.style.display = 'flex';
+
+                // Trigger reflow
+                void lightbox.offsetWidth;
+
+                lightbox.style.opacity = '1';
+                img.style.transform = 'translateY(0) scale(1)';
+            };
+
+            const initAntiScreenshot = () => {
+                const blurScreen = () => {
+                    document.body.style.filter = 'blur(20px) grayscale(100%)';
+                    setTimeout(() => document.body.style.filter = 'none', 1500);
+                };
+
+                // Protezione contro Snipping Tool Windows / Mac (ruba il focus visivo)
+                window.addEventListener('blur', () => {
+                    const modal = document.getElementById('project-modal');
+                    const lightbox = document.getElementById('portfolio-lightbox');
+
+                    // Applica l'offuscamento totale (body sparito) solo se c'è materiale sensibile esposto
+                    if ((modal && modal.classList.contains('active')) || (lightbox && lightbox.style.display === 'flex')) {
+                        document.body.style.opacity = '0';
+                    }
+                });
+
+                window.addEventListener('focus', () => {
+                    document.body.style.opacity = '1';
+                });
+
+                document.addEventListener('keyup', (e) => {
+                    if (e.key === 'PrintScreen') {
+                        blurScreen();
+                        navigator.clipboard.writeText("Questa immagine è protetta da NDA.");
+                    }
+                });
+
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Meta' || e.key === 'OS') {
+                        blurScreen();
+                    }
+                    if ((e.ctrlKey || e.metaKey) && (e.key === 'p' || e.key === 's')) {
+                        blurScreen();
+                    }
+                    if ((e.metaKey && e.shiftKey) && (e.key === 's' || e.key === '3' || e.key === '4' || e.key === '5')) {
+                        blurScreen();
+                    }
+                });
+
+                document.addEventListener('contextmenu', (e) => {
+                    if (e.target.tagName === 'IMG') {
+                        e.preventDefault();
+                    }
+                });
+            };
+
             const openProjectModal = (projectId) => {
                 const data = projectsData[projectId];
                 if (!data) return;
@@ -473,7 +661,7 @@
 
                 data.contentKeys.forEach((key, index) => {
                     const text = translations[currentLang][key] || "Translation missing";
-                    html += `<p class="project-modal-text">${text}</p>`;
+                    html += `<div class="project-modal-text">${text}</div>`;
 
                     if (data.images[index + 1]) {
                         html += `<img src="${data.images[index + 1]}" alt="Project detail" class="project-modal-hero">`;
@@ -527,6 +715,7 @@
                         initScrollObserver();
                         initBentoMobileObserver(); /* FIX: Inizializza l'observer del Bento */
                         initNavActions();
+                        initAntiScreenshot();
                         setLanguage('it');
                     } catch (error) {
                         console.error("Initialization error:", error);
@@ -534,7 +723,7 @@
                         setTimeout(() => document.body.classList.add('is-loaded'), 50);
                     }
                 },
-                remixBio, expandConcept, toggleModal, openProjectModal, openLink,
+                remixBio, expandConcept, toggleModal, openProjectModal, openLink, openLightbox,
                 setLanguage, toggleLangMenu, selectLang, toggleMobileMenu
             };
         })();
