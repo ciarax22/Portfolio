@@ -1,0 +1,573 @@
+﻿<!DOCTYPE html>
+<html lang="it" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: Riprogettazione B2B SaaS</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/b2b-deep-view.css">
+</head>
+
+<body class="is-loaded">
+
+    <!-- Animazione Sfondo (Dal tuo Design System) -->
+    <div class="bg-canvas">
+        <div class="sphere-wrapper" id="sphere-wrapper">
+            <div class="gradient-sphere"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="#" class="navbar__logo">
+            <div class="logo-box">UX</div>
+            <span>B2B Case Study</span>
+        </a>
+
+        <div class="navbar__actions">
+            <div class="lang-switch">
+                <button id="btn-it" class="active" onclick="Portfolio.setLanguage('it')">IT</button>
+                <button id="btn-en" onclick="Portfolio.setLanguage('en')">EN</button>
+            </div>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">
+                <!-- SVG Icon (Sun/Moon will be toggled by JS) -->
+                <svg class="theme-icon sun" viewBox="0 0 24 24" style="display:none;">
+                    <path
+                        d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0 .39-.39.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0 .39-.39.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41.39.39 1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41.39.39 1.03.39 1.41 0l1.06-1.06z" />
+                </svg>
+                <svg class="theme-icon moon" viewBox="0 0 24 24">
+                    <path
+                        d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="section-padding text-center container" id="landing">
+        <span class="tag" data-i18n="tag_hero">B2B SaaS / Fashion & Retail</span>
+        <h1 data-i18n="hero_title">Riprogettazione Piattaforma Gestione Ordini</h1>
+        <p class="subtitle" data-i18n="hero_subtitle">Evoluzione di un semplice tool di monitoraggio in una piattaforma
+            SaaS completa. Dalla mappatura dei bisogni utente alla progettazione di flussi complessi per scenari di
+            vendita B2B.</p>
+        <div
+            style="display: flex; gap: 1rem; justify-content: center; color: var(--color-text-dim); font-size: 0.9rem; font-weight: 600;">
+            <span><i class="fa-solid fa-pen-ruler"></i> UX/UI Design</span>
+            <span><i class="fa-solid fa-sitemap"></i> <span data-i18n="tag_arch">Architettura</span></span>
+            <span><i class="fa-solid fa-users"></i> User Research</span>
+        </div>
+    </section>
+
+    <!-- SECTION 1: OVERVIEW & IMPACT -->
+    <section class="container" id="about" style="padding-top: 0;">
+        <div class="cs-card cs-grid-2">
+            <div>
+                <h2 style="border-left: 4px solid var(--color-accent); padding-left: 1rem;" data-i18n="sec1_title">
+                    Overview & Contributo</h2>
+                <p style="color: var(--color-text-dim); margin-bottom: 2rem;" data-i18n="sec1_desc">Ho guidato
+                    l'evoluzione di un semplice tool di monitoraggio quantitativo, trasformandolo in una piattaforma
+                    SaaS completa. Lavorando a stretto contatto con gli stakeholder, ho razionalizzato le loro richieste
+                    e progettato da zero flussi logici per gestire scenari complessi.</p>
+
+                <div class="info-list">
+                    <div class="info-item">
+                        <div class="info-icon success"><i class="fa-solid fa-check"></i></div>
+                        <div class="info-text">
+                            <h4 data-i18n="info1_title">Architettura & Ruoli</h4>
+                            <p data-i18n="info1_desc">Separazione flussi per Rappresentanti e Produttori. Strutturazione
+                                anagrafica clienti.</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon accent"><i class="fa-solid fa-layer-group"></i></div>
+                        <div class="info-text">
+                            <h4 data-i18n="info2_title">Logica Inventario</h4>
+                            <p data-i18n="info2_desc">Introduzione del modello a doppio stato: Disponibilità Reale vs
+                                Virtuale per evitare overbooking.</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon warning"><i class="fa-solid fa-code"></i></div>
+                        <div class="info-text">
+                            <h4 data-i18n="info3_title">Allineamento Tecnico</h4>
+                            <p data-i18n="info3_desc">Hand-off curato e documentazione delle logiche di business per il
+                                team di sviluppo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <h3 style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-text-dim); margin-bottom: 1rem;"
+                    data-i18n="chart_title">Impatto del Redesign</h3>
+                <div class="chart-wrapper desktop-only">
+                    <canvas id="impactRadarChart"></canvas>
+                </div>
+                <div class="mobile-placeholder" style="margin-top:0; padding: 2rem;">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <p data-i18n="mob_placeholder_chart">Contenuto ottimizzato per Desktop.</p>
+                    <div class="img-container" style="height: 200px;">[Inserisci screen grafico]</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: ORDER INSERTION -->
+    <section class="container section-padding" id="projects">
+        <div class="text-center" style="margin-bottom: 3rem;">
+            <h2 data-i18n="sec2_title">Dalla Tabella al Task-Oriented UI</h2>
+            <p class="subtitle" data-i18n="sec2_desc">L'interfaccia legacy obbligava i rappresentanti a inserire le
+                quantità tramite una modale a tabella indifferenziata (Carico cognitivo alto, Rischio errori). Ho
+                riprogettato il layout focalizzandolo sul task.</p>
+        </div>
+
+        <div class="mobile-placeholder">
+            <i class="fa-solid fa-desktop"></i>
+            <p><strong data-i18n="mob_placeholder_title">Accedi da Desktop</strong><br>
+            <span data-i18n="mob_placeholder_desc">Per un'esperienza interattiva al 100%, visualizza questo prototipo su uno schermo desktop.</span></p>
+            <div class="img-container" style="height: 300px;">[Inserisci screen Nuova UI]</div>
+        </div>
+
+        <div class="cs-card desktop-only" style="padding: 0; overflow: hidden;">
+            <div class="view-switcher">
+                <button id="btn-view-legacy" class="btn btn--outline" onclick="Portfolio.switchEntryView('legacy')">
+                    <i class="fa-solid fa-table"></i> <span data-i18n="btn_legacy">Vista Legacy</span>
+                </button>
+                <button id="btn-view-new" class="btn btn--primary" onclick="Portfolio.switchEntryView('new')">
+                    <i class="fa-solid fa-list-check"></i> <span data-i18n="btn_new">Nuova UI</span>
+                </button>
+            </div>
+
+            <div class="ui-canvas">
+
+                <!-- LEGACY VIEW -->
+                <div id="view-legacy" class="hidden legacy-table-wrapper">
+                    <div
+                        style="color: var(--color-danger); font-weight: bold; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fa-solid fa-triangle-exclamation"></i> <span data-i18n="prob_legacy">Problema: Rumore
+                            Visivo & Errori</span>
+                    </div>
+                    <table class="legacy-table">
+                        <thead>
+                            <tr>
+                                <th>Articolo</th>
+                                <th>Materiale</th>
+                                <th>Colore</th>
+                                <th>Taglia</th>
+                                <th>Q.tà</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>SCARPA- 12</td>
+                                <td>Pelle</td>
+                                <td>Nero</td>
+                                <td>36</td>
+                                <td><input type="number" value="0"></td>
+                            </tr>
+                            <tr>
+                                <td>SCARPA- 12</td>
+                                <td>Pelle</td>
+                                <td>Nero</td>
+                                <td>37</td>
+                                <td><input type="number" value="0"></td>
+                            </tr>
+                            <tr>
+                                <td>SCARPA- 12</td>
+                                <td>Pelle</td>
+                                <td>Nero</td>
+                                <td>38</td>
+                                <td><input type="number" value="0"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- NEW VIEW -->
+                <div id="view-new" class="new-ui-card">
+                    <div class="new-ui-header">
+                        <div>
+                            <h4>SCARPA-12-A <span style="font-weight: normal; color: var(--color-text);">Simone</span>
+                            </h4>
+                            <div style="font-size: 0.75rem; margin-top: 5px; display: flex; gap: 1rem;">
+                                <span style="color: var(--color-success); font-weight: bold;"><span
+                                        data-i18n="lbl_real">Reale:</span> 200</span>
+                                <span style="color: var(--color-warning); font-weight: bold;"><span
+                                        data-i18n="lbl_virtual">Virtuale:</span> 300</span>
+                            </div>
+                        </div>
+                        <div style="text-align: right;">
+                            <span style="font-size: 0.7rem; color: var(--color-text-dim);" data-i18n="lbl_total">Totale
+                                Riga</span>
+                            <div style="font-size: 1.2rem; font-weight: bold;">4.000,00€</div>
+                        </div>
+                    </div>
+                    <div class="new-ui-body">
+                        <div style="display: flex; gap: 10px; margin-bottom: 20px; align-items: center;">
+                            <span
+                                style="font-size: 0.75rem; font-weight: bold; text-transform: uppercase; color: var(--color-text-dim);"
+                                data-i18n="lbl_mat">Materiale:</span>
+                            <div class="tag" style="margin:0; background: var(--color-text); color: var(--color-bg);">
+                                PELLE</div>
+                            <div class="tag"
+                                style="margin:0; background: transparent; border: 1px solid var(--color-border); color: var(--color-text-dim);">
+                                CUOIO</div>
+                        </div>
+
+                        <div style="display: flex; flex-direction: column; gap: 10px;">
+                            <!-- riga 1 -->
+                            <div class="ui-row">
+                                <div style="display: flex; align-items: center; gap: 15px;">
+                                    <div
+                                        style="width: 20px; height: 20px; border-radius: 50%; background: #000; border: 1px solid var(--color-border);">
+                                    </div>
+                                    <span style="font-weight: 600; font-size: 0.9rem;"><span
+                                            data-i18n="col_black">Nero</span> - Tg. 36</span>
+                                </div>
+                                <div class="qty-controls">
+                                    <button onclick="Portfolio.updateQty(this, -1)">-</button>
+                                    <input type="text" value="0" readonly>
+                                    <button onclick="Portfolio.updateQty(this, 1)"
+                                        style="color: var(--color-accent); border-color: var(--color-accent-light); background: var(--color-accent-light);">+</button>
+                                </div>
+                            </div>
+                            <!-- riga 2 -->
+                            <div class="ui-row">
+                                <div style="display: flex; align-items: center; gap: 15px;">
+                                    <div
+                                        style="width: 20px; height: 20px; border-radius: 50%; background: #000; border: 1px solid var(--color-border);">
+                                    </div>
+                                    <span style="font-weight: 600; font-size: 0.9rem;"><span
+                                            data-i18n="col_black">Nero</span> - Tg. 37</span>
+                                </div>
+                                <div class="qty-controls">
+                                    <button onclick="Portfolio.updateQty(this, -1)">-</button>
+                                    <input type="text" value="0" readonly>
+                                    <button onclick="Portfolio.updateQty(this, 1)"
+                                        style="color: var(--color-accent); border-color: var(--color-accent-light); background: var(--color-accent-light);">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-grid" style="padding: 2rem;">
+                <div class="stat-card" style="background: var(--color-warning-light); border-color: transparent;">
+                    <i class="fa-solid fa-lightbulb" style="color: var(--color-warning);"></i>
+                    <h4 data-i18n="stat1_title">Gerarchia Visiva</h4>
+                    <p data-i18n="stat1_desc">Raggruppamento attributi riduce il carico cognitivo del 60%.</p>
+                </div>
+                <div class="stat-card" style="background: var(--color-accent-light); border-color: transparent;">
+                    <i class="fa-solid fa-anchor" style="color: var(--color-accent);"></i>
+                    <h4 data-i18n="stat2_title">Contesto Fisso</h4>
+                    <p data-i18n="stat2_desc">Header "sticky" per non perdere mai il riferimento economico.</p>
+                </div>
+                <div class="stat-card" style="background: var(--color-success-light); border-color: transparent;">
+                    <i class="fa-solid fa-mouse-pointer" style="color: var(--color-success);"></i>
+                    <h4 data-i18n="stat3_title">Micro-interazioni</h4>
+                    <p data-i18n="stat3_desc">Stepper per piccoli aggiustamenti sicuri su touch.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: DUAL MODES -->
+    <section class="container section-padding">
+        <div class="cs-grid-2">
+            <div>
+                <h2 data-i18n="sec3_title">Modalità Doppia</h2>
+                <p class="subtitle" style="margin-left: 0; text-align: left;" data-i18n="sec3_desc">I rappresentanti
+                    usano il catalogo per <strong>ispirare</strong> (con il cliente) o per <strong>inserire</strong> (da
+                    soli). Ho creato un toggle per cambiare UI istantaneamente, rispettando le loro abitudini d'uso.</p>
+
+                <div
+                    style="background: var(--color-surface); padding: 1.5rem; border-radius: var(--radius-md); border: 1px solid var(--color-border);">
+                    <h4 style="font-size: 0.85rem; margin-bottom: 1rem; color: var(--color-text-dim);"
+                        data-i18n="lbl_try">Prova il Toggle:</h4>
+                    <div
+                        style="display: flex; background: var(--color-bg); padding: 4px; border-radius: var(--radius-sm); border: 1px solid var(--color-border);">
+                        <button id="btn-mode-showroom" class="btn btn--primary"
+                            style="flex:1; padding: 0.6rem; border-radius: 4px;"
+                            onclick="Portfolio.setMode('showroom')">
+                            <i class="fa-solid fa-border-all"></i> Showroom
+                        </button>
+                        <button id="btn-mode-operative" class="btn btn--ghost"
+                            style="flex:1; padding: 0.6rem; border-radius: 4px;"
+                            onclick="Portfolio.setMode('operative')">
+                            <i class="fa-solid fa-list"></i> <span data-i18n="btn_op">Operativa</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mobile-placeholder" style="margin-top: 0;">
+                <i class="fa-solid fa-desktop"></i>
+                <p><strong data-i18n="mob_placeholder_title">Accedi da Desktop</strong><br>
+                <span data-i18n="mob_placeholder_desc">Per un'esperienza interattiva al 100%, visualizza questo prototipo su uno schermo desktop.</span></p>
+                <div class="img-container" style="height: 400px;">[Inserisci screen Catalogo]</div>
+            </div>
+
+            <div class="catalog-container desktop-only">
+                <div
+                    style="position: absolute; top: 10px; right: 15px; font-size: 0.7rem; font-weight: bold; color: var(--color-text-dim); text-transform: uppercase;">
+                    Live Preview</div>
+                <div id="catalog-content" class="catalog-mode-showroom"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: DASHBOARD & TRIAGE -->
+    <section class="container section-padding">
+        <div class="text-center" style="margin-bottom: 3rem;">
+            <h2 data-i18n="sec4_title">Da "Database Cieco" a Triage Operativo</h2>
+            <p class="subtitle" data-i18n="sec4_desc">Il pattern <strong>Side-Drawer</strong> permette di revisionare
+                ordini multipli senza perdere il contesto della lista (zero interaction cost rispetto al cambio pagina).
+            </p>
+        </div>
+
+        <div class="mobile-placeholder">
+            <i class="fa-solid fa-desktop"></i>
+            <p><strong data-i18n="mob_placeholder_title">Accedi da Desktop</strong><br>
+            <span data-i18n="mob_placeholder_desc">Per un'esperienza interattiva al 100%, visualizza questo prototipo su uno schermo desktop.</span></p>
+            <div class="img-container" style="height: 350px;">[Inserisci screen Dashboard Table & Drawer]</div>
+        </div>
+
+        <div class="dashboard-wrapper desktop-only">
+            <!-- Table -->
+            <div class="table-area">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th data-i18n="th_date">Data</th>
+                            <th data-i18n="th_client">Cliente</th>
+                            <th data-i18n="th_tot">Importo</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="order-table-body">
+                        <!-- JS injected -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Drawer -->
+            <div id="side-drawer" class="side-drawer">
+                <div class="drawer-header">
+                    <div>
+                        <h3 style="font-size: 1.1rem; margin-bottom: 0.2rem;" data-i18n="draw_title">Dettagli Ordine
+                        </h3>
+                        <p id="drawer-id"
+                            style="font-size: 0.8rem; color: var(--color-text-dim); font-family: monospace;">#ORD-000
+                        </p>
+                    </div>
+                    <button class="btn btn--ghost" style="padding: 0.5rem;" onclick="Portfolio.closeDrawer()"><i
+                            class="fa-solid fa-xmark"></i></button>
+                </div>
+
+                <div
+                    style="padding: 1rem 1.5rem; border-bottom: 1px solid var(--color-border); display: flex; gap: 10px;">
+                    <button class="btn btn--outline" style="flex: 1; padding: 0.5rem; font-size: 0.8rem;"
+                        data-i18n="btn_print">Stampa PDF</button>
+                    <button class="btn btn--primary" style="flex: 1; padding: 0.5rem; font-size: 0.8rem;"
+                        data-i18n="btn_edit">Modifica</button>
+                </div>
+
+                <div class="drawer-body">
+                    <div style="margin-bottom: 1.5rem;">
+                        <span
+                            style="font-size: 0.7rem; font-weight: bold; color: var(--color-text-dim); text-transform: uppercase;">Status</span><br>
+                        <span id="drawer-status" class="status-badge">...</span>
+                    </div>
+                    <div style="margin-bottom: 2rem;">
+                        <span
+                            style="font-size: 0.7rem; font-weight: bold; color: var(--color-text-dim); text-transform: uppercase;"
+                            data-i18n="th_client">Cliente</span>
+                        <p id="drawer-client" style="font-weight: 600;">...</p>
+                    </div>
+
+                    <div style="border-top: 1px solid var(--color-border); padding-top: 1.5rem;">
+                        <span
+                            style="font-size: 0.7rem; font-weight: bold; color: var(--color-text-dim); text-transform: uppercase; margin-bottom: 1rem; display: block;"
+                            data-i18n="lbl_items">Articoli (Anteprima)</span>
+                        <div style="display: flex; gap: 15px; margin-bottom: 1rem; align-items: center;">
+                            <div style="width: 48px; height: 48px; background: #222; border-radius: 4px;"></div>
+                            <div>
+                                <p style="font-weight: 600; font-size: 0.9rem;" data-i18n="item_1">Scarpa Tacco Nero</p>
+                                <p style="font-size: 0.8rem; color: var(--color-text-dim);"><span
+                                        data-i18n="lbl_pairs">10 Paia</span> - 970â‚¬</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: CUSTOMER REGISTRY (Master-Detail) -->
+    <section class="container section-padding">
+        <h2 data-i18n="sec5_title">Anagrafica Clienti: Master-Detail</h2>
+        <p class="subtitle" style="margin-left: 0; text-align: left;" data-i18n="sec5_desc">Il pattern Master-Detail
+            gestisce l'alta densità di dati nel B2B, inclusi i complessi dettagli di pagamento e logistica, senza mai
+            far perdere il contesto di navigazione all'utente.</p>
+
+        <div class="mobile-placeholder">
+            <i class="fa-solid fa-desktop"></i>
+            <p><strong data-i18n="mob_placeholder_title">Accedi da Desktop</strong><br>
+            <span data-i18n="mob_placeholder_desc">Per un'esperienza interattiva al 100%, visualizza questo prototipo su uno schermo desktop.</span></p>
+            <div class="img-container" style="height: 450px;">[Inserisci screen Anagrafica Master-Detail]</div>
+        </div>
+
+        <div class="master-detail desktop-only">
+            <!-- Master -->
+            <div class="master-list">
+                <div style="padding: 1.5rem 1.5rem 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+                    <h3 style="margin:0; font-size: 1.1rem; text-transform: uppercase;">Lista Clienti</h3>
+                    <button style="width: 32px; height: 32px; border-radius: 50%; background: #cce0ff; color: var(--color-accent); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;"><i class="fa-solid fa-plus"></i></button>
+                </div>
+                <div class="master-search">
+                    <input type="text" placeholder="Cerca tra i clienti" style="border-radius: 20px; text-transform: none; color: var(--color-text-dim);" data-i18n-placeholder="search_plc">
+                </div>
+                <div class="list-items" id="client-list">
+                    <!-- JS injected -->
+                </div>
+            </div>
+
+            <!-- Detail -->
+            <div class="detail-view">
+                <div class="detail-header">
+                    <div>
+                        <span
+                            style="font-size: 0.7rem; font-weight: bold; color: var(--color-text-dim); text-transform: uppercase;"
+                            data-i18n="lbl_card">Scheda Anagrafica</span>
+                        <h2 id="detail-name" style="margin:0; font-size: 1.5rem;">...</h2>
+                    </div>
+                    <div style="display: flex; gap: 10px;">
+                        <button class="btn btn--primary" style="padding: 0.5rem 1.5rem; font-size: 0.9rem; background: #3b82f6; border: none; border-radius: 6px;"
+                            data-i18n="btn_edit">Modifica</button>
+                        <button class="btn" style="padding: 0.5rem 1.5rem; font-size: 0.9rem; background: #ffcccc; color: #cc0000; border: none; border-radius: 6px; font-weight: bold;">Elimina</button>
+                    </div>
+                </div>
+
+                <div class="detail-body" style="background: var(--color-bg);">
+                    <div class="data-block-container" style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.02);">
+                        
+                        <!-- Section 1 -->
+                        <div style="margin-bottom: 1.5rem;">
+                            <h3 style="font-size: 1rem; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;"><i class="fa-regular fa-file-lines" style="color: var(--color-text-dim);"></i> DATI FISCALI E CONTATTI</h3>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                                <div>
+                                    <p style="font-size: 0.8rem; color: var(--color-text-dim); margin-bottom: 5px;">Ragione Sociale</p>
+                                    <p style="font-weight: 700; font-size: 0.95rem; color: var(--color-text);" id="detail-company">...</p>
+                                </div>
+                                <div>
+                                    <p style="font-size: 0.8rem; color: var(--color-text-dim); margin-bottom: 5px;">P. IVA</p>
+                                    <p style="font-size: 0.95rem; color: var(--color-text);" id="detail-vat">...</p>
+                                </div>
+                                <div>
+                                    <p style="font-size: 0.8rem; color: var(--color-text-dim); margin-bottom: 5px;">Mail</p>
+                                    <p style="font-size: 0.95rem; color: #3b82f6;" id="detail-email">...</p>
+                                </div>
+                                <div>
+                                    <p style="font-size: 0.8rem; color: var(--color-text-dim); margin-bottom: 5px;">Telefono</p>
+                                    <p style="font-size: 0.95rem; color: var(--color-text);" id="detail-phone">...</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr style="border: none; border-top: 1px solid var(--color-border); margin: 2rem -2rem;">
+
+                        <!-- Section 2 -->
+                        <div style="margin-bottom: 1.5rem;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                                <h3 style="font-size: 1rem; display: flex; align-items: center; gap: 0.5rem; margin: 0;"><i class="fa-solid fa-shop" style="color: var(--color-text-dim);"></i> LOGISTICA E SEDI</h3>
+                                <button style="background: none; border: none; color: #3b82f6; font-size: 0.85rem; cursor: pointer; font-weight: 600;"><i class="fa-solid fa-plus"></i> Aggiungi indirizzo</button>
+                            </div>
+                            <div style="margin-bottom: 1.5rem;">
+                                <p style="font-size: 0.8rem; color: var(--color-text-dim); margin-bottom: 5px;">Nome Insegna</p>
+                                <p style="font-size: 0.95rem; color: var(--color-text);" id="detail-legal-seat">...</p>
+                            </div>
+                            <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 1.5rem;">
+                                <div>
+                                    <p style="font-size: 0.8rem; color: var(--color-text-dim); margin-bottom: 5px;">Indirizzo Di Spedizione</p>
+                                    <p style="font-size: 0.95rem; color: var(--color-text);" id="detail-billing-2">...</p>
+                                </div>
+                                <div>
+                                    <p style="font-size: 0.8rem; color: var(--color-text-dim); margin-bottom: 5px;">Prov</p>
+                                    <p style="font-size: 0.95rem; color: var(--color-text);" id="detail-prov">...</p>
+                                </div>
+                                <div>
+                                    <p style="font-size: 0.8rem; color: var(--color-text-dim); margin-bottom: 5px;">Comune</p>
+                                    <p style="font-size: 0.95rem; color: var(--color-text);" id="detail-city">...</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr style="border: none; border-top: 1px solid var(--color-border); margin: 2rem -2rem;">
+
+                        <!-- Section 3 -->
+                        <div>
+                            <h3 style="font-size: 1rem; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;"><i class="fa-solid fa-dollar-sign" style="color: var(--color-text-dim);"></i> PAGAMENTI</h3>
+                            <div style="margin-bottom: 1.5rem;">
+                                <p style="font-size: 0.8rem; color: var(--color-text-dim); margin-bottom: 5px;">Sede Legale</p>
+                                <p style="font-size: 0.95rem; color: var(--color-text);" id="detail-legal-seat-2">...</p>
+                            </div>
+                            <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+                                <div>
+                                    <p style="font-size: 0.8rem; color: var(--color-text-dim); margin-bottom: 5px;">Indirizzo Di Fatturazione</p>
+                                    <p style="font-size: 0.95rem; color: var(--color-text);" id="detail-billing-3">...</p>
+                                </div>
+                                <div>
+                                    <p style="font-size: 0.8rem; color: var(--color-text-dim); margin-bottom: 5px;">Prov</p>
+                                    <p style="font-size: 0.95rem; color: var(--color-text);" id="detail-prov-2">...</p>
+                                </div>
+                                <div>
+                                    <p style="font-size: 0.8rem; color: var(--color-text-dim); margin-bottom: 5px;">Comune</p>
+                                    <p style="font-size: 0.95rem; color: var(--color-text);" id="detail-city-2">...</p>
+                                </div>
+                            </div>
+                            <div style="margin-bottom: 1.5rem;">
+                                <p style="font-size: 0.8rem; color: var(--color-text-dim); margin-bottom: 5px;">Metodo Di Pagamento</p>
+                                <p style="font-weight: 700; font-size: 0.95rem; color: var(--color-text);" id="detail-method">...</p>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <p style="font-size: 0.8rem; color: var(--color-text-dim); margin-bottom: 5px;">IBAN</p>
+                                    <div style="display: flex; gap: 10px; align-items: center;">
+                                        <p style="font-size: 0.95rem; color: var(--color-text);" id="detail-iban">...</p>
+                                        <i class="fa-regular fa-copy" style="cursor: pointer; color: var(--color-text-dim);"></i>
+                                    </div>
+                                </div>
+                                <div style="text-align: right;">
+                                    <p style="font-size: 0.8rem; color: var(--color-text-dim); margin-bottom: 5px;">% IVA</p>
+                                    <p style="font-size: 0.95rem; color: var(--color-text);" id="detail-iva">...</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JS Logic -->
+    <script src="js/b2b-deep-view.js"></script>
+</body>
+
+</html>

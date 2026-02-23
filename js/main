@@ -1,5 +1,5 @@
         const Portfolio = (() => {
-            
+
             // --- DATA SOURCE (Refactored) ---
             const projectsData = {
                 'erp-retail': {
@@ -11,7 +11,8 @@
                         "assets/erp-retail-screen-1.png", // <-- INSERISCI QUI IL NOME DEL TUO FILE (es. 'assets/dashboard-1.jpg')
                         "assets/erp-retail-screen-2.png"  // <-- INSERISCI QUI IL NOME DEL TUO FILE
                     ],
-                    contentKeys: ['erp_modal_1', 'erp_modal_2'] 
+                    contentKeys: ['erp_modal_1', 'erp_modal_2'],
+                    prototypeLink: 'B2BDeepView.Html'
                 },
                 'erp-industrial': {
                     title: "Manufacturing Management Software (Settore Industriale)",
@@ -37,6 +38,7 @@
                     btn_resume_preview: "Anteprima CV",
                     profile_bio: "Sono un UX/UI Designer con una forte attitudine alla risoluzione di problemi complessi. Con una laurea in Culture Digitali e una formazione pratica presso l'Apple Developer Academy, ho imparato a far dialogare i bisogni degli utenti con gli obiettivi di business e i vincoli di sviluppo. <br><br> Nel mio ultimo anno e mezzo di esperienza, ho guidato il design di software B2B e piattaforme SaaS, gestendo l'intero ciclo di prodotto: dalla ricerca sul campo per mappare flussi complessi (come i vincoli legali in ambito industriale), fino alla creazione di interfacce scalabili e Design System. <br><br> Lavorare su architetture complesse mi ha insegnato il pragmatismo: che si tratti di un gestionale aziendale o di un'applicazione mobile, il mio obiettivo è progettare strumenti logici, usabili e pronti per lo sviluppo.",
                     btn_get_cv: "Visualizza CV",
+                    btn_view_prototype: "Visualizza prototipo",
                     timeline_exp_title: "Esperienza",
                     role_1_strong_1: "Traduzione di requisiti complessi",
                     role_1_desc_1: "Lavoro sulla comprensione di contesti complessi e processi articolati, traducendo esigenze operative e di business in interfacce chiare, funzionali e facilmente utilizzabili.",
@@ -88,6 +90,7 @@
                     btn_resume_preview: "Resume preview",
                     profile_bio: "I am a UX/UI Designer with a strong aptitude for solving complex problems. With a degree in Digital Cultures and practical training at the Apple Developer Academy, I learned how to bridge user needs with business goals and development constraints. <br><br> In my last year and a half of experience, I led the design of B2B software and SaaS platforms, managing the entire product cycle: from field research to map complex flows (such as legal constraints in the industrial sector), to creating scalable interfaces and Design Systems. <br><br> Working on complex architectures taught me pragmatism: whether it's business management software or a mobile application, my goal is to design logical, usable tools ready for development.",
                     btn_get_cv: "Get CV",
+                    btn_view_prototype: "View prototype",
                     timeline_exp_title: "Experience",
                     role_1_strong_1: "Translating complex requirements",
                     role_1_desc_1: "I transform technical data and business requirements into clear and accessible user interfaces.",
@@ -139,6 +142,7 @@
                     btn_resume_preview: "Vista previa CV",
                     profile_bio: "Soy un Diseñador UX/UI con una fuerte aptitud para resolver problemas complejos. Con un título en Culturas Digitales y formación práctica en la Apple Developer Academy, aprendí a conectar las necesidades de los usuarios con los objetivos comerciales y las limitaciones de desarrollo. <br><br> En mi último año y medio de experiencia, lideré el diseño de software B2B y plataformas SaaS, gestionando todo el ciclo del producto: desde la investigación de campo para mapear flujos complejos (como restricciones legales en el sector industrial), hasta la creación de interfaces escalables y Sistemas de Diseño. <br><br> Trabajar en arquitecturas complejas me enseñó pragmatismo: ya sea un software de gestión empresarial o una aplicación móvil, mi objetivo es diseñar herramientas lógicas, utilizables y listas para el desarrollo.",
                     btn_get_cv: "Obtener CV",
+                    btn_view_prototype: "Ver prototipo",
                     timeline_exp_title: "Experiencia",
                     role_1_strong_1: "Traducción de requisitos complejos",
                     role_1_desc_1: "Transformo datos técnicos y requisitos comerciales en interfaces de usuario claras y accesibles.",
@@ -221,7 +225,7 @@
             };
 
                   let ui = {};
-            let currentLang = 'it'; 
+            let currentLang = 'it';
 
             const initUI = () => {
                 ui = {
@@ -244,7 +248,7 @@
 
             const setTheme = (theme) => {
                 document.documentElement.setAttribute('data-theme', theme);
-                if (!ui.sunIcon || !ui.moonIcon) return; 
+                if (!ui.sunIcon || !ui.moonIcon) return;
                 if (theme === 'dark') { ui.sunIcon.style.display = 'block'; ui.moonIcon.style.display = 'none'; }
                 else { ui.sunIcon.style.display = 'none'; ui.moonIcon.style.display = 'block'; }
             };
@@ -252,7 +256,7 @@
             const initTheme = () => {
                 const savedTheme = localStorage.getItem('theme');
                 const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-                
+
                 const getPreferredTheme = () => {
                     if (savedTheme) { return savedTheme; }
                     const sysTheme = mediaQuery.matches ? 'dark' : 'light';
@@ -326,19 +330,19 @@
                     // ui.bioText.textContent = translations[lang]['profile_bio']; // Removed to avoid overwriting innerHTML set by data-i18n loop
                     if (ui.aiBtns) {
                         ui.aiBtns.forEach(btn => btn.classList.remove('active'));
-                        if(ui.aiBtns[0]) ui.aiBtns[0].classList.add('active'); 
+                        if(ui.aiBtns[0]) ui.aiBtns[0].classList.add('active');
                     }
                 }
 
                 // Update Project Insights (Bento Grid)
                 const currentInsights = projectInsights[lang];
                 document.querySelectorAll('.bento-item').forEach(item => {
-                    const projectKey = item.getAttribute('data-project'); 
+                    const projectKey = item.getAttribute('data-project');
                     const insight = currentInsights[projectKey];
-                    // logic to update insight if needed... 
-                    // Actually the loop below handles the expansion logic. 
+                    // logic to update insight if needed...
+                    // Actually the loop below handles the expansion logic.
                 });
-                
+
                 // Re-render open insights if any
                 const openInsights = document.querySelectorAll('.bento__ai-result');
                 openInsights.forEach(el => el.remove());
@@ -348,7 +352,7 @@
 
             const remixBio = async (style) => {
                 if (!ui.aiBtns) return;
-                
+
                 ui.aiBtns.forEach(btn => btn.classList.remove('active'));
                 const clickedBtn = Array.from(ui.aiBtns).find(btn => btn.innerText.toLowerCase().includes(style.toLowerCase()) || btn.getAttribute('onclick')?.includes(style));
                 if(clickedBtn) clickedBtn.classList.add('active');
@@ -356,7 +360,7 @@
 
                 ui.bioText.classList.add('loading');
                 await new Promise(r => setTimeout(r, 600));
-                
+
                 let newBio;
                 if (style === 'original') {
                     newBio = translations[currentLang]['profile_bio'];
@@ -366,9 +370,9 @@
 
                 ui.bioText.classList.remove('loading');
                 ui.bioText.style.opacity = 0;
-                setTimeout(() => { 
-                    ui.bioText.innerHTML = newBio; 
-                    ui.bioText.style.opacity = 1; 
+                setTimeout(() => {
+                    ui.bioText.innerHTML = newBio;
+                    ui.bioText.style.opacity = 1;
                 }, 300);
             };
 
@@ -379,13 +383,13 @@
                 if (existingResult) {
                     existingResult.remove();
                     btn.textContent = translations[currentLang]['btn_resume'];
-                    return; 
+                    return;
                 }
 
                 const contentDiv = cardElement.querySelector('.bento__content');
                 btn.textContent = "Loading...";
                 await new Promise(r => setTimeout(r, 800));
-                
+
                 let insight = "Insight not available.";
                 for (const key in projectInsights[currentLang]) {
                     if (title.includes(key)) {
@@ -403,9 +407,9 @@
 
             const handleBackgroundState = (sectionId) => {
                 const states = {
-                    'landing':  { y: '0%', opacity: 0.15, scale: 1 }, 
-                    'about':    { y: '-30%',  opacity: 0.20, scale: 1.2 }, 
-                    'projects': { y: '20%',  opacity: 0.15, scale: 1.1 }  
+                    'landing':  { y: '0%', opacity: 0.15, scale: 1 },
+                    'about':    { y: '-30%',  opacity: 0.20, scale: 1.2 },
+                    'projects': { y: '20%',  opacity: 0.15, scale: 1.1 }
                 };
                 const state = states[sectionId] || states.landing;
                 if (ui.sphereWrapper) {
@@ -435,10 +439,10 @@
                                 entry.target.classList.remove('is-in-view');
                             }
                         });
-                    }, { 
+                    }, {
                         // Area di attivazione più permissiva: centro del 50% dello schermo
-                        rootMargin: "-25% 0px -25% 0px", 
-                        threshold: 0.15 
+                        rootMargin: "-25% 0px -25% 0px",
+                        threshold: 0.15
                     });
 
                     bentoCards.forEach(card => bentoObserver.observe(card));
@@ -476,6 +480,13 @@
                     }
                 });
 
+                if (data.prototypeLink) {
+                    const btnLabel = translations[currentLang]['btn_view_prototype'] || "View Prototype";
+                    html += `<div style="margin-top: 3rem; text-align: center;">
+                                 <button class="btn-cv-full" onclick="window.location.href='${data.prototypeLink}'">${btnLabel}</button>
+                             </div>`;
+                }
+
                 injectionPoint.innerHTML = html;
                 toggleModal('project-modal', true);
             };
@@ -483,11 +494,11 @@
             const toggleModal = (modalId, isOpen = true) => {
                 const modal = document.getElementById(modalId);
                 if (!modal) return;
-                
+
                 if (isOpen) {
                     modal.classList.add('active');
-                    document.body.style.overflow = 'hidden'; 
-                    
+                    document.body.style.overflow = 'hidden';
+
                     if (modalId === 'cv-modal') {
                         const iframe = modal.querySelector('iframe');
                         if (iframe && !iframe.getAttribute('src')) {
@@ -497,7 +508,7 @@
                 } else {
                     modal.classList.remove('active');
                     document.body.style.overflow = '';
-                    
+
                     if (modalId === 'cv-modal') {
                         const iframe = modal.querySelector('iframe');
                         if (iframe) { iframe.setAttribute('src', ''); }
@@ -516,7 +527,7 @@
                         initScrollObserver();
                         initBentoMobileObserver(); /* FIX: Inizializza l'observer del Bento */
                         initNavActions();
-                        setLanguage('it'); 
+                        setLanguage('it');
                     } catch (error) {
                         console.error("Initialization error:", error);
                     } finally {

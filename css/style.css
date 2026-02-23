@@ -1070,6 +1070,7 @@
            transform: translateY(-2px);
            box-shadow: 0 6px 20px rgba(89, 0, 255, 0.3);
            color: #ffffff !important;
+           background: var(--gradient-primary);
        }
 
        .ai-btn--magic::before {
