@@ -61,6 +61,8 @@
 
 <h3>Overview</h3>
 <p>Ho guidato l'evoluzione di un semplice tool di monitoraggio quantitativo, trasformandolo in una piattaforma SaaS completa per la gestione degli ordini B2B. Lavorando a stretto contatto con il cliente, ho razionalizzato le sue richieste, mappato i bisogni di nuove tipologie di utenti e progettato da zero flussi logici per gestire scenari di vendita complessi.</p>
+{{PROTOTYPE_BTN_DESKTOP}}
+<div style="margin-bottom: 2rem; width: 100%;"></div>
 
 <h3>Il mio contributo</h3>
 
@@ -209,6 +211,8 @@
                     erp_modal_1: `
 <h3>Overview</h3>
 <p>I led the evolution of a simple quantitative monitoring tool into a full SaaS platform for B2B order management. Working closely with the client, I rationalized their requests, mapped the needs of new user types, and designed logical flows from scratch to handle complex sales scenarios.</p>
+{{PROTOTYPE_BTN_DESKTOP}}
+<div style="margin-bottom: 2rem; width: 100%;"></div>
 
 <h3>My contribution</h3>
 
@@ -340,6 +344,8 @@
                     erp_modal_1: `
 <h3>Resumen</h3>
 <p>Lideré la evolución de una simple herramienta de monitoreo cuantitativo en una plataforma SaaS completa para la gestión de pedidos B2B. Trabajando estrechamente con el cliente, racionalicé sus solicitudes, mapeé las necesidades de nuevos tipos de usuarios y diseñé flujos lógicos desde cero para gestionar escenarios de venta complejos.</p>
+{{PROTOTYPE_BTN_DESKTOP}}
+<div style="margin-bottom: 2rem; width: 100%;"></div>
 
 <h3>Mi contribución</h3>
 
@@ -862,7 +868,13 @@
                 `;
 
                 data.contentKeys.forEach((key, index) => {
-                    const text = translations[currentLang][key] || "Translation missing";
+                    let text = translations[currentLang][key] || "Translation missing";
+                    
+                    if (data.prototypeLink && text.includes('{{PROTOTYPE_BTN_DESKTOP}}')) {
+                        const btnLabel = translations[currentLang]['btn_view_prototype'] || "View Prototype";
+                        const desktopBtnStr = `<div class="sticky-desktop-wrapper"><button class="btn-cv-full sticky-desktop-btn" onclick="window.location.href='${data.prototypeLink}'">${btnLabel}</button></div>`;
+                        text = text.replace('{{PROTOTYPE_BTN_DESKTOP}}', desktopBtnStr);
+                    }
                     html += `<div class="project-modal-text">${text}</div>`;
 
                     if (data.useCanvas) {
@@ -874,7 +886,7 @@
 
                 if (data.prototypeLink) {
                     const btnLabel = translations[currentLang]['btn_view_prototype'] || "View Prototype";
-                    html += `<div style="margin-top: 3rem; text-align: center;">
+                    html += `<div style="margin-top: 3rem; text-align: center;" class="mobile-only-btn">
                                  <button class="btn-cv-full" onclick="window.location.href='${data.prototypeLink}'">${btnLabel}</button>
                              </div>`;
                 }

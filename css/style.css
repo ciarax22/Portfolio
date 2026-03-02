@@ -1256,6 +1256,50 @@
            margin-bottom: 0.8rem;
        }
 
+       /* --- STICKY PROTOTYPE BUTTON --- */
+       @media (min-width: 1025px) {
+           .sticky-desktop-wrapper {
+               position: sticky;
+               top: 2rem;
+               z-index: 100;
+               display: flex;
+               width: max-content;
+               margin: 1.5rem auto 1rem auto;
+               align-items: center;
+               padding: 4px;
+               background: rgba(255, 255, 255, 0.4);
+               backdrop-filter: blur(8px);
+               -webkit-backdrop-filter: blur(8px);
+               border: 1px solid rgba(255, 255, 255, 0.5);
+               border-radius: 40px;
+               box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+           }
+           [data-theme="dark"] .sticky-desktop-wrapper {
+               background: rgba(20, 20, 20, 0.4);
+               border: 1px solid rgba(255, 255, 255, 0.1);
+           }
+           .sticky-desktop-btn {
+               display: inline-flex;
+               align-items: center;
+               justify-content: center;
+               height: 32px; /* Moltiplicatore di 8 */
+               padding: 0 16px; /* Moltiplicatore di 8 */
+               font-size: 0.85rem;
+               font-weight: 600;
+               border-radius: 20px;
+               margin: 0;
+               box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+           }
+           .mobile-only-btn {
+               display: none !important;
+           }
+       }
+       @media (max-width: 1024px) {
+           .sticky-desktop-wrapper, .sticky-desktop-btn {
+               display: none !important;
+           }
+       }
+
        /* --- FOOTER --- */
        .site-footer {
            padding: 5rem var(--container-padding);
