@@ -84,6 +84,28 @@
            animation: enter-up 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
        }
 
+       /* --- EXPLODING HERO ANIMATION --- */
+       .headline.explodable-text {
+           perspective: 1000px;
+       }
+
+       .headline.explodable-text .word {
+           display: inline-block;
+           white-space: nowrap; 
+       }
+
+       .headline.explodable-text .char {
+           display: inline-block;
+           transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.8s ease-out;
+           transform-origin: center center;
+           will-change: transform, opacity;
+       }
+
+       .headline.explodable-text.exploded .char {
+           transform: translate3d(var(--x), var(--y), var(--z)) rotateX(var(--rx)) rotateY(var(--ry)) rotateZ(var(--rz)) scale(0.2);
+           opacity: 0; 
+       }
+
        /* --- BACKGROUND SPHERE ANIMATION --- */
        .bg-canvas {
            position: fixed;

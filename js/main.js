@@ -471,7 +471,8 @@
                     langDropdown: document.getElementById('lang-dropdown'),
                     currentLangLabel: document.getElementById('current-lang-label'),
                     hamburger: document.querySelector('.hamburger'),
-                    mobileMenu: document.getElementById('mobile-menu')
+                    mobileMenu: document.getElementById('mobile-menu'),
+                    headline: document.querySelector('.headline')
                 };
             };
 
@@ -577,6 +578,70 @@
                 openInsights.forEach(el => el.remove());
                 const expandBtns = document.querySelectorAll('.expand-btn');
                 expandBtns.forEach(btn => btn.textContent = translations[lang]['btn_resume']);
+
+                if (ui.headline) {
+                    initExplodingTitle();
+                }
+            };
+
+            const handleTitleExplosion = () => {
+                if (ui.headline) {
+                    if (window.scrollY > 15) {
+                        ui.headline.classList.add('exploded');
+                    } else {
+                        ui.headline.classList.remove('exploded');
+                    }
+                }
+            };
+
+            const initExplodingTitle = () => {
+                const title = ui.headline;
+                if (!title) return;
+
+                const text = translations[currentLang]['hero_headline'] || title.textContent;
+                
+                title.textContent = '';
+                title.classList.add('explodable-text');
+                title.classList.remove('exploded');
+
+                text.split(' ').forEach((word, wIdx) => {
+                    if (wIdx > 0) {
+                        const spaceText = document.createTextNode(' ');
+                        title.appendChild(spaceText);
+                    }
+
+                    const wordSpan = document.createElement('span');
+                    wordSpan.className = 'word';
+
+                    word.split('').forEach((char) => {
+                        const span = document.createElement('span');
+                        span.className = 'char';
+                        span.textContent = char;
+                        
+                        // Direzioni ed esplosione casuali
+                        const randomX = (Math.random() - 0.5) * 800; // -400px to 400px
+                        const randomY = (Math.random() - 0.5) * 800 - 150; // prevalenza verso l'alto
+                        const randomZ = Math.random() * 600 - 300; 
+                        const randomRotateX = (Math.random() - 0.5) * 720; 
+                        const randomRotateY = (Math.random() - 0.5) * 720; 
+                        const randomRotateZ = (Math.random() - 0.5) * 720; 
+                        
+                        span.style.setProperty('--x', randomX + 'px');
+                        span.style.setProperty('--y', randomY + 'px');
+                        span.style.setProperty('--z', randomZ + 'px');
+                        span.style.setProperty('--rx', randomRotateX + 'deg');
+                        span.style.setProperty('--ry', randomRotateY + 'deg');
+                        span.style.setProperty('--rz', randomRotateZ + 'deg');
+
+                        wordSpan.appendChild(span);
+                    });
+                    
+                    title.appendChild(wordSpan);
+                });
+
+                window.removeEventListener('scroll', handleTitleExplosion);
+                window.addEventListener('scroll', handleTitleExplosion, { passive: true });
+                handleTitleExplosion();
             };
 
             const remixBio = async (style) => {
