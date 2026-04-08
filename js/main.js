@@ -28,7 +28,7 @@
                     nav_home: "Home",
                     nav_about: "About",
                     nav_projects: "Projects",
-                    hero_headline: "Creando spazi digitali.",
+                    hero_headline: "Progetto interfacce che funzionano.",
                     btn_talk: "Parliamo",
                     btn_resume_preview: "Anteprima CV",
                     profile_bio: "Sono un UX/UI Designer con una forte attitudine alla risoluzione di problemi complessi. Con una laurea in Culture Digitali e una formazione pratica presso l'Apple Developer Academy, ho imparato a far dialogare i bisogni degli utenti con gli obiettivi di business e i vincoli di sviluppo. <br><br> Nel mio ultimo anno e mezzo di esperienza, ho guidato il design di software B2B e piattaforme SaaS, gestendo l'intero ciclo di prodotto: dalla ricerca sul campo per mappare flussi complessi (come i vincoli legali in ambito industriale), fino alla creazione di interfacce scalabili e Design System. <br><br> Lavorare su architetture complesse mi ha insegnato il pragmatismo: che si tratti di un gestionale aziendale o di un'applicazione mobile, il mio obiettivo è progettare strumenti logici, usabili e pronti per lo sviluppo.",
@@ -54,9 +54,9 @@
                     section_work: "Work.",
                     btn_resume: "Resume",
                     proj_erp_desc: "Product Design, Design System, Ricerca",
-                    proj_redesign_desc: "Analisi critica.",
-                    proj_musee_desc: "Accessibilità.",
-                    proj_kumbu_desc: "iPad app, accessibilità, UX research",
+                    proj_redesign_desc: "Come riprogetterei il flusso di prenotazione di una compagnia aerea.",
+                    proj_musee_desc: "Rendere accessibili le esperienze web immersive.",
+                    proj_kumbu_desc: "UX research per un'app di apprendimento per adulti.",
                     erp_modal_1: `
 
 <h3>Overview</h3>
@@ -179,7 +179,7 @@
                     nav_home: "Home",
                     nav_about: "About",
                     nav_projects: "Projects",
-                    hero_headline: "Crafting digital spaces.",
+                    hero_headline: "Designing interfaces that work.",
                     btn_talk: "Let's Talk",
                     btn_resume_preview: "Resume preview",
                     profile_bio: "I am a UX/UI Designer with a strong aptitude for solving complex problems. With a degree in Digital Cultures and practical training at the Apple Developer Academy, I learned how to bridge user needs with business goals and development constraints. <br><br> In my last year and a half of experience, I led the design of B2B software and SaaS platforms, managing the entire product cycle: from field research to map complex flows (such as legal constraints in the industrial sector), to creating scalable interfaces and Design Systems. <br><br> Working on complex architectures taught me pragmatism: whether it's business management software or a mobile application, my goal is to design logical, usable tools ready for development.",
@@ -205,9 +205,9 @@
                     section_work: "Work.",
                     btn_resume: "Resume",
                     proj_erp_desc: "Design, design-system, research",
-                    proj_redesign_desc: "Critical analysis.",
-                    proj_musee_desc: "Accessibility.",
-                    proj_kumbu_desc: "iPad app UX research",
+                    proj_redesign_desc: "How I'd redesign a major airline's booking flow.",
+                    proj_musee_desc: "Making immersive web experiences accessible.",
+                    proj_kumbu_desc: "UX research for a learning app targeting older adults.",
                     erp_modal_1: `
 <h3>Overview</h3>
 <p>I led the evolution of a simple quantitative monitoring tool into a full SaaS platform for B2B order management. Working closely with the client, I rationalized their requests, mapped the needs of new user types, and designed logical flows from scratch to handle complex sales scenarios.</p>
@@ -310,7 +310,7 @@
                     nav_home: "Inicio",
                     nav_about: "Sobre mí",
                     nav_projects: "Proyectos",
-                    hero_headline: "Creando espacios digitales.",
+                    hero_headline: "Diseño interfaces que funcionan.",
                     btn_talk: "Hablemos",
                     btn_resume_preview: "Vista previa CV",
                     profile_bio: "Soy un Diseñador UX/UI con una fuerte aptitud para resolver problemas complejos. Con un título en Culturas Digitales y formación práctica en la Apple Developer Academy, aprendí a conectar las necesidades de los usuarios con los objetivos comerciales y las limitaciones de desarrollo. <br><br> En mi último año y medio de experiencia, lideré el diseño de software B2B y plataformas SaaS, gestionando todo el ciclo del producto: desde la investigación de campo para mapear flujos complejos (como restricciones legales en el sector industrial), hasta la creación de interfaces escalables y Sistemas de Diseño. <br><br> Trabajar en arquitecturas complejas me enseñó pragmatismo: ya sea un software de gestión empresarial o una aplicación móvil, mi objetivo es diseñar herramientas lógicas, utilizables y listas para el desarrollo.",
@@ -338,9 +338,9 @@
                     section_work: "Trabajos.",
                     btn_resume: "Resumen",
                     proj_erp_desc: "Diseño, sistema de diseño",
-                    proj_redesign_desc: "Análisis crítico.",
-                    proj_musee_desc: "Accesibilidad.",
-                    proj_kumbu_desc: "Investigación UX app iPad",
+                    proj_redesign_desc: "Cómo rediseñaría el flujo de reservas de una aerolínea.",
+                    proj_musee_desc: "Hacer accesibles las experiencias web inmersivas.",
+                    proj_kumbu_desc: "Investigación UX para una app de aprendizaje para adultos.",
                     erp_modal_1: `
 <h3>Resumen</h3>
 <p>Lideré la evolución de una simple herramienta de monitoreo cuantitativo en una plataforma SaaS completa para la gestión de pedidos B2B. Trabajando estrechamente con el cliente, racionalicé sus solicitudes, mapeé las necesidades de nuevos tipos de usuarios y diseñé flujos lógicos desde cero para gestionar escenarios de venta complejos.</p>
@@ -420,16 +420,16 @@
 
             const bioVariations = {
                 it: {
-                    'original': "Sono un UX/UI Designer con una forte attitudine alla risoluzione di problemi complessi. Con una laurea in Culture Digitali e una formazione pratica presso l'Apple Developer Academy, ho imparato a far dialogare i bisogni degli utenti con gli obiettivi di business e i vincoli di sviluppo. <br><br> Nel mio ultimo anno e mezzo di esperienza, ho guidato il design di software B2B e piattaforme SaaS, gestendo l'intero ciclo di prodotto: dalla ricerca sul campo per mappare flussi complessi (come i vincoli legali in ambito industriale), fino alla creazione di interfacce scalabili e Design System. <br><br> Lavorare su architetture complesse mi ha insegnato il pragmatismo: che si tratti di un gestionale aziendale o di un'applicazione mobile, il mio obiettivo è progettare strumenti logici, usabili e pronti per lo sviluppo.",
-                    'tldr': "UX/UI Designer B2B & SaaS. Focus: Ricerca, Architetture complesse e Design System. Pragmatismo al servizio dello sviluppo."
+                    'original': "Sono un UX/UI Designer che trasforma problemi complessi in interfacce chiare. Con una laurea in Culture Digitali, una formazione pratica all'Apple Developer Academy e un'esperienza diretta nel design di software B2B e piattaforme SaaS, lavoro sull'intero ciclo di prodotto: dalla ricerca sul campo ai Design System scalabili. <br><br> Nel mio ultimo anno e mezzo di esperienza, ho guidato il design di software B2B e piattaforme SaaS, gestendo l'intero ciclo di prodotto: dalla ricerca sul campo per mappare flussi complessi (come i vincoli legali in ambito industriale), fino alla creazione di interfacce scalabili e Design System. <br><br> Lavorare su architetture complesse mi ha insegnato il pragmatismo: che si tratti di un gestionale aziendale o di un'applicazione mobile, il mio obiettivo è progettare strumenti logici, usabili e pronti per lo sviluppo.",
+                    'tldr': "UX/UI Designer. Ricerca, sistemi complessi e design che va in produzione."
                 },
                 en: {
-                    'original': "I am a UX/UI Designer with a strong aptitude for solving complex problems. With a degree in Digital Cultures and practical training at the Apple Developer Academy, I learned how to bridge user needs with business goals and development constraints. <br><br> In my last year and a half of experience, I led the design of B2B software and SaaS platforms, managing the entire product cycle: from field research to map complex flows (such as legal constraints in the industrial sector), to creating scalable interfaces and Design Systems. <br><br> Working on complex architectures taught me pragmatism: whether it's business management software or a mobile application, my goal is to design logical, usable tools ready for development.",
-                    'tldr': "B2B & SaaS UX/UI Designer. Focus: Research, Complex Architectures, and Design Systems. Pragmatism driven by development."
+                    'original': "I'm a UX/UI Designer who turns messy problems into clear interfaces. With a degree in Digital Cultures, training at the Apple Developer Academy, and hands-on experience designing B2B software and SaaS platforms, I work across the full product cycle — from field research to scalable design systems. <br><br> In my last year and a half of experience, I led the design of B2B software and SaaS platforms, managing the entire product cycle: from field research to map complex flows (such as legal constraints in the industrial sector), to creating scalable interfaces and Design Systems. <br><br> Working on complex architectures taught me pragmatism: whether it's business management software or a mobile application, my goal is to design logical, usable tools ready for development.",
+                    'tldr': "UX/UI Designer. Research, complex systems, and design that ships."
                 },
                 es: {
-                    'original': "Soy un Diseñador UX/UI con una fuerte aptitud para resolver problemas complejos. Con un título en Culturas Digitales y formación práctica en la Apple Developer Academy, aprendí a conectar las necesidades de los usuarios con los objetivos comerciales y las limitaciones de desarrollo. <br><br> En mi último año y medio de experiencia, lideré el diseño de software B2B y plataformas SaaS, gestionando todo el ciclo del producto: desde la investigación de campo para mapear flujos complejos (como restricciones legales en el sector industrial), hasta la creación de interfaces escalables y Sistemas de Diseño. <br><br> Trabajar en arquitecturas complejas me enseñó pragmatismo: ya sea un software de gestión empresarial o una aplicación móvil, mi objetivo es diseñar herramientas lógicas, utilizables y listas para el desarrollo.",
-                    'tldr': "Diseñador UX/UI B2B y SaaS. Enfoque: Investigación, Arquitecturas complejas y Sistemas de Diseño. Pragmatismo orientado al desarrollo."
+                    'original': "Soy un Diseñador UX/UI que convierte problemas complejos en interfaces claras. Con una licenciatura en Culturas Digitales, formación práctica en Apple Developer Academy y experiencia real en software B2B y plataformas SaaS, trabajo en todo el ciclo de producto: desde la investigación de campo hasta los sistemas de diseño escalables. <br><br> En mi último año y medio de experiencia, lideré el diseño de software B2B y plataformas SaaS, gestionando todo el ciclo del producto: desde la investigación de campo para mapear flujos complejos (como restricciones legales en el sector industrial), hasta la creación de interfaces escalables y Sistemas de Diseño. <br><br> Trabajar en arquitecturas complejas me enseñó pragmatismo: ya sea un software de gestión empresarial o una aplicación móvil, mi objetivo es diseñar herramientas lógicas, utilizables y listas para el desarrollo.",
+                    'tldr': "Diseñador UX/UI. Investigación, sistemas complejos y diseño que se publica."
                 }
             };
             const projectInsights = {
