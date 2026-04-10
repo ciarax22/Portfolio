@@ -477,12 +477,23 @@
             };
 
             const setTheme = (theme) => {
+                // Safari fix: GPU-composited layers (will-change) don't re-read CSS variables
+                // when data-theme changes. Temporarily evict them from the GPU before the swap,
+                // force a layout flush, then restore — this makes Safari repaint them correctly.
+                const gpuEls = document.querySelectorAll('.headline, .headline-fixed, .headline-ticker, .hero-actions, .navbar');
+                gpuEls.forEach(el => { el.style.willChange = 'auto'; });
+                void document.body.offsetHeight; // eviction flush
+
                 document.documentElement.setAttribute('data-theme', theme);
+                void document.body.offsetHeight; // CSS variable cascade flush
+
                 if (!ui.sunIcon || !ui.moonIcon) return;
                 if (theme === 'dark') { ui.sunIcon.style.display = 'block'; ui.moonIcon.style.display = 'none'; }
                 else { ui.sunIcon.style.display = 'none'; ui.moonIcon.style.display = 'block'; }
-                // Force Safari to repaint (fix for CSS variable update bug on theme switch)
-                void document.documentElement.offsetHeight;
+
+                requestAnimationFrame(() => {
+                    gpuEls.forEach(el => { el.style.willChange = ''; });
+                });
             };
 
             const initTheme = () => {
@@ -1099,6 +1110,13 @@
                         initAntiScreenshot();
                         setLanguage('it');
                         initA11yWidget();
+                        // Release will-change after entry animations complete (~1.5s)
+                        // Keeps Safari from permanently caching these as GPU layers
+                        setTimeout(() => {
+                            document.querySelectorAll('.navbar, .headline, .hero-actions').forEach(el => {
+                                el.style.willChange = 'auto';
+                            });
+                        }, 1600);
                     } catch (error) {
                         console.error("Initialization error:", error);
                     } finally {
