@@ -481,6 +481,8 @@
                 if (!ui.sunIcon || !ui.moonIcon) return;
                 if (theme === 'dark') { ui.sunIcon.style.display = 'block'; ui.moonIcon.style.display = 'none'; }
                 else { ui.sunIcon.style.display = 'none'; ui.moonIcon.style.display = 'block'; }
+                // Force Safari to repaint (fix for CSS variable update bug on theme switch)
+                void document.documentElement.offsetHeight;
             };
 
             const initTheme = () => {
