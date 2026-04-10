@@ -579,69 +579,83 @@
                 const expandBtns = document.querySelectorAll('.expand-btn');
                 expandBtns.forEach(btn => btn.textContent = translations[lang]['btn_resume']);
 
-                if (ui.headline) {
-                    initExplodingTitle();
-                }
+                initTicker();
             };
 
-            const handleTitleExplosion = () => {
-                if (ui.headline) {
-                    if (window.scrollY > 15) {
-                        ui.headline.classList.add('exploded');
-                    } else {
-                        ui.headline.classList.remove('exploded');
-                    }
-                }
+            const heroFixedText = {
+                it: "Ciao, sono Francesco e",
+                en: "Hi, I'm Francesco and I",
+                es: "Hola, soy Francesco y"
             };
 
-            const initExplodingTitle = () => {
-                const title = ui.headline;
-                if (!title) return;
+            const tickerPhrases = {
+                it: ["progetto Interfacce", "progetto Esperienze", "progetto Prodotti digitali", "faccio ricerche sui miei utenti"],
+                en: ["design Interfaces", "design Experiences", "design Digital Products", "research my users"],
+                es: ["diseño Interfaces", "diseño Experiencias", "diseño Productos digitales", "investigo a mis usuarios"]
+            };
 
-                const text = translations[currentLang]['hero_headline'] || title.textContent;
-                
-                title.textContent = '';
-                title.classList.add('explodable-text');
-                title.classList.remove('exploded');
+            let tickerTimer = null;
+            let tickerIdx = 0;
+            let reducedMotion = false;
 
-                text.split(' ').forEach((word, wIdx) => {
-                    if (wIdx > 0) {
-                        const spaceText = document.createTextNode(' ');
-                        title.appendChild(spaceText);
+            const initTicker = () => {
+                const ticker = document.querySelector('.headline-ticker');
+                const fixed = document.querySelector('.headline-fixed');
+                if (!ticker) return;
+
+                if (fixed) fixed.textContent = heroFixedText[currentLang] || heroFixedText.it;
+
+                const phrases = tickerPhrases[currentLang] || tickerPhrases.it;
+                reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+                    || document.documentElement.dataset.reduceMotion === 'true';
+
+                if (tickerTimer) { clearInterval(tickerTimer); tickerTimer = null; }
+                ticker.innerHTML = '';
+                tickerIdx = 0;
+
+                phrases.forEach((phrase, idx) => {
+                    const span = document.createElement('span');
+                    span.className = 'headline-ticker__item';
+                    span.textContent = phrase;
+                    if (idx === 0 && reducedMotion) {
+                        span.classList.add('is-active');
                     }
-
-                    const wordSpan = document.createElement('span');
-                    wordSpan.className = 'word';
-
-                    word.split('').forEach((char) => {
-                        const span = document.createElement('span');
-                        span.className = 'char';
-                        span.textContent = char;
-                        
-                        // Direzioni ed esplosione casuali
-                        const randomX = (Math.random() - 0.5) * 800; // -400px to 400px
-                        const randomY = (Math.random() - 0.5) * 800 - 150; // prevalenza verso l'alto
-                        const randomZ = Math.random() * 600 - 300; 
-                        const randomRotateX = (Math.random() - 0.5) * 720; 
-                        const randomRotateY = (Math.random() - 0.5) * 720; 
-                        const randomRotateZ = (Math.random() - 0.5) * 720; 
-                        
-                        span.style.setProperty('--x', randomX + 'px');
-                        span.style.setProperty('--y', randomY + 'px');
-                        span.style.setProperty('--z', randomZ + 'px');
-                        span.style.setProperty('--rx', randomRotateX + 'deg');
-                        span.style.setProperty('--ry', randomRotateY + 'deg');
-                        span.style.setProperty('--rz', randomRotateZ + 'deg');
-
-                        wordSpan.appendChild(span);
-                    });
-                    
-                    title.appendChild(wordSpan);
+                    ticker.appendChild(span);
                 });
 
-                window.removeEventListener('scroll', handleTitleExplosion);
-                window.addEventListener('scroll', handleTitleExplosion, { passive: true });
-                handleTitleExplosion();
+                const items = Array.from(ticker.querySelectorAll('.headline-ticker__item'));
+
+                if (reducedMotion) {
+                    ticker.style.height = 'auto';
+                    return;
+                }
+
+                // Measure phase: render as static to get real heights for this viewport
+                items.forEach(item => {
+                    item.style.cssText = 'position:static;opacity:0;transform:none;pointer-events:none;';
+                });
+                ticker.style.height = 'auto';
+
+                requestAnimationFrame(() => {
+                    let maxH = 0;
+                    items.forEach(item => { maxH = Math.max(maxH, item.offsetHeight); });
+                    ticker.style.height = maxH + 'px';
+
+                    items.forEach(item => { item.style.cssText = ''; });
+                    items[0].classList.add('is-active');
+
+                    const cycle = () => {
+                        const current = items[tickerIdx];
+                        tickerIdx = (tickerIdx + 1) % items.length;
+                        const next = items[tickerIdx];
+                        current.classList.add('is-leaving');
+                        current.classList.remove('is-active');
+                        next.classList.add('is-active');
+                        setTimeout(() => current.classList.remove('is-leaving'), 500);
+                    };
+
+                    tickerTimer = setInterval(cycle, 1500);
+                });
             };
 
             const remixBio = async (style) => {
@@ -997,6 +1011,80 @@
 
             const openLink = (url) => { window.open(url, '_blank'); };
 
+            const initA11yWidget = () => {
+                const fab    = document.getElementById('a11y-fab');
+                const panel  = document.getElementById('a11y-panel');
+                const closeBtn = document.querySelector('.a11y-panel__close');
+                const rmInput  = document.getElementById('a11y-reduce-motion');
+                const hcInput  = document.getElementById('a11y-high-contrast');
+                if (!fab || !panel) return;
+
+                const applyReduceMotion = (enabled) => {
+                    document.documentElement.dataset.reduceMotion = enabled;
+                    localStorage.setItem('a11y-reduce-motion', enabled);
+                    if (rmInput) rmInput.checked = enabled;
+                    const ticker = document.querySelector('.headline-ticker');
+                    if (!ticker) return;
+                    if (enabled) {
+                        if (tickerTimer) { clearInterval(tickerTimer); tickerTimer = null; }
+                        ticker.innerHTML = '<span class="headline-ticker__item is-active" style="position:static;transform:none;opacity:1;">progetto Interfacce</span>';
+                        ticker.style.height = 'auto';
+                    } else {
+                        initTicker();
+                    }
+                };
+
+                const applyHighContrast = (enabled) => {
+                    document.documentElement.dataset.highContrast = enabled;
+                    localStorage.setItem('a11y-high-contrast', enabled);
+                    if (hcInput) hcInput.checked = enabled;
+                };
+
+                // Restore saved preferences
+                if (localStorage.getItem('a11y-reduce-motion') === 'true') applyReduceMotion(true);
+                if (localStorage.getItem('a11y-high-contrast') === 'true')  applyHighContrast(true);
+
+                const openPanel = () => {
+                    panel.hidden = false;
+                    fab.setAttribute('aria-expanded', 'true');
+                    setTimeout(() => {
+                        const first = panel.querySelector('input, button');
+                        if (first) first.focus();
+                    }, 50);
+                };
+
+                const closePanel = () => {
+                    panel.hidden = true;
+                    fab.setAttribute('aria-expanded', 'false');
+                    fab.focus();
+                };
+
+                fab.addEventListener('click', () => panel.hidden ? openPanel() : closePanel());
+                if (closeBtn) closeBtn.addEventListener('click', closePanel);
+
+                panel.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') closePanel();
+                    // Basic focus trap
+                    if (e.key === 'Tab') {
+                        const focusable = Array.from(panel.querySelectorAll('input, button'));
+                        const first = focusable[0];
+                        const last  = focusable[focusable.length - 1];
+                        if (e.shiftKey && document.activeElement === first) {
+                            e.preventDefault(); last.focus();
+                        } else if (!e.shiftKey && document.activeElement === last) {
+                            e.preventDefault(); first.focus();
+                        }
+                    }
+                });
+
+                document.addEventListener('click', (e) => {
+                    if (!panel.hidden && !e.target.closest('#a11y-widget')) closePanel();
+                });
+
+                if (rmInput) rmInput.addEventListener('change', () => applyReduceMotion(rmInput.checked));
+                if (hcInput) hcInput.addEventListener('change', () => applyHighContrast(hcInput.checked));
+            };
+
             return {
                 init: () => {
                     try {
@@ -1008,6 +1096,7 @@
                         initNavActions();
                         initAntiScreenshot();
                         setLanguage('it');
+                        initA11yWidget();
                     } catch (error) {
                         console.error("Initialization error:", error);
                     } finally {
