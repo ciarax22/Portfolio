@@ -90,7 +90,10 @@
 
     <main>
         <section id="landing">
-            <h1 class="headline" data-i18n="hero_headline">E mo qua che ci metto?</h1>
+            <h1 class="headline">
+                <span class="headline-fixed">Ciao, sono Francesco e</span>
+                <span class="headline-ticker" role="status" aria-live="polite"></span>
+            </h1>
 
             <!-- HERO ACTIONS -->
             <div class="hero-actions">
@@ -124,9 +127,6 @@
                         <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop"
                             alt="Fashion Retail Dashboard" class="bento__img">
                     </div>
-                    <button class="expand-btn"
-                        onclick="event.stopPropagation(); Portfolio.expandConcept(this.parentElement, 'ERP', '')"
-                        data-i18n="btn_resume">Resume</button>
                     <div class="bento__content">
                         <h3 class="bento__title">B2B Order Management System (Settore Retail/Moda)</h3>
                         <p class="bento__desc" data-i18n="proj_erp_desc"></p>
@@ -140,9 +140,6 @@
                         <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop"
                             alt="Industrial Software Interface" class="bento__img">
                     </div>
-                    <button class="expand-btn"
-                        onclick="event.stopPropagation(); Portfolio.expandConcept(this.parentElement, 'ERP', '')"
-                        data-i18n="btn_resume">Resume</button>
                     <div class="bento__content">
                         <h3 class="bento__title">Manufacturing Management Software (Settore Industriale)</h3>
                         <p class="bento__desc" data-i18n="proj_erp_desc"></p>
@@ -183,9 +180,6 @@
                         <line x1="7" y1="17" x2="17" y2="7"></line>
                         <polyline points="7 7 17 7 17 17"></polyline>
                     </svg>
-                    <button class="expand-btn"
-                        onclick="event.stopPropagation(); Portfolio.expandConcept(this.parentElement, 'Redesign', '')"
-                        data-i18n="btn_resume">Resume</button>
                     <div class="bento__content">
                         <h3 class="bento__title">Redesign</h3>
                         <p class="bento__desc" data-i18n="proj_redesign_desc">Analisi critica.</p>
@@ -205,9 +199,6 @@
                         <polyline points="7 7 17 7 17 17"></polyline>
                     </svg>
 
-                    <button class="expand-btn"
-                        onclick="event.stopPropagation(); Portfolio.expandConcept(this.parentElement, 'Musée', '')"
-                        data-i18n="btn_resume">Resume</button>
                     <div class="bento__content">
                         <h3 class="bento__title">Musée</h3>
                         <p class="bento__desc" data-i18n="proj_musee_desc">Accessibilità.</p>
@@ -228,9 +219,6 @@
                         <polyline points="7 7 17 7 17 17"></polyline>
                     </svg>
 
-                    <button class="expand-btn"
-                        onclick="event.stopPropagation(); Portfolio.expandConcept(this.parentElement, 'Kumbu', '')"
-                        data-i18n="btn_resume">Resume</button>
                     <div class="bento__content">
                         <h3 class="bento__title">Kumbu</h3>
                         <p class="bento__desc" data-i18n="proj_kumbu_desc">Uno strumento d'apprendimento accessibile</p>
@@ -248,7 +236,7 @@
 
                     <div class="profile-card">
                         <div class="profile-avatar">
-                            <img src="https://media.licdn.com/dms/image/v2/D4D03AQG1ReQkLKTUyA/profile-displayphoto-scale_200_200/B4DZlXE2UdJkAc-/0/1758102515017?e=1773273600&v=beta&t=0qi0MRmLxjS76behiGVJmPHb6MafgsE-OiT0n0Vrve0"
+                            <img src="assets/profile.jpg"
                                 alt="Francesco Ciaramella">
                         </div>
                         <div class="profile-content">
@@ -430,6 +418,42 @@
     </footer>
     <script src="js/main.js"></script>
     <script defer src="/_vercel/insights/script.js"></script>
+
+    <!-- ACCESSIBILITY WIDGET -->
+    <div id="a11y-widget">
+        <div id="a11y-panel" role="dialog" aria-modal="true" aria-label="Impostazioni accessibilità" hidden>
+            <div class="a11y-panel__header">
+                <span class="a11y-panel__title">Accessibilità</span>
+                <button class="a11y-panel__close" aria-label="Chiudi pannello">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+            </div>
+            <div class="a11y-panel__body">
+                <label class="a11y-row">
+                    <span class="a11y-row__label">Riduci animazioni</span>
+                    <span class="a11y-switch">
+                        <input type="checkbox" id="a11y-reduce-motion" role="switch" aria-label="Riduci animazioni">
+                        <span class="a11y-switch__track" aria-hidden="true"></span>
+                    </span>
+                </label>
+                <label class="a11y-row">
+                    <span class="a11y-row__label">Aumenta contrasto</span>
+                    <span class="a11y-switch">
+                        <input type="checkbox" id="a11y-high-contrast" role="switch" aria-label="Aumenta contrasto">
+                        <span class="a11y-switch__track" aria-hidden="true"></span>
+                    </span>
+                </label>
+            </div>
+        </div>
+        <button id="a11y-fab" aria-label="Impostazioni accessibilità" aria-expanded="false" aria-controls="a11y-panel">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <circle cx="12" cy="3.5" r="1.5"/>
+                <path d="M9 8h6l-1 5h-1l-1 5H11l-1-5H9l-1-5z" opacity=".3"/>
+                <path d="M12 6c-1.1 0-2 .9-2 2v4l-2 6h2l1.5-4.5h1L14 18h2l-2-6V8c0-1.1-.9-2-2-2z"/>
+                <path d="M8.5 9.5C7 10.3 6 11.8 6 13.5c0 2.2 1.8 4 4 4 .5 0 1-.1 1.5-.3M15.5 9.5c1.5.8 2.5 2.3 2.5 4 0 2.2-1.8 4-4 4-.5 0-1-.1-1.5-.3"/>
+            </svg>
+        </button>
+    </div>
 
 </body>
 
